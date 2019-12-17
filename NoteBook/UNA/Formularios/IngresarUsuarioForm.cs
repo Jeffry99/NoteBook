@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoteBook.UNA.Formularios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,12 @@ namespace NoteBook
 {
     public partial class IngresarUsuarioForm : Form
     {
+        public MenuPrincipalForm menuForm; 
+        public Usuario usuario
+        {
+            get;
+            set;
+        }
         public IngresarUsuarioForm()
         {
             InitializeComponent();
@@ -42,6 +49,17 @@ namespace NoteBook
             if(txtBoxContraseña.TextLength < 1)
             {
                 errorProviderContraseña.SetError(txtBoxContraseña, "No se ha ingresado una contraseña");
+            }
+            if(txtBoxUsuario.Text.Equals("admin") && txtBoxContraseña.Text.Equals("1234"))
+            {
+                usuario = new Usuario();
+                usuario.nombreUsuario = txtBoxUsuario.Text;
+                usuario.contraseña = txtBoxContraseña.Text;
+                Close();
+                menuForm = new MenuPrincipalForm();
+                menuForm.Show();
+
+
             }
             
         }
