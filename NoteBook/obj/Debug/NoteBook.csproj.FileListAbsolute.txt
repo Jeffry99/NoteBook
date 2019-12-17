@@ -1,0 +1,9 @@
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\bin\Debug\NoteBook.exe.config
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\bin\Debug\NoteBook.exe
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\bin\Debug\NoteBook.pdb
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.csprojAssemblyReference.cache
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.Properties.Resources.resources
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.csproj.GenerateResource.cache
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.exe
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.pdb
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.IngresarUsuarioForm.resources
