@@ -19,8 +19,15 @@ namespace NoteBook.UNA.Formularios
 
         private void MenuPrincipalForm_Load(object sender, EventArgs e)
         {
+
             IngresarUsuarioForm signin = new IngresarUsuarioForm();
-            statusStripUsuario.Text = signin.usuario.nombreUsuario;
+            signin.ShowDialog();
+            if(signin.DialogResult == DialogResult.OK)
+            {
+                signin.Close();
+                Show();
+            }
+            statusStripUsuario.Text = "Usuario Actual: "+signin.usuario.nombreUsuario;
         }
     }
 }

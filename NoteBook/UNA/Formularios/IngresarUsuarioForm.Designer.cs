@@ -65,6 +65,7 @@
             this.txtBoxUsuario.Name = "txtBoxUsuario";
             this.txtBoxUsuario.Size = new System.Drawing.Size(242, 22);
             this.txtBoxUsuario.TabIndex = 2;
+            this.txtBoxUsuario.TextChanged += new System.EventHandler(this.txtBoxUsuario_TextChanged);
             this.txtBoxUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxUsuario_KeyPress);
             // 
             // txtBoxContraseña

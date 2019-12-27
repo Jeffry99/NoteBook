@@ -56,10 +56,6 @@ namespace NoteBook
                 usuario.nombreUsuario = txtBoxUsuario.Text;
                 usuario.contraseña = txtBoxContraseña.Text;
                 Close();
-                menuForm = new MenuPrincipalForm();
-                menuForm.Show();
-
-
             }
             
         }
@@ -75,6 +71,11 @@ namespace NoteBook
         }
 
         private void IngresarUsuarioForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBoxUsuario_TextChanged(object sender, EventArgs e)
         {
 
         }
