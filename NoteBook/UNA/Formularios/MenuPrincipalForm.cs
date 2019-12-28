@@ -26,8 +26,16 @@ namespace NoteBook.UNA.Formularios
             {
                 signin.Close();
                 Show();
+                statusStripUsuario.Text = "Usuario Actual: " + signin.usuario.nombreUsuario;
             }
-            statusStripUsuario.Text = "Usuario Actual: "+signin.usuario.nombreUsuario;
+            
+        }
+
+        private void buttonAgregarCuaderno_Click(object sender, EventArgs e)
+        {
+            Hide();
+            AgregarCuadernoForm AgregarCuaderno = new AgregarCuadernoForm();
+            AgregarCuaderno.Show();
         }
     }
 }

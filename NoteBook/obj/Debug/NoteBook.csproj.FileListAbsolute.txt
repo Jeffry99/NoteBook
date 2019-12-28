@@ -8,3 +8,4 @@ C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\Note
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.pdb
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.IngresarUsuarioForm.resources
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.MenuPrincipalForm.resources
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.AgregarCuadernoForm.resources
