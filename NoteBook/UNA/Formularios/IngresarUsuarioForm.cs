@@ -1,4 +1,5 @@
 ﻿using NoteBook.UNA.Formularios;
+using NoteBook.UNA.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,8 @@ namespace NoteBook
     public partial class IngresarUsuarioForm : Form
     {
         public MenuPrincipalForm menuForm; 
-        public Usuario usuario
-        {
-            get;
-            set;
-        }
+
+
         public IngresarUsuarioForm()
         {
             InitializeComponent();
@@ -28,7 +26,7 @@ namespace NoteBook
         {
             if ((int)e.KeyChar == (int)Keys.Enter)
             {
-                txtBoxContraseña.Focus();
+                txtBoxContrasena.Focus();
             }
         }
 
@@ -42,24 +40,31 @@ namespace NoteBook
 
         private void validarUsuario()
         {
-            if(txtBoxUsuario.TextLength < 1)
+            if (txtBoxUsuario.TextLength == 0)
             {
                 errorProviderUsuario.SetError(txtBoxUsuario, "No se ha ingresado un usuario");
             }
-            if(txtBoxContraseña.TextLength < 1)
+            if (txtBoxContrasena.TextLength == 0)
             {
-                errorProviderContraseña.SetError(txtBoxContraseña, "No se ha ingresado una contraseña");
-            }
-            if(txtBoxUsuario.Text.Equals("admin") && txtBoxContraseña.Text.Equals("1234"))
-            {
-                usuario = new Usuario();
-                usuario.nombreUsuario = txtBoxUsuario.Text;
-                usuario.contraseña = txtBoxContraseña.Text;
-                Close();
+                errorProviderContraseña.SetError(txtBoxContrasena, "No se ha ingresado una contraseña");
             }
             
+            LogIn.Validar(txtBoxUsuario.Text, txtBoxContrasena.Text);
+            if(LogIn.Validar(txtBoxUsuario.Text, txtBoxContrasena.Text) == true)
+            {
+                Close();
+            }
+            else
+            {
+                errorProviderError.SetError(btnAceptar, "Usuario o contraseña incorrectos");
+            }
+
         }
 
+        public string DevolverNomUsuario()
+        {
+            return txtBoxUsuario.Text;
+        }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             validarUsuario();
@@ -67,7 +72,7 @@ namespace NoteBook
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void IngresarUsuarioForm_Load(object sender, EventArgs e)

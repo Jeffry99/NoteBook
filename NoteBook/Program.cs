@@ -1,4 +1,5 @@
 ﻿using NoteBook.UNA.Formularios;
+using NoteBook.UNA.Miscelaneo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,11 @@ namespace NoteBook
         [STAThread]
         static void Main()
         {
+            Datos.LoadFile();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MenuPrincipalForm());
+         
         }
     }
 }

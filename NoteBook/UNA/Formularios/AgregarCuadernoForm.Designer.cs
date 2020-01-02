@@ -28,14 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelCategoria = new System.Windows.Forms.Label();
             this.labelColor = new System.Windows.Forms.Label();
             this.textBoxCategoria = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxColor = new System.Windows.Forms.ComboBox();
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.errorProviderNombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderCategoria = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderColor = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderColor)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNombre
@@ -70,7 +77,7 @@
             this.textBoxCategoria.Location = new System.Drawing.Point(188, 126);
             this.textBoxCategoria.Name = "textBoxCategoria";
             this.textBoxCategoria.Size = new System.Drawing.Size(357, 22);
-            this.textBoxCategoria.TabIndex = 3;
+            this.textBoxCategoria.TabIndex = 1;
             this.textBoxCategoria.TextChanged += new System.EventHandler(this.textBoxCategoria_TextChanged);
             // 
             // textBoxNombre
@@ -78,12 +85,13 @@
             this.textBoxNombre.Location = new System.Drawing.Point(188, 52);
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(357, 22);
-            this.textBoxNombre.TabIndex = 5;
+            this.textBoxNombre.TabIndex = 0;
             // 
-            // comboBox1
+            // comboBoxColor
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxColor.FormattingEnabled = true;
+            this.comboBoxColor.Items.AddRange(new object[] {
             "Amarillo",
             "Azul",
             "Blanco",
@@ -91,19 +99,22 @@
             "Negro",
             "Rojo",
             "Verde"});
-            this.comboBox1.Location = new System.Drawing.Point(188, 195);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(357, 24);
-            this.comboBox1.TabIndex = 6;
+            this.comboBoxColor.Location = new System.Drawing.Point(188, 195);
+            this.comboBoxColor.Name = "comboBoxColor";
+            this.comboBoxColor.Size = new System.Drawing.Size(357, 24);
+            this.comboBoxColor.TabIndex = 2;
+            this.comboBoxColor.SelectedIndexChanged += new System.EventHandler(this.comboBoxColor_SelectedIndexChanged);
+            this.comboBoxColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxColor_KeyPress);
             // 
             // buttonAgregar
             // 
             this.buttonAgregar.Location = new System.Drawing.Point(521, 266);
             this.buttonAgregar.Name = "buttonAgregar";
             this.buttonAgregar.Size = new System.Drawing.Size(104, 29);
-            this.buttonAgregar.TabIndex = 7;
+            this.buttonAgregar.TabIndex = 3;
             this.buttonAgregar.Text = "Agregar";
             this.buttonAgregar.UseVisualStyleBackColor = true;
+            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
             // 
             // buttonCancelar
             // 
@@ -113,6 +124,19 @@
             this.buttonCancelar.TabIndex = 8;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
+            // errorProviderNombre
+            // 
+            this.errorProviderNombre.ContainerControl = this;
+            // 
+            // errorProviderCategoria
+            // 
+            this.errorProviderCategoria.ContainerControl = this;
+            // 
+            // errorProviderColor
+            // 
+            this.errorProviderColor.ContainerControl = this;
             // 
             // AgregarCuadernoForm
             // 
@@ -121,7 +145,7 @@
             this.ClientSize = new System.Drawing.Size(678, 341);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAgregar);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxColor);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.textBoxCategoria);
             this.Controls.Add(this.labelColor);
@@ -129,6 +153,9 @@
             this.Controls.Add(this.labelNombre);
             this.Name = "AgregarCuadernoForm";
             this.Text = "Agregar Cuaderno";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderColor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,8 +168,11 @@
         private System.Windows.Forms.Label labelColor;
         private System.Windows.Forms.TextBox textBoxCategoria;
         private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxColor;
         private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.ErrorProvider errorProviderNombre;
+        private System.Windows.Forms.ErrorProvider errorProviderCategoria;
+        private System.Windows.Forms.ErrorProvider errorProviderColor;
     }
 }

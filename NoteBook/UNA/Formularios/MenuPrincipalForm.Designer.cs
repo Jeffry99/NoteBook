@@ -32,13 +32,14 @@
             this.statusStripUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonAgregarCuaderno = new System.Windows.Forms.Button();
             this.luisPutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonAgregarCuaderno = new System.Windows.Forms.Button();
             this.dataGridViewCuadernos = new System.Windows.Forms.DataGridView();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.listBoxCuadernos = new System.Windows.Forms.ListBox();
             this.statusStrip1.SuspendLayout();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).BeginInit();
@@ -76,8 +77,14 @@
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.luisPutoToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // luisPutoToolStripMenuItem
+            // 
+            this.luisPutoToolStripMenuItem.Name = "luisPutoToolStripMenuItem";
+            this.luisPutoToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
+            this.luisPutoToolStripMenuItem.Text = "Luis Puto";
             // 
             // buttonAgregarCuaderno
             // 
@@ -88,12 +95,6 @@
             this.buttonAgregarCuaderno.Text = "Agregar Cuaderno";
             this.buttonAgregarCuaderno.UseVisualStyleBackColor = true;
             this.buttonAgregarCuaderno.Click += new System.EventHandler(this.buttonAgregarCuaderno_Click);
-            // 
-            // luisPutoToolStripMenuItem
-            // 
-            this.luisPutoToolStripMenuItem.Name = "luisPutoToolStripMenuItem";
-            this.luisPutoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.luisPutoToolStripMenuItem.Text = "Luis Puto";
             // 
             // dataGridViewCuadernos
             // 
@@ -112,7 +113,7 @@
             this.dataGridViewCuadernos.Name = "dataGridViewCuadernos";
             this.dataGridViewCuadernos.RowHeadersWidth = 51;
             this.dataGridViewCuadernos.RowTemplate.Height = 24;
-            this.dataGridViewCuadernos.Size = new System.Drawing.Size(981, 258);
+            this.dataGridViewCuadernos.Size = new System.Drawing.Size(981, 69);
             this.dataGridViewCuadernos.TabIndex = 3;
             // 
             // ColumnNombre
@@ -142,11 +143,21 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Cuadernos Disponibles";
             // 
+            // listBoxCuadernos
+            // 
+            this.listBoxCuadernos.FormattingEnabled = true;
+            this.listBoxCuadernos.ItemHeight = 16;
+            this.listBoxCuadernos.Location = new System.Drawing.Point(149, 176);
+            this.listBoxCuadernos.Name = "listBoxCuadernos";
+            this.listBoxCuadernos.Size = new System.Drawing.Size(612, 132);
+            this.listBoxCuadernos.TabIndex = 5;
+            // 
             // MenuPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 578);
+            this.Controls.Add(this.listBoxCuadernos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewCuadernos);
             this.Controls.Add(this.buttonAgregarCuaderno);
@@ -179,5 +190,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnColor;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBoxCuadernos;
     }
 }
