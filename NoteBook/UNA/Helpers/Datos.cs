@@ -12,7 +12,6 @@ namespace NoteBook.UNA.Miscelaneo
     {
         public static List<Cuaderno> cuadernos;
 
-        private static string hola;
         public static void SaveToFile()
         {
             string output = JsonConvert.SerializeObject(cuadernos);
@@ -28,10 +27,6 @@ namespace NoteBook.UNA.Miscelaneo
                 File.Delete(path);
                 File.WriteAllText(path, output);
             }
-        }
-        public static string caca()
-        {
-            return hola;
         }
 
         public static void LoadFile()

@@ -10,25 +10,25 @@ namespace NoteBook
     {
         public List<Nota> notas = new List<Nota>();
 
-        public string nombre
+        public string Nombre
         {
             get;
             set;
         }
 
-        public string categoria
+        public string Categoria
         {
             get;
             set;
         }
 
-        public string color
+        public string Color
         {
             get;
             set;
         }
 
-        public int orden
+        public int Orden
         {
             get;
             set;

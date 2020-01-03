@@ -35,11 +35,7 @@
             this.luisPutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonAgregarCuaderno = new System.Windows.Forms.Button();
             this.dataGridViewCuadernos = new System.Windows.Forms.DataGridView();
-            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBoxCuadernos = new System.Windows.Forms.ListBox();
             this.statusStrip1.SuspendLayout();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).BeginInit();
@@ -98,6 +94,10 @@
             // 
             // dataGridViewCuadernos
             // 
+            this.dataGridViewCuadernos.AllowUserToAddRows = false;
+            this.dataGridViewCuadernos.AllowUserToDeleteRows = false;
+            this.dataGridViewCuadernos.AllowUserToResizeColumns = false;
+            this.dataGridViewCuadernos.AllowUserToResizeRows = false;
             this.dataGridViewCuadernos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridViewCuadernos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCuadernos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
@@ -105,34 +105,13 @@
             this.dataGridViewCuadernos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewCuadernos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewCuadernos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCuadernos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnNombre,
-            this.ColumnCategoria,
-            this.ColumnColor});
+            this.dataGridViewCuadernos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewCuadernos.Location = new System.Drawing.Point(1, 75);
             this.dataGridViewCuadernos.Name = "dataGridViewCuadernos";
             this.dataGridViewCuadernos.RowHeadersWidth = 51;
             this.dataGridViewCuadernos.RowTemplate.Height = 24;
-            this.dataGridViewCuadernos.Size = new System.Drawing.Size(981, 69);
+            this.dataGridViewCuadernos.Size = new System.Drawing.Size(981, 200);
             this.dataGridViewCuadernos.TabIndex = 3;
-            // 
-            // ColumnNombre
-            // 
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.MinimumWidth = 6;
-            this.ColumnNombre.Name = "ColumnNombre";
-            // 
-            // ColumnCategoria
-            // 
-            this.ColumnCategoria.HeaderText = "Categoría";
-            this.ColumnCategoria.MinimumWidth = 6;
-            this.ColumnCategoria.Name = "ColumnCategoria";
-            // 
-            // ColumnColor
-            // 
-            this.ColumnColor.HeaderText = "Color";
-            this.ColumnColor.MinimumWidth = 6;
-            this.ColumnColor.Name = "ColumnColor";
             // 
             // label1
             // 
@@ -143,21 +122,11 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Cuadernos Disponibles";
             // 
-            // listBoxCuadernos
-            // 
-            this.listBoxCuadernos.FormattingEnabled = true;
-            this.listBoxCuadernos.ItemHeight = 16;
-            this.listBoxCuadernos.Location = new System.Drawing.Point(149, 176);
-            this.listBoxCuadernos.Name = "listBoxCuadernos";
-            this.listBoxCuadernos.Size = new System.Drawing.Size(612, 132);
-            this.listBoxCuadernos.TabIndex = 5;
-            // 
             // MenuPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 578);
-            this.Controls.Add(this.listBoxCuadernos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewCuadernos);
             this.Controls.Add(this.buttonAgregarCuaderno);
@@ -186,10 +155,6 @@
         private System.Windows.Forms.ToolStripMenuItem luisPutoToolStripMenuItem;
         private System.Windows.Forms.Button buttonAgregarCuaderno;
         private System.Windows.Forms.DataGridView dataGridViewCuadernos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnColor;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBoxCuadernos;
     }
 }

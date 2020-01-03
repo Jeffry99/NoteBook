@@ -36,11 +36,17 @@ namespace NoteBook.UNA.Formularios
 
         public void AgregarCuaderno()
         {
+            int ultimoIndice = 0;
+            foreach (Cuaderno c in Datos.cuadernos)
+            {
+                ultimoIndice++;
+            }
             Cuaderno cuaderno = new Cuaderno
             {
-                nombre = textBoxNombre.Text,
-                categoria = textBoxCategoria.Text,
-                color = comboBoxColor.Text
+                Nombre = textBoxNombre.Text,
+                Categoria = textBoxCategoria.Text,
+                Color = comboBoxColor.Text,
+                Orden = ultimoIndice + 1
             };
             Datos.cuadernos.Add(cuaderno);
             Datos.SaveToFile();
@@ -92,7 +98,6 @@ namespace NoteBook.UNA.Formularios
             textBoxNombre.Clear();
             textBoxCategoria.Clear();
             comboBoxColor.SelectedItem = null;
-
             errorProviderCategoria.Clear();
             errorProviderColor.Clear();
             errorProviderNombre.Clear();

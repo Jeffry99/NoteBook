@@ -24,17 +24,12 @@ namespace NoteBook.UNA.Formularios
 
             IngresarUsuarioForm signin = new IngresarUsuarioForm();
             signin.ShowDialog();
-           // if(signin.DialogResult == DialogResult.OK)
-           // {
             signin.Close();
+
             Show();
             statusStripUsuario.Text = "Usuario Actual: " + LogIn.usuario.nombreUsuario;
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
-            listBoxCuadernos.DataSource = Datos.cuadernos;
-            listBoxCuadernos.Refresh();
-
             dataGridViewCuadernos.Refresh();
-           // }
             
         }
 
@@ -43,6 +38,7 @@ namespace NoteBook.UNA.Formularios
             Hide();
             AgregarCuadernoForm AgregarCuaderno = new AgregarCuadernoForm();
             AgregarCuaderno.ShowDialog();
+            dataGridViewCuadernos.DataSource = Datos.cuadernos;
             Show();
         }
     }
