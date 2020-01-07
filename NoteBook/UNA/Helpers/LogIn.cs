@@ -11,7 +11,6 @@ namespace NoteBook.UNA.Helpers
         public static Usuario usuario = new Usuario();
         public static bool Validar(string nomUsuario, string contrasena)
         {
-            Console.WriteLine(nomUsuario);
             //Agregar codigo para validar con usuarios guardados en el sistema
 
             if (nomUsuario.Equals("admin") && contrasena.Equals("1234"))

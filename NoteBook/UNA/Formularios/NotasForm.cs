@@ -25,11 +25,8 @@ namespace NoteBook.UNA.Formularios
             agregarNota.CuadernoActual = EncontrarCuadernoActual().Nombre;
             agregarNota.Text = "Agregar Nota en: " + agregarNota.CuadernoActual;
             agregarNota.ShowDialog();
-
             dataGridViewNotas.DataSource = EncontrarCuadernoActual().notas;
-            dataGridViewNotas.Refresh();
             Show();
-            
 
         }
 

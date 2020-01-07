@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipalForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusStripUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -36,6 +37,7 @@
             this.buttonAgregarCuaderno = new System.Windows.Forms.Button();
             this.dataGridViewCuadernos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonRefrescar = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).BeginInit();
@@ -125,16 +127,28 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Cuadernos Disponibles";
             // 
+            // buttonRefrescar
+            // 
+            this.buttonRefrescar.Location = new System.Drawing.Point(882, 285);
+            this.buttonRefrescar.Name = "buttonRefrescar";
+            this.buttonRefrescar.Size = new System.Drawing.Size(100, 36);
+            this.buttonRefrescar.TabIndex = 5;
+            this.buttonRefrescar.Text = "Refrescar";
+            this.buttonRefrescar.UseVisualStyleBackColor = true;
+            this.buttonRefrescar.Click += new System.EventHandler(this.buttonRefrescar_Click);
+            // 
             // MenuPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 578);
+            this.Controls.Add(this.buttonRefrescar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewCuadernos);
             this.Controls.Add(this.buttonAgregarCuaderno);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MenuPrincipalForm";
             this.Text = "Menu Principal";
@@ -159,5 +173,6 @@
         private System.Windows.Forms.Button buttonAgregarCuaderno;
         private System.Windows.Forms.DataGridView dataGridViewCuadernos;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonRefrescar;
     }
 }

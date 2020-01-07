@@ -29,7 +29,6 @@ namespace NoteBook.UNA.Formularios
             Show();
             statusStripUsuario.Text = "Usuario Actual: " + LogIn.usuario.nombreUsuario;
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
-            dataGridViewCuadernos.Refresh();
             
         }
 
@@ -39,7 +38,9 @@ namespace NoteBook.UNA.Formularios
             AgregarCuadernoForm AgregarCuaderno = new AgregarCuadernoForm();
             AgregarCuaderno.ShowDialog();
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
+            
             Show();
+            Console.WriteLine("jdjdjdjd");
         }
 
         private void dataGridViewCuadernos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -48,13 +49,11 @@ namespace NoteBook.UNA.Formularios
 
         private void dataGridViewCuadernos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //dataGridViewCuadernos.
             Hide();
             Cuaderno cuaderno = new Cuaderno();
             foreach (DataGridViewRow c in dataGridViewCuadernos.SelectedRows)
             {
                 cuaderno = (Cuaderno)c.DataBoundItem;
-
             }
 
 
@@ -64,10 +63,20 @@ namespace NoteBook.UNA.Formularios
             notas.Text = cuaderno.Nombre;
             notas.ShowDialog();
 
+            dataGridViewCuadernos.DataSource = Datos.cuadernos;
+            //dataGridViewCuadernos.Refresh();
 
-
-            //dataGridViewCuadernos.DataSource = Datos.cuadernos;
+            InitializeComponent();
             Show();
+            dataGridViewCuadernos.DataSource = Datos.cuadernos;
+        }
+
+        private void buttonRefrescar_Click(object sender, EventArgs e)
+        {
+            
+            dataGridViewCuadernos.DataSource = Datos.cuadernos;
+            dataGridViewCuadernos.Refresh();
+            Console.WriteLine("refrescado");
         }
     }
 }

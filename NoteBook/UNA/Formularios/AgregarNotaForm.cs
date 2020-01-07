@@ -145,14 +145,14 @@ namespace NoteBook.UNA.Formularios
 
         public void AgregarNotaEnCuadernoActual(Nota nota)
         {
-            Console.WriteLine(Text);
             foreach (Cuaderno c in Datos.cuadernos)
             {
 
-                if (c.Nombre.Equals(Text))
+                if (c.Nombre.Equals(CuadernoActual))
                 {
                     c.notas.Add(nota);
                 }
+                
             }
         }
 
