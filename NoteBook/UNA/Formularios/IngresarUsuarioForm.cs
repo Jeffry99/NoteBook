@@ -38,7 +38,7 @@ namespace NoteBook
             }
         }
 
-        private void validarUsuario()
+        private bool validarUsuario()
         {
             if (txtBoxUsuario.TextLength == 0)
             {
@@ -53,10 +53,12 @@ namespace NoteBook
             if(LogIn.Validar(txtBoxUsuario.Text, txtBoxContrasena.Text) == true)
             {
                 Close();
+                return true;
             }
             else
             {
                 errorProviderError.SetError(btnAceptar, "Usuario o contraseña incorrectos");
+                return false;
             }
 
         }
@@ -73,6 +75,7 @@ namespace NoteBook
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+
         }
 
         private void IngresarUsuarioForm_Load(object sender, EventArgs e)
@@ -83,6 +86,15 @@ namespace NoteBook
         private void txtBoxUsuario_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void IngresarUsuarioForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (validarUsuario() == false)
+            {
+                Application.Exit();
+            }
+                
         }
     }
 }

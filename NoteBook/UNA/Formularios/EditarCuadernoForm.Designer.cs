@@ -1,6 +1,6 @@
 ﻿namespace NoteBook.UNA.Formularios
 {
-    partial class AgregarCuadernoForm
+    partial class EditarCuadernoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@
             this.textBoxCategoria = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.comboBoxColor = new System.Windows.Forms.ComboBox();
-            this.buttonAgregar = new System.Windows.Forms.Button();
+            this.buttonCambiar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.errorProviderNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderCategoria = new System.Windows.Forms.ErrorProvider(this.components);
@@ -78,7 +78,6 @@
             this.textBoxCategoria.Name = "textBoxCategoria";
             this.textBoxCategoria.Size = new System.Drawing.Size(357, 22);
             this.textBoxCategoria.TabIndex = 1;
-            this.textBoxCategoria.TextChanged += new System.EventHandler(this.textBoxCategoria_TextChanged);
             // 
             // textBoxNombre
             // 
@@ -103,18 +102,16 @@
             this.comboBoxColor.Name = "comboBoxColor";
             this.comboBoxColor.Size = new System.Drawing.Size(357, 24);
             this.comboBoxColor.TabIndex = 2;
-            this.comboBoxColor.SelectedIndexChanged += new System.EventHandler(this.comboBoxColor_SelectedIndexChanged);
-            this.comboBoxColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxColor_KeyPress);
             // 
-            // buttonAgregar
+            // buttonCambiar
             // 
-            this.buttonAgregar.Location = new System.Drawing.Point(521, 266);
-            this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(104, 29);
-            this.buttonAgregar.TabIndex = 3;
-            this.buttonAgregar.Text = "Agregar";
-            this.buttonAgregar.UseVisualStyleBackColor = true;
-            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
+            this.buttonCambiar.Location = new System.Drawing.Point(521, 266);
+            this.buttonCambiar.Name = "buttonCambiar";
+            this.buttonCambiar.Size = new System.Drawing.Size(104, 29);
+            this.buttonCambiar.TabIndex = 3;
+            this.buttonCambiar.Text = "Cambiar";
+            this.buttonCambiar.UseVisualStyleBackColor = true;
+            this.buttonCambiar.Click += new System.EventHandler(this.buttonAgregar_Click);
             // 
             // buttonCancelar
             // 
@@ -124,7 +121,6 @@
             this.buttonCancelar.TabIndex = 8;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // errorProviderNombre
             // 
@@ -138,21 +134,21 @@
             // 
             this.errorProviderColor.ContainerControl = this;
             // 
-            // AgregarCuadernoForm
+            // EditarCuadernoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 353);
             this.Controls.Add(this.buttonCancelar);
-            this.Controls.Add(this.buttonAgregar);
+            this.Controls.Add(this.buttonCambiar);
             this.Controls.Add(this.comboBoxColor);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.textBoxCategoria);
             this.Controls.Add(this.labelColor);
             this.Controls.Add(this.labelCategoria);
             this.Controls.Add(this.labelNombre);
-            this.Name = "AgregarCuadernoForm";
-            this.Text = "Agregar Cuaderno";
+            this.Name = "EditarCuadernoForm";
+            this.Text = "Editar Cuaderno";
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCategoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderColor)).EndInit();
@@ -169,7 +165,7 @@
         private System.Windows.Forms.TextBox textBoxCategoria;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.ComboBox comboBoxColor;
-        private System.Windows.Forms.Button buttonAgregar;
+        private System.Windows.Forms.Button buttonCambiar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.ErrorProvider errorProviderNombre;
         private System.Windows.Forms.ErrorProvider errorProviderCategoria;

@@ -110,8 +110,11 @@
             this.dataGridViewCuadernos.Name = "dataGridViewCuadernos";
             this.dataGridViewCuadernos.RowHeadersWidth = 51;
             this.dataGridViewCuadernos.RowTemplate.Height = 24;
-            this.dataGridViewCuadernos.Size = new System.Drawing.Size(981, 200);
+            this.dataGridViewCuadernos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCuadernos.Size = new System.Drawing.Size(981, 204);
             this.dataGridViewCuadernos.TabIndex = 3;
+            this.dataGridViewCuadernos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCuadernos_CellContentClick);
+            this.dataGridViewCuadernos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCuadernos_CellContentDoubleClick);
             // 
             // label1
             // 

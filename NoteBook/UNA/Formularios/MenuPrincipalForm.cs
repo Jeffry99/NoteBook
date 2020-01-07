@@ -41,5 +41,33 @@ namespace NoteBook.UNA.Formularios
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
             Show();
         }
+
+        private void dataGridViewCuadernos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void dataGridViewCuadernos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //dataGridViewCuadernos.
+            Hide();
+            Cuaderno cuaderno = new Cuaderno();
+            foreach (DataGridViewRow c in dataGridViewCuadernos.SelectedRows)
+            {
+                cuaderno = (Cuaderno)c.DataBoundItem;
+
+            }
+
+
+
+
+            NotasForm notas = new NotasForm();
+            notas.Text = cuaderno.Nombre;
+            notas.ShowDialog();
+
+
+
+            //dataGridViewCuadernos.DataSource = Datos.cuadernos;
+            Show();
+        }
     }
 }

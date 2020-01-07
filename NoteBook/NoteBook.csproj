@@ -49,13 +49,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Nota.cs" />
+    <Compile Include="UNA\Clases\Nota.cs" />
     <Compile Include="UNA\Clases\Cuaderno.cs" />
     <Compile Include="UNA\Formularios\AgregarCuadernoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UNA\Formularios\AgregarCuadernoForm.Designer.cs">
       <DependentUpon>AgregarCuadernoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UNA\Formularios\AgregarNotaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UNA\Formularios\AgregarNotaForm.Designer.cs">
+      <DependentUpon>AgregarNotaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UNA\Formularios\EditarCuadernoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UNA\Formularios\EditarCuadernoForm.Designer.cs">
+      <DependentUpon>EditarCuadernoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\Formularios\MenuPrincipalForm.cs">
       <SubType>Form</SubType>
@@ -72,10 +84,22 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UNA\Clases\Usuario.cs" />
+    <Compile Include="UNA\Formularios\NotasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UNA\Formularios\NotasForm.Designer.cs">
+      <DependentUpon>NotasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UNA\Helpers\LogIn.cs" />
     <Compile Include="UNA\Helpers\Datos.cs" />
     <EmbeddedResource Include="UNA\Formularios\AgregarCuadernoForm.resx">
       <DependentUpon>AgregarCuadernoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UNA\Formularios\AgregarNotaForm.resx">
+      <DependentUpon>AgregarNotaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UNA\Formularios\EditarCuadernoForm.resx">
+      <DependentUpon>EditarCuadernoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\Formularios\MenuPrincipalForm.resx">
       <DependentUpon>MenuPrincipalForm.cs</DependentUpon>
@@ -92,6 +116,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UNA\Formularios\NotasForm.resx">
+      <DependentUpon>NotasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using NoteBook.UNA.Miscelaneo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,50 +8,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using NoteBook.UNA.Miscelaneo;
 
 namespace NoteBook.UNA.Formularios
 {
-    public partial class AgregarCuadernoForm : Form
+    public partial class EditarCuadernoForm : Form
     {
-        public AgregarCuadernoForm()
+        public EditarCuadernoForm()
         {
             InitializeComponent();
         }
 
-        private void textBoxCategoria_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            if(Validar() == true)
+            if (Validar() == true)
             {
-                AgregarCuaderno();
+                EditarCuaderno();
             }
         }
 
-        public void AgregarCuaderno()
+        public void EditarCuaderno()
         {
-            int ultimoIndice = 0;
+            //Obtener el cuaderno que se quiere editar 
+
             foreach (Cuaderno c in Datos.cuadernos)
             {
-                ultimoIndice++;
+                
             }
-            Cuaderno cuaderno = new Cuaderno
-            {
-                Nombre = textBoxNombre.Text,
-                Categoria = textBoxCategoria.Text,
-                Color = comboBoxColor.Text,
-                Orden = ultimoIndice + 1
-            };
-            Datos.cuadernos.Add(cuaderno);
+            
+            //Datos.cuadernos.Add(cuaderno);
             Datos.SaveToFile();
             Limpiar();
 
-            MessageBox.Show("Se ha agregado el cuaderno", "Cuaderno Agregado", MessageBoxButtons.OK);
+            MessageBox.Show("Se ha editado el cuaderno", "Cuaderno Editado", MessageBoxButtons.OK);
         }
 
         public bool Validar()
@@ -84,7 +72,7 @@ namespace NoteBook.UNA.Formularios
             {
                 errorProviderColor.Clear();
             }
-            return resultado;            
+            return resultado;
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -102,14 +90,6 @@ namespace NoteBook.UNA.Formularios
             errorProviderNombre.Clear();
         }
 
-        private void comboBoxColor_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void comboBoxColor_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //e.KeyChar = " ";
-        }
     }
 }

@@ -7,55 +7,61 @@ namespace NoteBook
 {
     public class Nota
     {
-        public string titulo
+        public string Titulo
         {
             get;
             set;
         }
 
-        public string privacidad
+        public string Privacidad
         {
             get;
             set;
         }
 
-        public string categoria
+        public string Categoria
         {
             get;
             set;
         }
 
-        public string color
+        public string Color
         {
             get;
             set;
         }
 
-        public string fuente
+        public string Fuente
         {
             get;
             set;
         }
 
-        public string colorLetra
+        public string ColorLetra
         {
             get;
             set;
         }
 
-        public string orden
+        public string Orden
         {
             get;
             set;
         }
 
-        public string fechaCreacion
+        public string FechaCreacion
         {
             get;
             set;
         }
 
-        public string fechaModificacion
+        public string FechaModificacion
+        {
+            get;
+            set;
+        }
+
+        public string Texto
         {
             get;
             set;

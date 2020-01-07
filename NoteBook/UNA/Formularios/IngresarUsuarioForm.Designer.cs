@@ -123,6 +123,7 @@
             this.Controls.Add(this.lblContraseña);
             this.Controls.Add(this.lblUsuario);
             this.Name = "IngresarUsuarioForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IngresarUsuarioForm_FormClosed);
             this.Load += new System.EventHandler(this.IngresarUsuarioForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContraseña)).EndInit();
