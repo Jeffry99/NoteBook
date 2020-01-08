@@ -16,3 +16,21 @@ C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\Note
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.EditarCuadernoForm.resources
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.NotasForm.resources
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.HistorialForm.resources
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\bin\Debug\NoteBook.exe.config
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\bin\Debug\NoteBook.exe
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\bin\Debug\NoteBook.pdb
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.csprojAssemblyReference.cache
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.AgregarCuadernoForm.resources
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.AgregarNotaForm.resources
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.EditarCuadernoForm.resources
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.HistorialForm.resources
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.MenuPrincipalForm.resources
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.IngresarUsuarioForm.resources
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.Properties.Resources.resources
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.NotasForm.resources
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.csproj.GenerateResource.cache
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.csproj.CopyComplete
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.exe
+C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.pdb

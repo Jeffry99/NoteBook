@@ -1,10 +1,12 @@
-﻿using NoteBook.UNA.Helpers;
+﻿using Newtonsoft.Json;
+using NoteBook.UNA.Helpers;
 using NoteBook.UNA.Miscelaneo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,8 @@ namespace NoteBook.UNA.Formularios
 {
     public partial class MenuPrincipalForm : Form
     {
+        public static List<Cuaderno> cuadernos;
+
         public MenuPrincipalForm()
         {
             InitializeComponent();
@@ -87,6 +91,40 @@ namespace NoteBook.UNA.Formularios
             historial.ShowDialog();
             Show();
 
+        }
+
+        private void textBoxNombreCuadernoBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            string path = @".\cuadernos.json";
+            string readText = File.ReadAllText(path);
+            cuadernos = JsonConvert.DeserializeObject<List<Cuaderno>>(readText);
+
+            List<Cuaderno> cuadernoNombre = new List<Cuaderno>();
+            foreach (Cuaderno c in cuadernos)
+            {
+                if (textBoxNombreCuadernoBusqueda.Text == c.Nombre)
+                {
+                    cuadernoNombre.Add(c);
+                }
+            }
+            dataGridViewCuadernos.DataSource = cuadernoNombre;
+        }
+
+        private void comboBoxColorBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string path = @".\cuadernos.json";
+            string readText = File.ReadAllText(path);
+            cuadernos = JsonConvert.DeserializeObject<List<Cuaderno>>(readText);
+
+            List<Cuaderno> cuadernoColor = new List<Cuaderno>();
+            foreach (Cuaderno c in cuadernos)
+            {
+                if (Convert.ToString(comboBoxColorBusqueda.SelectedItem) == c.Color)
+                {
+                    cuadernoColor.Add(c);
+                }
+            }
+            dataGridViewCuadernos.DataSource = cuadernoColor;
         }
     }
 }
