@@ -1,4 +1,5 @@
-﻿using NoteBook.UNA.Miscelaneo;
+﻿using NoteBook.UNA.Helpers;
+using NoteBook.UNA.Miscelaneo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,8 +29,9 @@ namespace NoteBook.UNA.Formularios
 
         public void EditarCuaderno()
         {
+            //TODO Terminar esta funcion del programa
             //Obtener el cuaderno que se quiere editar 
-
+            Cuaderno cuaderno = new Cuaderno();
             foreach (Cuaderno c in Datos.cuadernos)
             {
                 
@@ -38,7 +40,9 @@ namespace NoteBook.UNA.Formularios
             //Datos.cuadernos.Add(cuaderno);
             Datos.SaveToFile();
             Limpiar();
-
+            Accion accion = new Accion(LogIn.usuario.nombreUsuario, "Ha editado un cuaderno", cuaderno.Nombre, "");
+            RegistroAcciones.acciones.Add(accion);
+            RegistroAcciones.SaveToFile();
             MessageBox.Show("Se ha editado el cuaderno", "Cuaderno Editado", MessageBoxButtons.OK);
         }
 

@@ -37,10 +37,11 @@ namespace NoteBook.UNA.Formularios
             Hide();
             AgregarCuadernoForm AgregarCuaderno = new AgregarCuadernoForm();
             AgregarCuaderno.ShowDialog();
+
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
-            
-            Show();
             Console.WriteLine("jdjdjdjd");
+            Show();
+            
         }
 
         private void dataGridViewCuadernos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -66,17 +67,26 @@ namespace NoteBook.UNA.Formularios
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
             //dataGridViewCuadernos.Refresh();
 
-            InitializeComponent();
             Show();
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
         }
-
         private void buttonRefrescar_Click(object sender, EventArgs e)
         {
             
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
+            
             dataGridViewCuadernos.Refresh();
             Console.WriteLine("refrescado");
+        }
+
+
+        private void historialToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            HistorialForm historial = new HistorialForm();
+            Hide();
+            historial.ShowDialog();
+            Show();
+
         }
     }
 }

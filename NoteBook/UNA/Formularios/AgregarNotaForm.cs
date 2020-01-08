@@ -1,4 +1,5 @@
-﻿using NoteBook.UNA.Miscelaneo;
+﻿using NoteBook.UNA.Helpers;
+using NoteBook.UNA.Miscelaneo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -167,6 +168,10 @@ namespace NoteBook.UNA.Formularios
 
             AgregarNotaEnCuadernoActual(nota);
             Datos.SaveToFile();
+
+            Accion accion = new Accion(LogIn.usuario.nombreUsuario, "Ha agregado una nota", nota.Titulo, "En el cuaderno: " + CuadernoActual);
+            RegistroAcciones.acciones.Add(accion);
+            RegistroAcciones.SaveToFile();
             MessageBox.Show("Se ha agregado la nota correctamente", "Nota agregada", MessageBoxButtons.OK);
             Limpiar();
         }

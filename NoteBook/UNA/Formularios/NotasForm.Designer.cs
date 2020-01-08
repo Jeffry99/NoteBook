@@ -52,6 +52,7 @@
             this.buttonEditarNota.TabIndex = 1;
             this.buttonEditarNota.Text = "Editar Nota";
             this.buttonEditarNota.UseVisualStyleBackColor = true;
+            this.buttonEditarNota.Click += new System.EventHandler(this.buttonEditarNota_Click);
             // 
             // dataGridViewNotas
             // 

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using NoteBook.UNA.Miscelaneo;
+using NoteBook.UNA.Helpers;
 
 namespace NoteBook.UNA.Formularios
 {
@@ -51,6 +52,9 @@ namespace NoteBook.UNA.Formularios
             Datos.SaveToFile();
             Limpiar();
 
+            Accion accion = new Accion(LogIn.usuario.nombreUsuario, "Ha agregado un cuaderno", cuaderno.Nombre, "");
+            RegistroAcciones.acciones.Add(accion);
+            RegistroAcciones.SaveToFile();
             MessageBox.Show("Se ha agregado el cuaderno", "Cuaderno Agregado", MessageBoxButtons.OK);
         }
 

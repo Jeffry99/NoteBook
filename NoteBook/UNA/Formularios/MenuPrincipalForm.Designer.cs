@@ -33,7 +33,7 @@
             this.statusStripUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.luisPutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonAgregarCuaderno = new System.Windows.Forms.Button();
             this.dataGridViewCuadernos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -73,16 +73,17 @@
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.luisPutoToolStripMenuItem});
+            this.historialToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
-            // luisPutoToolStripMenuItem
+            // historialToolStripMenuItem
             // 
-            this.luisPutoToolStripMenuItem.Name = "luisPutoToolStripMenuItem";
-            this.luisPutoToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
-            this.luisPutoToolStripMenuItem.Text = "Luis Puto";
+            this.historialToolStripMenuItem.Name = "historialToolStripMenuItem";
+            this.historialToolStripMenuItem.Size = new System.Drawing.Size(251, 26);
+            this.historialToolStripMenuItem.Text = "Ver historial de cambios";
+            this.historialToolStripMenuItem.Click += new System.EventHandler(this.historialToolStripMenuItem_Click_1);
             // 
             // buttonAgregarCuaderno
             // 
@@ -169,7 +170,7 @@
         private System.Windows.Forms.ToolStripStatusLabel statusStripUsuario;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem luisPutoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem historialToolStripMenuItem;
         private System.Windows.Forms.Button buttonAgregarCuaderno;
         private System.Windows.Forms.DataGridView dataGridViewCuadernos;
         private System.Windows.Forms.Label label1;

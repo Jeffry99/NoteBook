@@ -53,5 +53,10 @@ namespace NoteBook.UNA.Formularios
             }
             return cuaderno;
         }
+
+        private void buttonEditarNota_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
