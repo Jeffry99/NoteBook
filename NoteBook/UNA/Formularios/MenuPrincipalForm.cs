@@ -17,6 +17,7 @@ namespace NoteBook.UNA.Formularios
     public partial class MenuPrincipalForm : Form
     {
         public static List<Cuaderno> cuadernos;
+        public static List<Nota> nota;
 
         public MenuPrincipalForm()
         {
@@ -78,8 +79,9 @@ namespace NoteBook.UNA.Formularios
         {
             
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
-            
             dataGridViewCuadernos.Refresh();
+            textBoxNombreCuadernoBusqueda.Text = " ";
+            comboBoxColorBusqueda.Text = " ";
             Console.WriteLine("refrescado");
         }
 
@@ -125,6 +127,24 @@ namespace NoteBook.UNA.Formularios
                 }
             }
             dataGridViewCuadernos.DataSource = cuadernoColor;
+        }
+
+        private void buttonBusqueda_Click(object sender, EventArgs e)
+        {
+            string path = @".\cuadernos.json";
+            string readText = File.ReadAllText(path);
+            cuadernos = JsonConvert.DeserializeObject<List<Cuaderno>>(readText);
+
+            List<Cuaderno> cuadernoFiltrado = new List<Cuaderno>();
+            foreach (Cuaderno c in cuadernos)
+            {
+                if (Convert.ToString(comboBoxColorBusqueda.SelectedItem) == c.Color &&
+                    textBoxNombreCuadernoBusqueda.Text == c.Nombre)
+                {
+                        cuadernoFiltrado.Add(c);
+                }
+            }
+            dataGridViewCuadernos.DataSource = cuadernoFiltrado;
         }
     }
 }
