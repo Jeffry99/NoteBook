@@ -80,9 +80,8 @@ namespace NoteBook.UNA.Formularios
             
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
             dataGridViewCuadernos.Refresh();
-            textBoxNombreCuadernoBusqueda.Text = " ";
-            comboBoxColorBusqueda.Text = " ";
-            Console.WriteLine("refrescado");
+            textBoxNombreCuadernoBusqueda.Clear();
+            pictureBoxColor.BackColor = BackColor;
         }
 
 
@@ -97,54 +96,54 @@ namespace NoteBook.UNA.Formularios
 
         private void textBoxNombreCuadernoBusqueda_TextChanged(object sender, EventArgs e)
         {
-            string path = @".\cuadernos.json";
-            string readText = File.ReadAllText(path);
-            cuadernos = JsonConvert.DeserializeObject<List<Cuaderno>>(readText);
-
             List<Cuaderno> cuadernoNombre = new List<Cuaderno>();
-            foreach (Cuaderno c in cuadernos)
+            foreach (Cuaderno c in Datos.cuadernos)
             {
-                if (textBoxNombreCuadernoBusqueda.Text == c.Nombre)
+                Console.WriteLine(c.Nombre);
+                if (c.Nombre == textBoxNombreCuadernoBusqueda.Text)
                 {
                     cuadernoNombre.Add(c);
                 }
+
             }
+            
             dataGridViewCuadernos.DataSource = cuadernoNombre;
-        }
-
-        private void comboBoxColorBusqueda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string path = @".\cuadernos.json";
-            string readText = File.ReadAllText(path);
-            cuadernos = JsonConvert.DeserializeObject<List<Cuaderno>>(readText);
-
-            List<Cuaderno> cuadernoColor = new List<Cuaderno>();
-            foreach (Cuaderno c in cuadernos)
-            {
-                if (Convert.ToString(comboBoxColorBusqueda.SelectedItem) == c.Color)
-                {
-                    cuadernoColor.Add(c);
-                }
-            }
-            dataGridViewCuadernos.DataSource = cuadernoColor;
         }
 
         private void buttonBusqueda_Click(object sender, EventArgs e)
         {
-            string path = @".\cuadernos.json";
-            string readText = File.ReadAllText(path);
-            cuadernos = JsonConvert.DeserializeObject<List<Cuaderno>>(readText);
-
             List<Cuaderno> cuadernoFiltrado = new List<Cuaderno>();
-            foreach (Cuaderno c in cuadernos)
+            foreach (Cuaderno c in Datos.cuadernos)
             {
-                if (Convert.ToString(comboBoxColorBusqueda.SelectedItem) == c.Color &&
-                    textBoxNombreCuadernoBusqueda.Text == c.Nombre)
+                if (pictureBoxColor.BackColor.ToString() == c.Color && textBoxNombreCuadernoBusqueda.Text == c.Nombre)
                 {
                         cuadernoFiltrado.Add(c);
                 }
             }
             dataGridViewCuadernos.DataSource = cuadernoFiltrado;
+        }
+
+        private void buttonColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog MyDialog = new ColorDialog();
+            MyDialog.AllowFullOpen = false;
+            MyDialog.ShowHelp = true;
+
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxColor.BackColor = MyDialog.Color;
+            }
+            pictureBoxColor.BackColor = MyDialog.Color;
+
+            List<Cuaderno> cuadernoColor = new List<Cuaderno>();
+            foreach (Cuaderno c in Datos.cuadernos)
+            {
+                if (pictureBoxColor.BackColor.ToString() == c.Color)
+                {
+                    cuadernoColor.Add(c);
+                }
+            }
+            dataGridViewCuadernos.DataSource = cuadernoColor;
         }
     }
 }
