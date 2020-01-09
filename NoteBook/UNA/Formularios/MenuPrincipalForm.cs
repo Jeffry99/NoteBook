@@ -17,7 +17,7 @@ namespace NoteBook.UNA.Formularios
     public partial class MenuPrincipalForm : Form
     {
         public static List<Cuaderno> cuadernos;
-        public static List<Nota> nota;
+        //public static List<Nota> nota;
 
         public MenuPrincipalForm()
         {

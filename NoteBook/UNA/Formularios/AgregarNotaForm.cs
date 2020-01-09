@@ -156,15 +156,18 @@ namespace NoteBook.UNA.Formularios
                 
             }
         }
-
+        Cuaderno notitas = new Cuaderno();
         public void AgregarNota()
         {
+
             nota.Titulo = textBoxTitulo.Text;
             nota.Privacidad = comboBoxPrivacidad.SelectedItem.ToString();
             nota.Categoria = textBoxCategoria.Text;
+            nota.Texto = richTextBoxNota.Text;
             nota.FechaCreacion = DateTime.Now.ToString();
             nota.FechaModificacion = "Esta nota no ha sido modificada";
-            nota.Texto = richTextBoxNota.Text;
+            nota.Orden = "1";
+
 
             AgregarNotaEnCuadernoActual(nota);
             Datos.SaveToFile();
