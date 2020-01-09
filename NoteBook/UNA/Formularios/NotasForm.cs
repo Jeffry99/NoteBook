@@ -22,8 +22,8 @@ namespace NoteBook.UNA.Formularios
         private void buttonAgregarNota_Click(object sender, EventArgs e)
         {
             Hide();
-            agregarNota.CuadernoActual = EncontrarCuadernoActual().Nombre;
-            agregarNota.Text = "Agregar Nota en: " + agregarNota.CuadernoActual;
+            agregarNota.CuadernoActual = EncontrarCuadernoActual();
+            agregarNota.Text = "Agregar Nota en: " + agregarNota.CuadernoActual.Nombre;
             agregarNota.ShowDialog();
             dataGridViewNotas.DataSource = EncontrarCuadernoActual().notas;
             Show();
@@ -57,6 +57,11 @@ namespace NoteBook.UNA.Formularios
         private void buttonEditarNota_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonVolver_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -43,7 +43,7 @@ namespace NoteBook
             set;
         }
 
-        public string Orden
+        public int Orden
         {
             get;
             set;

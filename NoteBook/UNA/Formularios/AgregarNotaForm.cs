@@ -15,7 +15,7 @@ namespace NoteBook.UNA.Formularios
     public partial class AgregarNotaForm : Form
     {
         private Nota nota = new Nota();
-        public string CuadernoActual
+        public Cuaderno CuadernoActual
         {
             get;
             set;
@@ -23,7 +23,7 @@ namespace NoteBook.UNA.Formularios
         public AgregarNotaForm()
         {
             InitializeComponent();
-            textBoxColorLetra.Text = richTextBoxNota.ForeColor.ToString();
+            pictureBoxColorLetra.BackColor = richTextBoxNota.ForeColor;
             textBoxFuente.Text = richTextBoxNota.Font.ToString();
             nota.ColorLetra = richTextBoxNota.ForeColor.ToString();
             nota.Fuente = richTextBoxNota.Font.ToString();
@@ -38,9 +38,11 @@ namespace NoteBook.UNA.Formularios
             if (MyDialog.ShowDialog() == DialogResult.OK)
             {
                 nota.Color = MyDialog.Color.ToString();
-                textBoxColor.Text = MyDialog.Color.ToString();
+                pictureBoxColor.BackColor = MyDialog.Color;
             }
+            pictureBoxColor.BackColor = MyDialog.Color;
             buttonFuente.Focus();
+
         }
 
         private void buttonFuente_Click(object sender, EventArgs e)
@@ -56,17 +58,17 @@ namespace NoteBook.UNA.Formularios
                 richTextBoxNota.Font = fontDialog1.Font;
                 richTextBoxNota.ForeColor = fontDialog1.Color;
                 textBoxFuente.Text = fontDialog1.Font.ToString();
-                textBoxColorLetra.Text = fontDialog1.Color.ToString();
+                pictureBoxColorLetra.BackColor = fontDialog1.Color;
 
                 nota.Fuente = fontDialog1.Font.ToString();
                 nota.ColorLetra = fontDialog1.Color.ToString();
-                
             }
             richTextBoxNota.Focus();
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
+            errorProvider.Clear();
             if (Validar() == true)
             {
                 AgregarNota();
@@ -91,7 +93,7 @@ namespace NoteBook.UNA.Formularios
                 errorProvider.SetError(textBoxCategoria, "Debe ingresar una categoría");
                 result = false;
             }
-            if(textBoxColor.TextLength == 0)
+            if (pictureBoxColor.BackColor == BackColor)
             {
                 errorProvider.SetError(buttonColor, "Debe seleccionar un color");
                 result = false;
@@ -131,16 +133,14 @@ namespace NoteBook.UNA.Formularios
             textBoxTitulo.Clear();
             comboBoxPrivacidad.SelectedItem = null;
             textBoxCategoria.Clear();
-            textBoxColor.Clear();
-            textBoxFuente.Clear();
-            textBoxColorLetra.Clear();
+            pictureBoxColor.BackColor = BackColor;
             richTextBoxNota.Clear();
             errorProvider.Clear();
-
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
+            Limpiar();
             Close();
         }
 
@@ -149,7 +149,7 @@ namespace NoteBook.UNA.Formularios
             foreach (Cuaderno c in Datos.cuadernos)
             {
 
-                if (c.Nombre.Equals(CuadernoActual))
+                if (c.Nombre.Equals(CuadernoActual.Nombre))
                 {
                     c.notas.Add(nota);
                 }
@@ -159,21 +159,36 @@ namespace NoteBook.UNA.Formularios
 
         public void AgregarNota()
         {
+            int orden = 0;
             nota.Titulo = textBoxTitulo.Text;
             nota.Privacidad = comboBoxPrivacidad.SelectedItem.ToString();
             nota.Categoria = textBoxCategoria.Text;
             nota.FechaCreacion = DateTime.Now.ToString();
             nota.FechaModificacion = "Esta nota no ha sido modificada";
             nota.Texto = richTextBoxNota.Text;
+            foreach (Nota n in CuadernoActual.notas)
+            {
+                orden++;
+            }
+            nota.Orden = orden + 1;
 
             AgregarNotaEnCuadernoActual(nota);
             Datos.SaveToFile();
 
-            Accion accion = new Accion(LogIn.usuario.nombreUsuario, "Ha agregado una nota", nota.Titulo, "En el cuaderno: " + CuadernoActual);
+            Accion accion = new Accion(LogIn.usuario.nombreUsuario, "Ha agregado una nota", nota.Titulo, "En el cuaderno: " + CuadernoActual.Nombre);
             RegistroAcciones.acciones.Add(accion);
             RegistroAcciones.SaveToFile();
+            
             MessageBox.Show("Se ha agregado la nota correctamente", "Nota agregada", MessageBoxButtons.OK);
+            
             Limpiar();
+            textBoxTitulo.Focus();
         }
     }
+
+
+
+    
+
+
 }

@@ -31,12 +31,13 @@
             this.buttonAgregarNota = new System.Windows.Forms.Button();
             this.buttonEditarNota = new System.Windows.Forms.Button();
             this.dataGridViewNotas = new System.Windows.Forms.DataGridView();
+            this.buttonVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotas)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAgregarNota
             // 
-            this.buttonAgregarNota.Location = new System.Drawing.Point(143, 320);
+            this.buttonAgregarNota.Location = new System.Drawing.Point(722, 347);
             this.buttonAgregarNota.Name = "buttonAgregarNota";
             this.buttonAgregarNota.Size = new System.Drawing.Size(132, 46);
             this.buttonAgregarNota.TabIndex = 0;
@@ -46,7 +47,7 @@
             // 
             // buttonEditarNota
             // 
-            this.buttonEditarNota.Location = new System.Drawing.Point(514, 320);
+            this.buttonEditarNota.Location = new System.Drawing.Point(722, 279);
             this.buttonEditarNota.Name = "buttonEditarNota";
             this.buttonEditarNota.Size = new System.Drawing.Size(132, 46);
             this.buttonEditarNota.TabIndex = 1;
@@ -62,15 +63,26 @@
             this.dataGridViewNotas.Name = "dataGridViewNotas";
             this.dataGridViewNotas.RowHeadersWidth = 51;
             this.dataGridViewNotas.RowTemplate.Height = 24;
-            this.dataGridViewNotas.Size = new System.Drawing.Size(777, 203);
+            this.dataGridViewNotas.Size = new System.Drawing.Size(1013, 203);
             this.dataGridViewNotas.TabIndex = 2;
             this.dataGridViewNotas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNotas_CellContentClick);
+            // 
+            // buttonVolver
+            // 
+            this.buttonVolver.Location = new System.Drawing.Point(121, 364);
+            this.buttonVolver.Name = "buttonVolver";
+            this.buttonVolver.Size = new System.Drawing.Size(127, 29);
+            this.buttonVolver.TabIndex = 3;
+            this.buttonVolver.Text = "Volver";
+            this.buttonVolver.UseVisualStyleBackColor = true;
+            this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
             // 
             // NotasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 454);
+            this.ClientSize = new System.Drawing.Size(1037, 454);
+            this.Controls.Add(this.buttonVolver);
             this.Controls.Add(this.dataGridViewNotas);
             this.Controls.Add(this.buttonEditarNota);
             this.Controls.Add(this.buttonAgregarNota);
@@ -86,5 +98,6 @@
         private System.Windows.Forms.Button buttonAgregarNota;
         private System.Windows.Forms.Button buttonEditarNota;
         private System.Windows.Forms.DataGridView dataGridViewNotas;
+        private System.Windows.Forms.Button buttonVolver;
     }
 }

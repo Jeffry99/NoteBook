@@ -38,16 +38,18 @@
             this.textBoxCategoria = new System.Windows.Forms.TextBox();
             this.comboBoxPrivacidad = new System.Windows.Forms.ComboBox();
             this.buttonColor = new System.Windows.Forms.Button();
-            this.textBoxColor = new System.Windows.Forms.TextBox();
             this.buttonFuente = new System.Windows.Forms.Button();
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.richTextBoxNota = new System.Windows.Forms.RichTextBox();
             this.textBoxFuente = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textBoxColorLetra = new System.Windows.Forms.TextBox();
             this.labelColorLetra = new System.Windows.Forms.Label();
+            this.pictureBoxColor = new System.Windows.Forms.PictureBox();
+            this.pictureBoxColorLetra = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColorLetra)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTitulo
@@ -100,7 +102,7 @@
             this.textBoxTitulo.Location = new System.Drawing.Point(195, 49);
             this.textBoxTitulo.Name = "textBoxTitulo";
             this.textBoxTitulo.Size = new System.Drawing.Size(370, 22);
-            this.textBoxTitulo.TabIndex = 6;
+            this.textBoxTitulo.TabIndex = 1;
             this.textBoxTitulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTitulo_KeyPress);
             // 
             // textBoxCategoria
@@ -108,7 +110,7 @@
             this.textBoxCategoria.Location = new System.Drawing.Point(195, 127);
             this.textBoxCategoria.Name = "textBoxCategoria";
             this.textBoxCategoria.Size = new System.Drawing.Size(370, 22);
-            this.textBoxCategoria.TabIndex = 7;
+            this.textBoxCategoria.TabIndex = 3;
             this.textBoxCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCategoria_KeyPress);
             // 
             // comboBoxPrivacidad
@@ -121,33 +123,25 @@
             this.comboBoxPrivacidad.Location = new System.Drawing.Point(195, 88);
             this.comboBoxPrivacidad.Name = "comboBoxPrivacidad";
             this.comboBoxPrivacidad.Size = new System.Drawing.Size(370, 24);
-            this.comboBoxPrivacidad.TabIndex = 8;
+            this.comboBoxPrivacidad.TabIndex = 2;
             this.comboBoxPrivacidad.SelectedIndexChanged += new System.EventHandler(this.comboBoxPrivacidad_SelectedIndexChanged);
             // 
             // buttonColor
             // 
-            this.buttonColor.Location = new System.Drawing.Point(424, 160);
+            this.buttonColor.Location = new System.Drawing.Point(364, 160);
             this.buttonColor.Name = "buttonColor";
-            this.buttonColor.Size = new System.Drawing.Size(141, 32);
-            this.buttonColor.TabIndex = 12;
+            this.buttonColor.Size = new System.Drawing.Size(201, 32);
+            this.buttonColor.TabIndex = 4;
             this.buttonColor.Text = "Seleccionar Color";
             this.buttonColor.UseVisualStyleBackColor = true;
             this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
-            // 
-            // textBoxColor
-            // 
-            this.textBoxColor.Enabled = false;
-            this.textBoxColor.Location = new System.Drawing.Point(195, 165);
-            this.textBoxColor.Name = "textBoxColor";
-            this.textBoxColor.Size = new System.Drawing.Size(223, 22);
-            this.textBoxColor.TabIndex = 13;
             // 
             // buttonFuente
             // 
             this.buttonFuente.Location = new System.Drawing.Point(364, 203);
             this.buttonFuente.Name = "buttonFuente";
             this.buttonFuente.Size = new System.Drawing.Size(201, 56);
-            this.buttonFuente.TabIndex = 14;
+            this.buttonFuente.TabIndex = 5;
             this.buttonFuente.Text = "Seleccionar Fuente y Color";
             this.buttonFuente.UseVisualStyleBackColor = true;
             this.buttonFuente.Click += new System.EventHandler(this.buttonFuente_Click);
@@ -157,7 +151,7 @@
             this.buttonAgregar.Location = new System.Drawing.Point(589, 585);
             this.buttonAgregar.Name = "buttonAgregar";
             this.buttonAgregar.Size = new System.Drawing.Size(130, 37);
-            this.buttonAgregar.TabIndex = 16;
+            this.buttonAgregar.TabIndex = 6;
             this.buttonAgregar.Text = "Agregar";
             this.buttonAgregar.UseVisualStyleBackColor = true;
             this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
@@ -167,7 +161,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(435, 585);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(130, 37);
-            this.buttonCancelar.TabIndex = 17;
+            this.buttonCancelar.TabIndex = 7;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
@@ -177,7 +171,7 @@
             this.richTextBoxNota.Location = new System.Drawing.Point(83, 288);
             this.richTextBoxNota.Name = "richTextBoxNota";
             this.richTextBoxNota.Size = new System.Drawing.Size(636, 291);
-            this.richTextBoxNota.TabIndex = 18;
+            this.richTextBoxNota.TabIndex = 5;
             this.richTextBoxNota.Text = "";
             // 
             // textBoxFuente
@@ -192,14 +186,6 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // textBoxColorLetra
-            // 
-            this.textBoxColorLetra.Enabled = false;
-            this.textBoxColorLetra.Location = new System.Drawing.Point(195, 237);
-            this.textBoxColorLetra.Name = "textBoxColorLetra";
-            this.textBoxColorLetra.Size = new System.Drawing.Size(163, 22);
-            this.textBoxColorLetra.TabIndex = 20;
-            // 
             // labelColorLetra
             // 
             this.labelColorLetra.AutoSize = true;
@@ -209,19 +195,35 @@
             this.labelColorLetra.TabIndex = 21;
             this.labelColorLetra.Text = "Color de Letra:";
             // 
+            // pictureBoxColor
+            // 
+            this.pictureBoxColor.Location = new System.Drawing.Point(195, 168);
+            this.pictureBoxColor.Name = "pictureBoxColor";
+            this.pictureBoxColor.Size = new System.Drawing.Size(163, 24);
+            this.pictureBoxColor.TabIndex = 22;
+            this.pictureBoxColor.TabStop = false;
+            // 
+            // pictureBoxColorLetra
+            // 
+            this.pictureBoxColorLetra.Location = new System.Drawing.Point(195, 231);
+            this.pictureBoxColorLetra.Name = "pictureBoxColorLetra";
+            this.pictureBoxColorLetra.Size = new System.Drawing.Size(163, 26);
+            this.pictureBoxColorLetra.TabIndex = 23;
+            this.pictureBoxColorLetra.TabStop = false;
+            // 
             // AgregarNotaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 639);
+            this.Controls.Add(this.pictureBoxColorLetra);
+            this.Controls.Add(this.pictureBoxColor);
             this.Controls.Add(this.labelColorLetra);
-            this.Controls.Add(this.textBoxColorLetra);
             this.Controls.Add(this.textBoxFuente);
             this.Controls.Add(this.richTextBoxNota);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.buttonFuente);
-            this.Controls.Add(this.textBoxColor);
             this.Controls.Add(this.buttonColor);
             this.Controls.Add(this.comboBoxPrivacidad);
             this.Controls.Add(this.textBoxCategoria);
@@ -234,6 +236,8 @@
             this.Name = "AgregarNotaForm";
             this.Text = "AgregarNotaForm";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColorLetra)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,7 +254,6 @@
         private System.Windows.Forms.TextBox textBoxCategoria;
         private System.Windows.Forms.ComboBox comboBoxPrivacidad;
         private System.Windows.Forms.Button buttonColor;
-        private System.Windows.Forms.TextBox textBoxColor;
         private System.Windows.Forms.Button buttonFuente;
         private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.Button buttonCancelar;
@@ -258,6 +261,7 @@
         private System.Windows.Forms.TextBox textBoxFuente;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label labelColorLetra;
-        private System.Windows.Forms.TextBox textBoxColorLetra;
+        private System.Windows.Forms.PictureBox pictureBoxColor;
+        private System.Windows.Forms.PictureBox pictureBoxColorLetra;
     }
 }

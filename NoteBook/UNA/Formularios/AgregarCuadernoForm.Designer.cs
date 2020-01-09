@@ -34,15 +34,17 @@
             this.labelColor = new System.Windows.Forms.Label();
             this.textBoxCategoria = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.comboBoxColor = new System.Windows.Forms.ComboBox();
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.errorProviderNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderCategoria = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderColor = new System.Windows.Forms.ErrorProvider(this.components);
+            this.buttonColor = new System.Windows.Forms.Button();
+            this.pictureBoxColor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCategoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNombre
@@ -87,25 +89,6 @@
             this.textBoxNombre.Size = new System.Drawing.Size(357, 22);
             this.textBoxNombre.TabIndex = 0;
             // 
-            // comboBoxColor
-            // 
-            this.comboBoxColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxColor.FormattingEnabled = true;
-            this.comboBoxColor.Items.AddRange(new object[] {
-            "Amarillo",
-            "Azul",
-            "Blanco",
-            "Gris",
-            "Negro",
-            "Rojo",
-            "Verde"});
-            this.comboBoxColor.Location = new System.Drawing.Point(188, 195);
-            this.comboBoxColor.Name = "comboBoxColor";
-            this.comboBoxColor.Size = new System.Drawing.Size(357, 24);
-            this.comboBoxColor.TabIndex = 2;
-            this.comboBoxColor.SelectedIndexChanged += new System.EventHandler(this.comboBoxColor_SelectedIndexChanged);
-            this.comboBoxColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxColor_KeyPress);
-            // 
             // buttonAgregar
             // 
             this.buttonAgregar.Location = new System.Drawing.Point(521, 266);
@@ -138,14 +121,33 @@
             // 
             this.errorProviderColor.ContainerControl = this;
             // 
+            // buttonColor
+            // 
+            this.buttonColor.Location = new System.Drawing.Point(332, 183);
+            this.buttonColor.Name = "buttonColor";
+            this.buttonColor.Size = new System.Drawing.Size(213, 29);
+            this.buttonColor.TabIndex = 10;
+            this.buttonColor.Text = "Seleccionar Color";
+            this.buttonColor.UseVisualStyleBackColor = true;
+            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
+            // 
+            // pictureBoxColor
+            // 
+            this.pictureBoxColor.Location = new System.Drawing.Point(188, 189);
+            this.pictureBoxColor.Name = "pictureBoxColor";
+            this.pictureBoxColor.Size = new System.Drawing.Size(138, 22);
+            this.pictureBoxColor.TabIndex = 11;
+            this.pictureBoxColor.TabStop = false;
+            // 
             // AgregarCuadernoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 353);
+            this.Controls.Add(this.pictureBoxColor);
+            this.Controls.Add(this.buttonColor);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAgregar);
-            this.Controls.Add(this.comboBoxColor);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.textBoxCategoria);
             this.Controls.Add(this.labelColor);
@@ -156,6 +158,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCategoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,11 +171,12 @@
         private System.Windows.Forms.Label labelColor;
         private System.Windows.Forms.TextBox textBoxCategoria;
         private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.ComboBox comboBoxColor;
         private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.ErrorProvider errorProviderNombre;
         private System.Windows.Forms.ErrorProvider errorProviderCategoria;
         private System.Windows.Forms.ErrorProvider errorProviderColor;
+        private System.Windows.Forms.Button buttonColor;
+        private System.Windows.Forms.PictureBox pictureBoxColor;
     }
 }

@@ -45,7 +45,7 @@ namespace NoteBook.UNA.Formularios
             {
                 Nombre = textBoxNombre.Text,
                 Categoria = textBoxCategoria.Text,
-                Color = comboBoxColor.Text,
+                Color = pictureBoxColor.BackColor.ToString(),
                 Orden = ultimoIndice + 1
             };
             Datos.cuadernos.Add(cuaderno);
@@ -79,15 +79,24 @@ namespace NoteBook.UNA.Formularios
             {
                 errorProviderCategoria.Clear();
             }
-            if (comboBoxColor.Text.Equals(""))
+            if (pictureBoxColor.BackColor == BackColor)
             {
-                errorProviderColor.SetError(comboBoxColor, "Debe seleccionar un color");
+                errorProviderColor.SetError(buttonColor, "Debe seleccionar un color");
                 resultado = false;
             }
             else
             {
                 errorProviderColor.Clear();
             }
+            foreach (Cuaderno c in Datos.cuadernos)
+            {
+                if (textBoxNombre.Text == c.Nombre)
+                {
+                    resultado = false;
+                    errorProviderNombre.SetError(textBoxNombre, "Ya hay un cuaderno con este nombre");
+                }
+            }
+            
             return resultado;            
         }
 
@@ -100,7 +109,7 @@ namespace NoteBook.UNA.Formularios
         {
             textBoxNombre.Clear();
             textBoxCategoria.Clear();
-            comboBoxColor.SelectedItem = null;
+            pictureBoxColor.BackColor = BackColor;
             errorProviderCategoria.Clear();
             errorProviderColor.Clear();
             errorProviderNombre.Clear();
@@ -114,6 +123,19 @@ namespace NoteBook.UNA.Formularios
         private void comboBoxColor_KeyPress(object sender, KeyPressEventArgs e)
         {
             //e.KeyChar = " ";
+        }
+
+        private void buttonColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog MyDialog = new ColorDialog();
+            MyDialog.AllowFullOpen = false;
+            MyDialog.ShowHelp = true;
+
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxColor.BackColor = MyDialog.Color;
+            }
+            buttonAgregar.Focus();
         }
     }
 }

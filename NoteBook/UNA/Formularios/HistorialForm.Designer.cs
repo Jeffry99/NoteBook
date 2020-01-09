@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridViewHistorial = new System.Windows.Forms.DataGridView();
+            this.buttonVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,15 +41,26 @@
             this.dataGridViewHistorial.Name = "dataGridViewHistorial";
             this.dataGridViewHistorial.RowHeadersWidth = 51;
             this.dataGridViewHistorial.RowTemplate.Height = 24;
-            this.dataGridViewHistorial.Size = new System.Drawing.Size(776, 315);
+            this.dataGridViewHistorial.Size = new System.Drawing.Size(1018, 315);
             this.dataGridViewHistorial.TabIndex = 0;
             this.dataGridViewHistorial.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewHistorial_CellContentClick);
+            // 
+            // buttonVolver
+            // 
+            this.buttonVolver.Location = new System.Drawing.Point(936, 397);
+            this.buttonVolver.Name = "buttonVolver";
+            this.buttonVolver.Size = new System.Drawing.Size(94, 30);
+            this.buttonVolver.TabIndex = 1;
+            this.buttonVolver.Text = "Volver";
+            this.buttonVolver.UseVisualStyleBackColor = true;
+            this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
             // 
             // HistorialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1042, 451);
+            this.Controls.Add(this.buttonVolver);
             this.Controls.Add(this.dataGridViewHistorial);
             this.Name = "HistorialForm";
             this.Text = "Historial de Cambios";
@@ -61,5 +73,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewHistorial;
+        private System.Windows.Forms.Button buttonVolver;
     }
 }

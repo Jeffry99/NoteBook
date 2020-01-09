@@ -27,5 +27,10 @@ namespace NoteBook.UNA.Formularios
         {
             dataGridViewHistorial.DataSource = RegistroAcciones.acciones;
         }
+
+        private void buttonVolver_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
