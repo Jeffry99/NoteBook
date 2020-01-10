@@ -17,7 +17,7 @@ namespace NoteBook.UNA.Formularios
     {
 
         public static List<Cuaderno> cuadernos;
-        private AgregarNotaForm agregarNota = new AgregarNotaForm();
+        
         public NotasForm()
         {
             InitializeComponent();
@@ -26,6 +26,7 @@ namespace NoteBook.UNA.Formularios
         private void buttonAgregarNota_Click(object sender, EventArgs e)
         {
             Hide();
+            AgregarNotaForm agregarNota = new AgregarNotaForm();
             agregarNota.CuadernoActual = EncontrarCuadernoActual();
             agregarNota.Text = "Agregar Nota en: " + agregarNota.CuadernoActual.Nombre;
             agregarNota.ShowDialog();
@@ -129,11 +130,8 @@ namespace NoteBook.UNA.Formularios
 
         private void buttonRefrescar_Click(object sender, EventArgs e)
         {
+            dataGridViewNotas.DataSource = null; 
             dataGridViewNotas.DataSource = EncontrarCuadernoActual().notas;
-            foreach(Nota n in EncontrarCuadernoActual().notas)
-            {
-                Console.WriteLine(n.Titulo);
-            }
         }
     }
 }

@@ -40,8 +40,8 @@ namespace NoteBook.UNA.Formularios
         private void buttonAgregarCuaderno_Click(object sender, EventArgs e)
         {
             Hide();
-            AgregarCuadernoForm AgregarCuaderno = new AgregarCuadernoForm();
-            AgregarCuaderno.ShowDialog();
+            AgregarCuadernoForm agregarCuaderno = new AgregarCuadernoForm();
+            agregarCuaderno.ShowDialog();
 
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
             Show();
