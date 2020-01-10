@@ -44,7 +44,6 @@ namespace NoteBook.UNA.Formularios
             AgregarCuaderno.ShowDialog();
 
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
-            Console.WriteLine("jdjdjdjd");
             Show();
             
         }
@@ -140,6 +139,11 @@ namespace NoteBook.UNA.Formularios
                 }
             }
             dataGridViewCuadernos.DataSource = cuadernoFiltrado;
+        }
+
+        private void pictureBoxColor_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

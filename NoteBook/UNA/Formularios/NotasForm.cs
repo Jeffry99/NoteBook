@@ -42,7 +42,6 @@ namespace NoteBook.UNA.Formularios
         private void NotasForm_Load(object sender, EventArgs e)
         {
             dataGridViewNotas.DataSource = EncontrarCuadernoActual().notas;
-            dataGridViewNotas.Refresh();
         }
 
         public Cuaderno EncontrarCuadernoActual()
@@ -112,6 +111,29 @@ namespace NoteBook.UNA.Formularios
                 
             //}
             //dataGridViewNotas.DataSource = buscarNotasPrivacidad;
+        }
+
+        private void dataGridViewNotas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            VerNotaForm notaForm = new VerNotaForm();
+            Nota nota = new Nota();
+            foreach (DataGridViewRow c in dataGridViewNotas.SelectedRows)
+            {
+                nota = (Nota)c.DataBoundItem;
+            }
+            notaForm.Nota = nota;
+            Hide();
+            notaForm.ShowDialog();
+            Show();
+        }
+
+        private void buttonRefrescar_Click(object sender, EventArgs e)
+        {
+            dataGridViewNotas.DataSource = EncontrarCuadernoActual().notas;
+            foreach(Nota n in EncontrarCuadernoActual().notas)
+            {
+                Console.WriteLine(n.Titulo);
+            }
         }
     }
 }

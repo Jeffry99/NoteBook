@@ -96,7 +96,7 @@
             // 
             // buttonAgregarCuaderno
             // 
-            this.buttonAgregarCuaderno.Location = new System.Drawing.Point(20, 597);
+            this.buttonAgregarCuaderno.Location = new System.Drawing.Point(119, 576);
             this.buttonAgregarCuaderno.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.buttonAgregarCuaderno.Name = "buttonAgregarCuaderno";
             this.buttonAgregarCuaderno.Size = new System.Drawing.Size(185, 47);
@@ -119,7 +119,7 @@
             this.dataGridViewCuadernos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewCuadernos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCuadernos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewCuadernos.Location = new System.Drawing.Point(119, 111);
+            this.dataGridViewCuadernos.Location = new System.Drawing.Point(119, 119);
             this.dataGridViewCuadernos.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridViewCuadernos.Name = "dataGridViewCuadernos";
             this.dataGridViewCuadernos.RowHeadersWidth = 51;
@@ -133,7 +133,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(695, 87);
+            this.label1.Location = new System.Drawing.Point(718, 87);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 17);
@@ -142,7 +142,7 @@
             // 
             // buttonRefrescar
             // 
-            this.buttonRefrescar.Location = new System.Drawing.Point(1295, 60);
+            this.buttonRefrescar.Location = new System.Drawing.Point(1327, 68);
             this.buttonRefrescar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.buttonRefrescar.Name = "buttonRefrescar";
             this.buttonRefrescar.Size = new System.Drawing.Size(100, 36);
@@ -154,7 +154,7 @@
             // labelNombreCuadernoBusqueda
             // 
             this.labelNombreCuadernoBusqueda.AutoSize = true;
-            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(512, 459);
+            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(581, 471);
             this.labelNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelNombreCuadernoBusqueda.Name = "labelNombreCuadernoBusqueda";
             this.labelNombreCuadernoBusqueda.Size = new System.Drawing.Size(149, 17);
@@ -164,7 +164,7 @@
             // labelColorBusqueda
             // 
             this.labelColorBusqueda.AutoSize = true;
-            this.labelColorBusqueda.Location = new System.Drawing.Point(908, 462);
+            this.labelColorBusqueda.Location = new System.Drawing.Point(925, 469);
             this.labelColorBusqueda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelColorBusqueda.Name = "labelColorBusqueda";
             this.labelColorBusqueda.Size = new System.Drawing.Size(45, 17);
@@ -173,7 +173,7 @@
             // 
             // textBoxNombreCuadernoBusqueda
             // 
-            this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(721, 458);
+            this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(740, 466);
             this.textBoxNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxNombreCuadernoBusqueda.Name = "textBoxNombreCuadernoBusqueda";
             this.textBoxNombreCuadernoBusqueda.Size = new System.Drawing.Size(175, 22);
@@ -182,7 +182,7 @@
             // 
             // buttonBusqueda
             // 
-            this.buttonBusqueda.Location = new System.Drawing.Point(1295, 454);
+            this.buttonBusqueda.Location = new System.Drawing.Point(1294, 454);
             this.buttonBusqueda.Margin = new System.Windows.Forms.Padding(5);
             this.buttonBusqueda.Name = "buttonBusqueda";
             this.buttonBusqueda.Size = new System.Drawing.Size(133, 34);
@@ -204,12 +204,14 @@
             // 
             // pictureBoxColor
             // 
-            this.pictureBoxColor.Location = new System.Drawing.Point(979, 459);
+            this.pictureBoxColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxColor.Location = new System.Drawing.Point(979, 458);
             this.pictureBoxColor.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxColor.Name = "pictureBoxColor";
             this.pictureBoxColor.Size = new System.Drawing.Size(89, 30);
             this.pictureBoxColor.TabIndex = 14;
             this.pictureBoxColor.TabStop = false;
+            this.pictureBoxColor.Click += new System.EventHandler(this.pictureBoxColor_Click);
             // 
             // MenuPrincipalForm
             // 
