@@ -133,6 +133,7 @@
             // 
             // pictureBoxColor
             // 
+            this.pictureBoxColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxColor.Location = new System.Drawing.Point(188, 189);
             this.pictureBoxColor.Name = "pictureBoxColor";
             this.pictureBoxColor.Size = new System.Drawing.Size(138, 22);
