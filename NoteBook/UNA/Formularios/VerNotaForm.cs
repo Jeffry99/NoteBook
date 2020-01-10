@@ -33,5 +33,10 @@ namespace NoteBook.UNA.Formularios
             this.Text = Nota.Titulo;
             richTextBoxNota.Text = Nota.Texto;
         }
+
+        private void buttonListo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
