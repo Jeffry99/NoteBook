@@ -55,10 +55,10 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusStripUsuario});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 556);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 689);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1153, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 17, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1537, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -74,8 +74,8 @@
             this.menuToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1153, 28);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(1537, 28);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -96,8 +96,8 @@
             // 
             // buttonAgregarCuaderno
             // 
-            this.buttonAgregarCuaderno.Location = new System.Drawing.Point(15, 485);
-            this.buttonAgregarCuaderno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAgregarCuaderno.Location = new System.Drawing.Point(20, 597);
+            this.buttonAgregarCuaderno.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.buttonAgregarCuaderno.Name = "buttonAgregarCuaderno";
             this.buttonAgregarCuaderno.Size = new System.Drawing.Size(185, 47);
             this.buttonAgregarCuaderno.TabIndex = 2;
@@ -119,13 +119,13 @@
             this.dataGridViewCuadernos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewCuadernos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCuadernos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewCuadernos.Location = new System.Drawing.Point(89, 90);
-            this.dataGridViewCuadernos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewCuadernos.Location = new System.Drawing.Point(119, 111);
+            this.dataGridViewCuadernos.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridViewCuadernos.Name = "dataGridViewCuadernos";
             this.dataGridViewCuadernos.RowHeadersWidth = 51;
             this.dataGridViewCuadernos.RowTemplate.Height = 24;
             this.dataGridViewCuadernos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCuadernos.Size = new System.Drawing.Size(981, 258);
+            this.dataGridViewCuadernos.Size = new System.Drawing.Size(1308, 318);
             this.dataGridViewCuadernos.TabIndex = 3;
             this.dataGridViewCuadernos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCuadernos_CellContentClick);
             this.dataGridViewCuadernos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCuadernos_CellContentDoubleClick);
@@ -133,7 +133,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(521, 71);
+            this.label1.Location = new System.Drawing.Point(695, 87);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 17);
             this.label1.TabIndex = 4;
@@ -141,8 +142,8 @@
             // 
             // buttonRefrescar
             // 
-            this.buttonRefrescar.Location = new System.Drawing.Point(971, 49);
-            this.buttonRefrescar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonRefrescar.Location = new System.Drawing.Point(1295, 60);
+            this.buttonRefrescar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.buttonRefrescar.Name = "buttonRefrescar";
             this.buttonRefrescar.Size = new System.Drawing.Size(100, 36);
             this.buttonRefrescar.TabIndex = 5;
@@ -153,8 +154,8 @@
             // labelNombreCuadernoBusqueda
             // 
             this.labelNombreCuadernoBusqueda.AutoSize = true;
-            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(384, 373);
-            this.labelNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(512, 459);
+            this.labelNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelNombreCuadernoBusqueda.Name = "labelNombreCuadernoBusqueda";
             this.labelNombreCuadernoBusqueda.Size = new System.Drawing.Size(149, 17);
             this.labelNombreCuadernoBusqueda.TabIndex = 6;
@@ -163,8 +164,8 @@
             // labelColorBusqueda
             // 
             this.labelColorBusqueda.AutoSize = true;
-            this.labelColorBusqueda.Location = new System.Drawing.Point(681, 375);
-            this.labelColorBusqueda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelColorBusqueda.Location = new System.Drawing.Point(908, 462);
+            this.labelColorBusqueda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelColorBusqueda.Name = "labelColorBusqueda";
             this.labelColorBusqueda.Size = new System.Drawing.Size(45, 17);
             this.labelColorBusqueda.TabIndex = 8;
@@ -172,19 +173,19 @@
             // 
             // textBoxNombreCuadernoBusqueda
             // 
-            this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(541, 372);
-            this.textBoxNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(721, 458);
+            this.textBoxNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxNombreCuadernoBusqueda.Name = "textBoxNombreCuadernoBusqueda";
-            this.textBoxNombreCuadernoBusqueda.Size = new System.Drawing.Size(132, 22);
+            this.textBoxNombreCuadernoBusqueda.Size = new System.Drawing.Size(175, 22);
             this.textBoxNombreCuadernoBusqueda.TabIndex = 9;
             this.textBoxNombreCuadernoBusqueda.TextChanged += new System.EventHandler(this.textBoxNombreCuadernoBusqueda_TextChanged);
             // 
             // buttonBusqueda
             // 
-            this.buttonBusqueda.Location = new System.Drawing.Point(971, 369);
-            this.buttonBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBusqueda.Location = new System.Drawing.Point(1295, 454);
+            this.buttonBusqueda.Margin = new System.Windows.Forms.Padding(5);
             this.buttonBusqueda.Name = "buttonBusqueda";
-            this.buttonBusqueda.Size = new System.Drawing.Size(100, 28);
+            this.buttonBusqueda.Size = new System.Drawing.Size(133, 34);
             this.buttonBusqueda.TabIndex = 12;
             this.buttonBusqueda.Text = "Buscar";
             this.buttonBusqueda.UseVisualStyleBackColor = true;
@@ -192,9 +193,10 @@
             // 
             // buttonColor
             // 
-            this.buttonColor.Location = new System.Drawing.Point(807, 369);
+            this.buttonColor.Location = new System.Drawing.Point(1076, 454);
+            this.buttonColor.Margin = new System.Windows.Forms.Padding(4);
             this.buttonColor.Name = "buttonColor";
-            this.buttonColor.Size = new System.Drawing.Size(142, 28);
+            this.buttonColor.Size = new System.Drawing.Size(189, 34);
             this.buttonColor.TabIndex = 13;
             this.buttonColor.Text = "Seleccionar Color";
             this.buttonColor.UseVisualStyleBackColor = true;
@@ -202,9 +204,10 @@
             // 
             // pictureBoxColor
             // 
-            this.pictureBoxColor.Location = new System.Drawing.Point(734, 373);
+            this.pictureBoxColor.Location = new System.Drawing.Point(979, 459);
+            this.pictureBoxColor.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxColor.Name = "pictureBoxColor";
-            this.pictureBoxColor.Size = new System.Drawing.Size(67, 24);
+            this.pictureBoxColor.Size = new System.Drawing.Size(89, 30);
             this.pictureBoxColor.TabIndex = 14;
             this.pictureBoxColor.TabStop = false;
             // 
@@ -212,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 578);
+            this.ClientSize = new System.Drawing.Size(1537, 711);
             this.Controls.Add(this.pictureBoxColor);
             this.Controls.Add(this.buttonColor);
             this.Controls.Add(this.buttonBusqueda);
@@ -227,7 +230,7 @@
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "MenuPrincipalForm";
             this.Text = "Menu Principal";
             this.Load += new System.EventHandler(this.MenuPrincipalForm_Load);
@@ -259,5 +262,6 @@
         private System.Windows.Forms.Button buttonBusqueda;
         private System.Windows.Forms.Button buttonColor;
         private System.Windows.Forms.PictureBox pictureBoxColor;
+        private System.Windows.Forms.ComboBox comboBoxColorBusqueda;
     }
 }

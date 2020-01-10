@@ -69,8 +69,6 @@ namespace NoteBook.UNA.Formularios
             notas.Text = cuaderno.Nombre;
             notas.ShowDialog();
 
-            dataGridViewCuadernos.DataSource = Datos.cuadernos;
-            //dataGridViewCuadernos.Refresh();
 
             Show();
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
@@ -78,10 +76,12 @@ namespace NoteBook.UNA.Formularios
         private void buttonRefrescar_Click(object sender, EventArgs e)
         {
             
-            dataGridViewCuadernos.DataSource = Datos.cuadernos;
-            dataGridViewCuadernos.Refresh();
+            
             textBoxNombreCuadernoBusqueda.Clear();
             pictureBoxColor.BackColor = BackColor;
+            textBoxNombreCuadernoBusqueda.Text = " ";
+            pictureBoxColor.BackColor = BackColor;
+            dataGridViewCuadernos.DataSource = Datos.cuadernos;
         }
 
 
@@ -104,25 +104,9 @@ namespace NoteBook.UNA.Formularios
                 {
                     cuadernoNombre.Add(c);
                 }
-
             }
-            
             dataGridViewCuadernos.DataSource = cuadernoNombre;
         }
-
-        private void buttonBusqueda_Click(object sender, EventArgs e)
-        {
-            List<Cuaderno> cuadernoFiltrado = new List<Cuaderno>();
-            foreach (Cuaderno c in Datos.cuadernos)
-            {
-                if (pictureBoxColor.BackColor.ToString() == c.Color && textBoxNombreCuadernoBusqueda.Text == c.Nombre)
-                {
-                        cuadernoFiltrado.Add(c);
-                }
-            }
-            dataGridViewCuadernos.DataSource = cuadernoFiltrado;
-        }
-
         private void buttonColor_Click(object sender, EventArgs e)
         {
             ColorDialog MyDialog = new ColorDialog();
@@ -144,6 +128,18 @@ namespace NoteBook.UNA.Formularios
                 }
             }
             dataGridViewCuadernos.DataSource = cuadernoColor;
+        }
+        private void buttonBusqueda_Click(object sender, EventArgs e)
+        {
+            List<Cuaderno> cuadernoFiltrado = new List<Cuaderno>();
+            foreach (Cuaderno c in Datos.cuadernos)
+            {
+                if (pictureBoxColor.BackColor.ToString() == c.Color && textBoxNombreCuadernoBusqueda.Text == c.Nombre)
+                {
+                    cuadernoFiltrado.Add(c);
+                }
+            }
+            dataGridViewCuadernos.DataSource = cuadernoFiltrado;
         }
     }
 }
