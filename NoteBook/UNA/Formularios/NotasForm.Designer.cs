@@ -82,7 +82,6 @@
             this.dataGridViewNotas.RowTemplate.Height = 24;
             this.dataGridViewNotas.Size = new System.Drawing.Size(911, 193);
             this.dataGridViewNotas.TabIndex = 2;
-            this.dataGridViewNotas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNotas_CellContentClick);
             this.dataGridViewNotas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNotas_CellContentDoubleClick);
             // 
             // buttonVolver
@@ -138,7 +137,7 @@
             this.textBoxNotaNotaBusqueda.Name = "textBoxNotaNotaBusqueda";
             this.textBoxNotaNotaBusqueda.Size = new System.Drawing.Size(207, 20);
             this.textBoxNotaNotaBusqueda.TabIndex = 8;
-            this.textBoxNotaNotaBusqueda.TextChanged += new System.EventHandler(this.textBoxNotaNotaBusqueda_TextChanged);
+            this.textBoxNotaNotaBusqueda.TextChanged += new System.EventHandler(this.textBoxNotaNotaBusqueda_TextChanged_1);
             // 
             // label1
             // 

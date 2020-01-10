@@ -35,10 +35,6 @@ namespace NoteBook.UNA.Formularios
 
         }
 
-        private void dataGridViewNotas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void NotasForm_Load(object sender, EventArgs e)
         {
@@ -84,8 +80,12 @@ namespace NoteBook.UNA.Formularios
 
         private void buttonRefrescar_Click(object sender, EventArgs e)
         {
+            textBoxTituloNotaBusqueda.Text = "";
+            comboBoxPrivacidadNotaBusqueda.Text = "";
+            textBoxNotaNotaBusqueda.Text = "";
             dataGridViewNotas.DataSource = null; 
             dataGridViewNotas.DataSource = EncontrarCuadernoActual().notas;
+
         }
 
         private void textBoxTituloNotaBusqueda_TextChanged(object sender, EventArgs e)
@@ -125,27 +125,28 @@ namespace NoteBook.UNA.Formularios
             dataGridViewNotas.DataSource = privacidadloNota;
         }
 
+
         private void notaBusqueda_Click(object sender, EventArgs e)
         {
-            List<Nota> busquedaNota = new List<Nota>();
+            List<Nota> nota = new List<Nota>();
             foreach (Cuaderno c in Datos.cuadernos)
             {
                 if (c.Nombre == EncontrarCuadernoActual().Nombre)
                 {
                     foreach (Nota n in c.notas)
                     {
-                        if (comboBoxPrivacidadNotaBusqueda.Text == n.Privacidad &&
-                            textBoxTituloNotaBusqueda.Text == n.Titulo)
+                        if (textBoxTituloNotaBusqueda.Text == n.Titulo &&
+                        comboBoxPrivacidadNotaBusqueda.Text == n.Privacidad)
                         {
-                            busquedaNota.Add(n);
+                            nota.Add(n);
                         }
                     }
                 }
             }
-            dataGridViewNotas.DataSource = busquedaNota;
+            dataGridViewNotas.DataSource = nota;
         }
 
-        private void textBoxNotaNotaBusqueda_TextChanged(object sender, EventArgs e)
+        private void textBoxNotaNotaBusqueda_TextChanged_1(object sender, EventArgs e)
         {
             List<Nota> nota = new List<Nota>();
             foreach (Cuaderno c in Datos.cuadernos)

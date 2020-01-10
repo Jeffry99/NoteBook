@@ -173,7 +173,7 @@
             // textBoxNombreCuadernoBusqueda
             // 
             this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(555, 379);
-            this.textBoxNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombreCuadernoBusqueda.Name = "textBoxNombreCuadernoBusqueda";
             this.textBoxNombreCuadernoBusqueda.Size = new System.Drawing.Size(132, 20);
             this.textBoxNombreCuadernoBusqueda.TabIndex = 9;
@@ -182,7 +182,7 @@
             // buttonBusqueda
             // 
             this.buttonBusqueda.Location = new System.Drawing.Point(970, 369);
-            this.buttonBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBusqueda.Name = "buttonBusqueda";
             this.buttonBusqueda.Size = new System.Drawing.Size(100, 28);
             this.buttonBusqueda.TabIndex = 12;
