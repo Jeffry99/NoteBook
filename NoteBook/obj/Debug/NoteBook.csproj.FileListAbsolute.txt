@@ -36,3 +36,4 @@ C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.exe
 C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.pdb
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.VerNotaForm.resources
 C:\Users\Luis Valverde\Documents\GitHub\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.VerNotaForm.resources
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\bin\Debug\IrisSkin2.dll

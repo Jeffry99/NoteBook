@@ -29,12 +29,17 @@ namespace NoteBook.UNA.Formularios
 
         private void VerNotaForm_Load(object sender, EventArgs e)
         {
-            Console.WriteLine(Nota.Titulo);
-            this.Text = Nota.Titulo;
-            richTextBoxNota.Text = Nota.Texto;
+           // Console.WriteLine(Nota.Titulo + "hola");
+            //this.Text = Nota.Titulo;
+            //richTextBoxNota.Text = Nota.Texto;
         }
 
         private void buttonListo_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void richTextBoxNota_TextChanged(object sender, EventArgs e)
         {
 
         }

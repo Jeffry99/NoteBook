@@ -44,6 +44,7 @@ namespace NoteBook.UNA.Formularios
             agregarCuaderno.ShowDialog();
 
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
+            
             Show();
             
         }

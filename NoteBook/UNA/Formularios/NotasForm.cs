@@ -71,8 +71,11 @@ namespace NoteBook.UNA.Formularios
             foreach (DataGridViewRow c in dataGridViewNotas.SelectedRows)
             {
                 nota = (Nota)c.DataBoundItem;
+                Console.WriteLine(nota.Titulo);
             }
-            notaForm.Nota = nota;
+            notaForm.richTextBoxNota.Text = dataGridViewNotas.CurrentCell.Value.ToString();
+            //notaForm.Nota = nota;
+            //notaForm.richTextBoxNota.Text = nota.Texto;
             Hide();
             notaForm.ShowDialog();
             Show();
@@ -163,6 +166,11 @@ namespace NoteBook.UNA.Formularios
                 }
             }
             dataGridViewNotas.DataSource = nota;
+        }
+
+        private void dataGridViewNotas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

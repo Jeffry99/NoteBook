@@ -35,19 +35,20 @@
             // 
             // richTextBoxNota
             // 
-            this.richTextBoxNota.Location = new System.Drawing.Point(57, 64);
-            this.richTextBoxNota.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBoxNota.Location = new System.Drawing.Point(76, 79);
+            this.richTextBoxNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBoxNota.Name = "richTextBoxNota";
-            this.richTextBoxNota.Size = new System.Drawing.Size(596, 299);
+            this.richTextBoxNota.Size = new System.Drawing.Size(793, 367);
             this.richTextBoxNota.TabIndex = 0;
             this.richTextBoxNota.Text = "";
+            this.richTextBoxNota.TextChanged += new System.EventHandler(this.richTextBoxNota_TextChanged);
             // 
             // buttonListo
             // 
-            this.buttonListo.Location = new System.Drawing.Point(576, 383);
-            this.buttonListo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonListo.Location = new System.Drawing.Point(768, 471);
+            this.buttonListo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonListo.Name = "buttonListo";
-            this.buttonListo.Size = new System.Drawing.Size(76, 27);
+            this.buttonListo.Size = new System.Drawing.Size(101, 33);
             this.buttonListo.TabIndex = 1;
             this.buttonListo.Text = "Listo";
             this.buttonListo.UseVisualStyleBackColor = true;
@@ -55,10 +56,10 @@
             // 
             // buttonVolver
             // 
-            this.buttonVolver.Location = new System.Drawing.Point(477, 383);
-            this.buttonVolver.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonVolver.Location = new System.Drawing.Point(636, 471);
+            this.buttonVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonVolver.Name = "buttonVolver";
-            this.buttonVolver.Size = new System.Drawing.Size(76, 27);
+            this.buttonVolver.Size = new System.Drawing.Size(101, 33);
             this.buttonVolver.TabIndex = 2;
             this.buttonVolver.Text = "Volver";
             this.buttonVolver.UseVisualStyleBackColor = true;
@@ -66,13 +67,14 @@
             // 
             // VerNotaForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 436);
+            this.BackColor = System.Drawing.SystemColors.GrayText;
+            this.ClientSize = new System.Drawing.Size(944, 537);
             this.Controls.Add(this.buttonVolver);
             this.Controls.Add(this.buttonListo);
             this.Controls.Add(this.richTextBoxNota);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VerNotaForm";
             this.Load += new System.EventHandler(this.VerNotaForm_Load);
             this.ResumeLayout(false);
@@ -80,9 +82,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox richTextBoxNota;
         private System.Windows.Forms.Button buttonListo;
         private System.Windows.Forms.Button buttonVolver;
+        public System.Windows.Forms.RichTextBox richTextBoxNota;
     }
 }
