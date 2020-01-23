@@ -18,11 +18,10 @@ namespace NoteBook
         static void Main()
         {
             //Datos.LoadFile();
-            RegistroAcciones.LoadFile();
+            //RegistroAcciones.LoadFile();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MenuPrincipalForm());
-            //Application.Run(new AgregarNotaForm());
         }
     }
 }
