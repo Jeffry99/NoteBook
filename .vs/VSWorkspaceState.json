@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\NoteBook",
+    "\\NoteBook\\UNA",
+    "\\NoteBook\\UNA\\Formularios"
   ],
-  "SelectedNode": "\\NoteBook.sln",
+  "SelectedNode": "\\NoteBook\\UNA\\Formularios\\NotasForm.cs",
   "PreviewInSolutionExplorer": false
 }
