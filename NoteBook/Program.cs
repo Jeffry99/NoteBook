@@ -17,7 +17,7 @@ namespace NoteBook
         [STAThread]
         static void Main()
         {
-            Datos.LoadFile();
+            //Datos.LoadFile();
             RegistroAcciones.LoadFile();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

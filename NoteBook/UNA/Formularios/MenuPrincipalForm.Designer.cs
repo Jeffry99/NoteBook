@@ -126,7 +126,6 @@
             this.dataGridViewCuadernos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCuadernos.Size = new System.Drawing.Size(1308, 318);
             this.dataGridViewCuadernos.TabIndex = 3;
-            this.dataGridViewCuadernos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCuadernos_CellContentClick);
             this.dataGridViewCuadernos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCuadernos_CellContentDoubleClick);
             // 
             // label1
@@ -211,7 +210,6 @@
             this.pictureBoxColor.Size = new System.Drawing.Size(89, 30);
             this.pictureBoxColor.TabIndex = 14;
             this.pictureBoxColor.TabStop = false;
-            this.pictureBoxColor.Click += new System.EventHandler(this.pictureBoxColor_Click);
             // 
             // MenuPrincipalForm
             // 

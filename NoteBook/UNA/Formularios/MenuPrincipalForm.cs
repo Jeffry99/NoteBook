@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using DatabaseAccess.UNA;
+using Newtonsoft.Json;
 using NoteBook.UNA.Helpers;
 using NoteBook.UNA.Miscelaneo;
 using System;
@@ -22,14 +23,20 @@ namespace NoteBook.UNA.Formularios
         public MenuPrincipalForm()
         {
             InitializeComponent();
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            dataGridViewCuadernos.DataSource = mysqlAccess.QuerySQL("SELECT * FROM dbproyecto.cuadernos");
+            mysqlAccess.CloseConnection();
+
         }
 
         private void MenuPrincipalForm_Load(object sender, EventArgs e)
         {
 
             IngresarUsuarioForm signin = new IngresarUsuarioForm();
-            signin.ShowDialog();
-            signin.Close();
+            //signin.ShowDialog();
+            //signin.Close();
 
             Show();
             statusStripUsuario.Text = "Usuario Actual: " + LogIn.usuario.nombreUsuario;
@@ -44,14 +51,10 @@ namespace NoteBook.UNA.Formularios
             agregarCuaderno.ShowDialog();
 
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
-            
+
             Show();
-            
         }
 
-        private void dataGridViewCuadernos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
 
         private void dataGridViewCuadernos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -142,9 +145,6 @@ namespace NoteBook.UNA.Formularios
             dataGridViewCuadernos.DataSource = cuadernoFiltrado;
         }
 
-        private void pictureBoxColor_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
