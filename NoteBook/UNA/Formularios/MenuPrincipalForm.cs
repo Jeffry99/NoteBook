@@ -1,4 +1,5 @@
 ﻿using DatabaseAccess.UNA;
+using Microsoft.Build.Framework.XamlTypes;
 using Newtonsoft.Json;
 using NoteBook.UNA.Helpers;
 using NoteBook.UNA.Miscelaneo;
@@ -26,7 +27,22 @@ namespace NoteBook.UNA.Formularios
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
-            dataGridViewCuadernos.DataSource = mysqlAccess.QuerySQL("SELECT * FROM dbproyecto.cuadernos");
+            dataGridViewCuadernos.DataSource = mysqlAccess.QuerySQL("SELECT nombre, categoria, color FROM dbproyecto.cuadernos");
+            if(dataGridViewCuadernos.Rows.Count == 0)
+            {
+                dataGridViewCuadernos.Visible = false;
+                labelCuadernosDisponibles.Visible = false;
+                labelAgregar.Visible = true;
+                labelNoCuadernos.Visible = true;
+            }
+            else
+            {
+                dataGridViewCuadernos.Visible = true;
+                labelCuadernosDisponibles.Visible = true;
+                labelAgregar.Visible = false;
+                labelNoCuadernos.Visible = false;
+            }
+            
             mysqlAccess.CloseConnection();
 
         }
@@ -40,7 +56,6 @@ namespace NoteBook.UNA.Formularios
 
             Show();
             statusStripUsuario.Text = "Usuario Actual: " + LogIn.usuario.nombreUsuario;
-            dataGridViewCuadernos.DataSource = Datos.cuadernos;
             
         }
 
@@ -76,18 +91,6 @@ namespace NoteBook.UNA.Formularios
             Show();
             dataGridViewCuadernos.DataSource = Datos.cuadernos;
         }
-        private void buttonRefrescar_Click(object sender, EventArgs e)
-        {
-            
-            
-            textBoxNombreCuadernoBusqueda.Clear();
-            pictureBoxColor.BackColor = BackColor;
-            textBoxNombreCuadernoBusqueda.Text = " ";
-            pictureBoxColor.BackColor = BackColor;
-            dataGridViewCuadernos.DataSource = Datos.cuadernos;
-        }
-
-
         private void historialToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             HistorialForm historial = new HistorialForm();
@@ -110,41 +113,9 @@ namespace NoteBook.UNA.Formularios
             }
             dataGridViewCuadernos.DataSource = cuadernoNombre;
         }
-        private void buttonColor_Click(object sender, EventArgs e)
-        {
-            ColorDialog MyDialog = new ColorDialog();
-            MyDialog.AllowFullOpen = false;
-            MyDialog.ShowHelp = true;
-
-            if (MyDialog.ShowDialog() == DialogResult.OK)
-            {
-                pictureBoxColor.BackColor = MyDialog.Color;
-            }
-            pictureBoxColor.BackColor = MyDialog.Color;
-
-            List<Cuaderno> cuadernoColor = new List<Cuaderno>();
-            foreach (Cuaderno c in Datos.cuadernos)
-            {
-                if (pictureBoxColor.BackColor.ToString() == c.Color)
-                {
-                    cuadernoColor.Add(c);
-                }
-            }
-            dataGridViewCuadernos.DataSource = cuadernoColor;
-        }
         private void buttonBusqueda_Click(object sender, EventArgs e)
         {
-            List<Cuaderno> cuadernoFiltrado = new List<Cuaderno>();
-            foreach (Cuaderno c in Datos.cuadernos)
-            {
-                if (pictureBoxColor.BackColor.ToString() == c.Color && textBoxNombreCuadernoBusqueda.Text == c.Nombre)
-                {
-                    cuadernoFiltrado.Add(c);
-                }
-            }
-            dataGridViewCuadernos.DataSource = cuadernoFiltrado;
         }
-
 
     }
 }

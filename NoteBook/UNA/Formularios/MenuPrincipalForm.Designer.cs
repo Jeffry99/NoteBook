@@ -35,18 +35,15 @@
             this.historialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonAgregarCuaderno = new System.Windows.Forms.Button();
             this.dataGridViewCuadernos = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonRefrescar = new System.Windows.Forms.Button();
+            this.labelCuadernosDisponibles = new System.Windows.Forms.Label();
             this.labelNombreCuadernoBusqueda = new System.Windows.Forms.Label();
-            this.labelColorBusqueda = new System.Windows.Forms.Label();
             this.textBoxNombreCuadernoBusqueda = new System.Windows.Forms.TextBox();
             this.buttonBusqueda = new System.Windows.Forms.Button();
-            this.buttonColor = new System.Windows.Forms.Button();
-            this.pictureBoxColor = new System.Windows.Forms.PictureBox();
+            this.labelNoCuadernos = new System.Windows.Forms.Label();
+            this.labelAgregar = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -54,7 +51,7 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusStripUsuario});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 689);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 549);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 17, 0);
             this.statusStrip1.Size = new System.Drawing.Size(1371, 22);
@@ -95,7 +92,7 @@
             // 
             // buttonAgregarCuaderno
             // 
-            this.buttonAgregarCuaderno.Location = new System.Drawing.Point(34, 597);
+            this.buttonAgregarCuaderno.Location = new System.Drawing.Point(34, 486);
             this.buttonAgregarCuaderno.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.buttonAgregarCuaderno.Name = "buttonAgregarCuaderno";
             this.buttonAgregarCuaderno.Size = new System.Drawing.Size(185, 47);
@@ -114,11 +111,10 @@
             this.dataGridViewCuadernos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCuadernos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
             this.dataGridViewCuadernos.BackgroundColor = System.Drawing.SystemColors.GrayText;
-            this.dataGridViewCuadernos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewCuadernos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewCuadernos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCuadernos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewCuadernos.Location = new System.Drawing.Point(34, 129);
+            this.dataGridViewCuadernos.Location = new System.Drawing.Point(34, 138);
             this.dataGridViewCuadernos.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridViewCuadernos.Name = "dataGridViewCuadernos";
             this.dataGridViewCuadernos.RowHeadersWidth = 51;
@@ -128,51 +124,30 @@
             this.dataGridViewCuadernos.TabIndex = 3;
             this.dataGridViewCuadernos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCuadernos_CellContentDoubleClick);
             // 
-            // label1
+            // labelCuadernosDisponibles
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(560, 88);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Cuadernos Disponibles";
-            // 
-            // buttonRefrescar
-            // 
-            this.buttonRefrescar.Location = new System.Drawing.Point(1242, 77);
-            this.buttonRefrescar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.buttonRefrescar.Name = "buttonRefrescar";
-            this.buttonRefrescar.Size = new System.Drawing.Size(100, 36);
-            this.buttonRefrescar.TabIndex = 5;
-            this.buttonRefrescar.Text = "Refrescar";
-            this.buttonRefrescar.UseVisualStyleBackColor = true;
-            this.buttonRefrescar.Click += new System.EventHandler(this.buttonRefrescar_Click);
+            this.labelCuadernosDisponibles.AutoSize = true;
+            this.labelCuadernosDisponibles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCuadernosDisponibles.Location = new System.Drawing.Point(582, 99);
+            this.labelCuadernosDisponibles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCuadernosDisponibles.Name = "labelCuadernosDisponibles";
+            this.labelCuadernosDisponibles.Size = new System.Drawing.Size(215, 25);
+            this.labelCuadernosDisponibles.TabIndex = 4;
+            this.labelCuadernosDisponibles.Text = "Cuadernos Disponibles";
             // 
             // labelNombreCuadernoBusqueda
             // 
             this.labelNombreCuadernoBusqueda.AutoSize = true;
-            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(538, 471);
+            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(760, 61);
             this.labelNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelNombreCuadernoBusqueda.Name = "labelNombreCuadernoBusqueda";
             this.labelNombreCuadernoBusqueda.Size = new System.Drawing.Size(149, 17);
             this.labelNombreCuadernoBusqueda.TabIndex = 6;
             this.labelNombreCuadernoBusqueda.Text = "Nombre del cuaderno:";
             // 
-            // labelColorBusqueda
-            // 
-            this.labelColorBusqueda.AutoSize = true;
-            this.labelColorBusqueda.Location = new System.Drawing.Point(883, 471);
-            this.labelColorBusqueda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.labelColorBusqueda.Name = "labelColorBusqueda";
-            this.labelColorBusqueda.Size = new System.Drawing.Size(45, 17);
-            this.labelColorBusqueda.TabIndex = 8;
-            this.labelColorBusqueda.Text = "Color:";
-            // 
             // textBoxNombreCuadernoBusqueda
             // 
-            this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(688, 468);
+            this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(919, 58);
             this.textBoxNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxNombreCuadernoBusqueda.Name = "textBoxNombreCuadernoBusqueda";
             this.textBoxNombreCuadernoBusqueda.Size = new System.Drawing.Size(175, 22);
@@ -181,7 +156,7 @@
             // 
             // buttonBusqueda
             // 
-            this.buttonBusqueda.Location = new System.Drawing.Point(1232, 456);
+            this.buttonBusqueda.Location = new System.Drawing.Point(1104, 52);
             this.buttonBusqueda.Margin = new System.Windows.Forms.Padding(5);
             this.buttonBusqueda.Name = "buttonBusqueda";
             this.buttonBusqueda.Size = new System.Drawing.Size(110, 34);
@@ -190,41 +165,37 @@
             this.buttonBusqueda.UseVisualStyleBackColor = true;
             this.buttonBusqueda.Click += new System.EventHandler(this.buttonBusqueda_Click);
             // 
-            // buttonColor
+            // labelNoCuadernos
             // 
-            this.buttonColor.Location = new System.Drawing.Point(1034, 456);
-            this.buttonColor.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonColor.Name = "buttonColor";
-            this.buttonColor.Size = new System.Drawing.Size(189, 34);
-            this.buttonColor.TabIndex = 13;
-            this.buttonColor.Text = "Seleccionar Color";
-            this.buttonColor.UseVisualStyleBackColor = true;
-            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
+            this.labelNoCuadernos.AutoSize = true;
+            this.labelNoCuadernos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoCuadernos.Location = new System.Drawing.Point(484, 207);
+            this.labelNoCuadernos.Name = "labelNoCuadernos";
+            this.labelNoCuadernos.Size = new System.Drawing.Size(412, 32);
+            this.labelNoCuadernos.TabIndex = 15;
+            this.labelNoCuadernos.Text = "¡No hay cuadernos disponibles!";
             // 
-            // pictureBoxColor
+            // labelAgregar
             // 
-            this.pictureBoxColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxColor.Location = new System.Drawing.Point(937, 460);
-            this.pictureBoxColor.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxColor.Name = "pictureBoxColor";
-            this.pictureBoxColor.Size = new System.Drawing.Size(89, 30);
-            this.pictureBoxColor.TabIndex = 14;
-            this.pictureBoxColor.TabStop = false;
+            this.labelAgregar.AutoSize = true;
+            this.labelAgregar.Location = new System.Drawing.Point(440, 251);
+            this.labelAgregar.Name = "labelAgregar";
+            this.labelAgregar.Size = new System.Drawing.Size(496, 17);
+            this.labelAgregar.TabIndex = 16;
+            this.labelAgregar.Text = "Este usuario no ha agregado cuadernos aún, presione el botón para agregar";
             // 
             // MenuPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(1371, 711);
-            this.Controls.Add(this.pictureBoxColor);
-            this.Controls.Add(this.buttonColor);
+            this.ClientSize = new System.Drawing.Size(1371, 571);
+            this.Controls.Add(this.labelAgregar);
+            this.Controls.Add(this.labelNoCuadernos);
             this.Controls.Add(this.buttonBusqueda);
             this.Controls.Add(this.textBoxNombreCuadernoBusqueda);
-            this.Controls.Add(this.labelColorBusqueda);
             this.Controls.Add(this.labelNombreCuadernoBusqueda);
-            this.Controls.Add(this.buttonRefrescar);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelCuadernosDisponibles);
             this.Controls.Add(this.dataGridViewCuadernos);
             this.Controls.Add(this.buttonAgregarCuaderno);
             this.Controls.Add(this.statusStrip1);
@@ -239,7 +210,6 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,14 +224,12 @@
         private System.Windows.Forms.ToolStripMenuItem historialToolStripMenuItem;
         private System.Windows.Forms.Button buttonAgregarCuaderno;
         private System.Windows.Forms.DataGridView dataGridViewCuadernos;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonRefrescar;
+        private System.Windows.Forms.Label labelCuadernosDisponibles;
         private System.Windows.Forms.Label labelNombreCuadernoBusqueda;
-        private System.Windows.Forms.Label labelColorBusqueda;
         private System.Windows.Forms.TextBox textBoxNombreCuadernoBusqueda;
         private System.Windows.Forms.Button buttonBusqueda;
-        private System.Windows.Forms.Button buttonColor;
-        private System.Windows.Forms.PictureBox pictureBoxColor;
         private System.Windows.Forms.ComboBox comboBoxColorBusqueda;
+        private System.Windows.Forms.Label labelNoCuadernos;
+        private System.Windows.Forms.Label labelAgregar;
     }
 }
