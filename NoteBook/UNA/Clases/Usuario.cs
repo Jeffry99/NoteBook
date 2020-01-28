@@ -7,17 +7,20 @@ namespace NoteBook
 {
     public class Usuario
     {
-        public string nombreUsuario
+        public string NombreUsuario
         {
             get;
             set;
         }
-
-        public string contraseña
+        public string Contrasena
         {
             get;
             set;
         }
-
+        public string TipoUsuario
+        {
+            get;
+            set;
+        }
     }
 }

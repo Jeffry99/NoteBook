@@ -33,6 +33,9 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarUsuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonAgregarCuaderno = new System.Windows.Forms.Button();
             this.dataGridViewCuadernos = new System.Windows.Forms.DataGridView();
             this.labelCuadernosDisponibles = new System.Windows.Forms.Label();
@@ -67,7 +70,8 @@
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem});
+            this.menuToolStripMenuItem,
+            this.usuarioToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -90,9 +94,32 @@
             this.historialToolStripMenuItem.Text = "Ver historial de cambios";
             this.historialToolStripMenuItem.Click += new System.EventHandler(this.historialToolStripMenuItem_Click_1);
             // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarUsuarioToolStripMenuItem1,
+            this.cambiarContraseñaToolStripMenuItem});
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.usuarioToolStripMenuItem.Text = "Usuario";
+            // 
+            // agregarUsuarioToolStripMenuItem1
+            // 
+            this.agregarUsuarioToolStripMenuItem1.Name = "agregarUsuarioToolStripMenuItem1";
+            this.agregarUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(226, 26);
+            this.agregarUsuarioToolStripMenuItem1.Text = "Agregar Usuario";
+            this.agregarUsuarioToolStripMenuItem1.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem1_Click);
+            // 
+            // cambiarContraseñaToolStripMenuItem
+            // 
+            this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
+            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar Contraseña";
+            this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click);
+            // 
             // buttonAgregarCuaderno
             // 
-            this.buttonAgregarCuaderno.Location = new System.Drawing.Point(34, 486);
+            this.buttonAgregarCuaderno.Location = new System.Drawing.Point(596, 482);
             this.buttonAgregarCuaderno.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.buttonAgregarCuaderno.Name = "buttonAgregarCuaderno";
             this.buttonAgregarCuaderno.Size = new System.Drawing.Size(185, 47);
@@ -138,7 +165,7 @@
             // labelNombreCuadernoBusqueda
             // 
             this.labelNombreCuadernoBusqueda.AutoSize = true;
-            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(760, 61);
+            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(898, 69);
             this.labelNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelNombreCuadernoBusqueda.Name = "labelNombreCuadernoBusqueda";
             this.labelNombreCuadernoBusqueda.Size = new System.Drawing.Size(149, 17);
@@ -147,7 +174,7 @@
             // 
             // textBoxNombreCuadernoBusqueda
             // 
-            this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(919, 58);
+            this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(1057, 62);
             this.textBoxNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxNombreCuadernoBusqueda.Name = "textBoxNombreCuadernoBusqueda";
             this.textBoxNombreCuadernoBusqueda.Size = new System.Drawing.Size(175, 22);
@@ -156,10 +183,10 @@
             // 
             // buttonBusqueda
             // 
-            this.buttonBusqueda.Location = new System.Drawing.Point(1104, 52);
+            this.buttonBusqueda.Location = new System.Drawing.Point(1232, 58);
             this.buttonBusqueda.Margin = new System.Windows.Forms.Padding(5);
             this.buttonBusqueda.Name = "buttonBusqueda";
-            this.buttonBusqueda.Size = new System.Drawing.Size(110, 34);
+            this.buttonBusqueda.Size = new System.Drawing.Size(110, 30);
             this.buttonBusqueda.TabIndex = 12;
             this.buttonBusqueda.Text = "Buscar";
             this.buttonBusqueda.UseVisualStyleBackColor = true;
@@ -231,5 +258,8 @@
         private System.Windows.Forms.ComboBox comboBoxColorBusqueda;
         private System.Windows.Forms.Label labelNoCuadernos;
         private System.Windows.Forms.Label labelAgregar;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarUsuarioToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
     }
 }

@@ -177,7 +177,7 @@ namespace NoteBook.UNA.Formularios
             AgregarNotaEnCuadernoActual(nota);
             Datos.SaveToFile();
             nota = new Nota();
-            Accion accion = new Accion(LogIn.usuario.nombreUsuario, "Ha agregado una nota", nota.Titulo, "En el cuaderno: " + CuadernoActual.Nombre);
+            Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Ha agregado una nota", nota.Titulo, "En el cuaderno: " + CuadernoActual.Nombre);
             RegistroAcciones.acciones.Add(accion);
             RegistroAcciones.SaveToFile();
             

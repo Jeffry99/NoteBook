@@ -80,7 +80,6 @@
             this.textBoxCategoria.Name = "textBoxCategoria";
             this.textBoxCategoria.Size = new System.Drawing.Size(357, 22);
             this.textBoxCategoria.TabIndex = 1;
-            this.textBoxCategoria.TextChanged += new System.EventHandler(this.textBoxCategoria_TextChanged);
             // 
             // textBoxNombre
             // 
@@ -93,7 +92,7 @@
             // 
             this.buttonAgregar.Location = new System.Drawing.Point(521, 266);
             this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(104, 29);
+            this.buttonAgregar.Size = new System.Drawing.Size(104, 35);
             this.buttonAgregar.TabIndex = 3;
             this.buttonAgregar.Text = "Agregar";
             this.buttonAgregar.UseVisualStyleBackColor = true;
@@ -103,7 +102,7 @@
             // 
             this.buttonCancelar.Location = new System.Drawing.Point(395, 266);
             this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(104, 29);
+            this.buttonCancelar.Size = new System.Drawing.Size(104, 35);
             this.buttonCancelar.TabIndex = 8;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
@@ -134,9 +133,9 @@
             // pictureBoxColor
             // 
             this.pictureBoxColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxColor.Location = new System.Drawing.Point(188, 189);
+            this.pictureBoxColor.Location = new System.Drawing.Point(188, 183);
             this.pictureBoxColor.Name = "pictureBoxColor";
-            this.pictureBoxColor.Size = new System.Drawing.Size(138, 22);
+            this.pictureBoxColor.Size = new System.Drawing.Size(138, 29);
             this.pictureBoxColor.TabIndex = 11;
             this.pictureBoxColor.TabStop = false;
             // 

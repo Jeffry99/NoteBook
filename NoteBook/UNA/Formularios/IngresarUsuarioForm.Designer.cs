@@ -67,7 +67,6 @@
             this.txtBoxUsuario.Name = "txtBoxUsuario";
             this.txtBoxUsuario.Size = new System.Drawing.Size(242, 22);
             this.txtBoxUsuario.TabIndex = 2;
-            this.txtBoxUsuario.TextChanged += new System.EventHandler(this.txtBoxUsuario_TextChanged);
             this.txtBoxUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxUsuario_KeyPress);
             // 
             // txtBoxContrasena
@@ -125,7 +124,6 @@
             this.Controls.Add(this.lblUsuario);
             this.Name = "IngresarUsuarioForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IngresarUsuarioForm_FormClosed);
-            this.Load += new System.EventHandler(this.IngresarUsuarioForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContraseña)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderError)).EndInit();

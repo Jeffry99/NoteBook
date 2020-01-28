@@ -78,22 +78,28 @@
   <ItemGroup>
     <Compile Include="UNA\Clases\Nota.cs" />
     <Compile Include="UNA\Clases\Cuaderno.cs" />
-    <Compile Include="UNA\Formularios\AgregarCuadernoForm.cs">
+    <Compile Include="UNA\Formularios\Cuadernos\AgregarCuadernoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\Formularios\AgregarCuadernoForm.Designer.cs">
+    <Compile Include="UNA\Formularios\Cuadernos\AgregarCuadernoForm.Designer.cs">
       <DependentUpon>AgregarCuadernoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\Formularios\AgregarNotaForm.cs">
+    <Compile Include="UNA\Formularios\Notas\AgregarNotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\Formularios\AgregarNotaForm.Designer.cs">
+    <Compile Include="UNA\Formularios\Notas\AgregarNotaForm.Designer.cs">
       <DependentUpon>AgregarNotaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\Formularios\EditarCuadernoForm.cs">
+    <Compile Include="UNA\Formularios\AgregarUsuarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\Formularios\EditarCuadernoForm.Designer.cs">
+    <Compile Include="UNA\Formularios\AgregarUsuarioForm.Designer.cs">
+      <DependentUpon>AgregarUsuarioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UNA\Formularios\Cuadernos\EditarCuadernoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UNA\Formularios\Cuadernos\EditarCuadernoForm.Designer.cs">
       <DependentUpon>EditarCuadernoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\Formularios\HistorialForm.cs">
@@ -117,29 +123,32 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UNA\Clases\Usuario.cs" />
-    <Compile Include="UNA\Formularios\NotasForm.cs">
+    <Compile Include="UNA\Formularios\Notas\NotasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\Formularios\NotasForm.Designer.cs">
+    <Compile Include="UNA\Formularios\Notas\NotasForm.Designer.cs">
       <DependentUpon>NotasForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\Formularios\VerNotaForm.cs">
+    <Compile Include="UNA\Formularios\Notas\VerNotaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\Formularios\VerNotaForm.Designer.cs">
+    <Compile Include="UNA\Formularios\Notas\VerNotaForm.Designer.cs">
       <DependentUpon>VerNotaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\Helpers\Accion.cs" />
     <Compile Include="UNA\Helpers\LogIn.cs" />
     <Compile Include="UNA\Helpers\Datos.cs" />
     <Compile Include="UNA\Helpers\RegistroAcciones.cs" />
-    <EmbeddedResource Include="UNA\Formularios\AgregarCuadernoForm.resx">
+    <EmbeddedResource Include="UNA\Formularios\Cuadernos\AgregarCuadernoForm.resx">
       <DependentUpon>AgregarCuadernoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UNA\Formularios\AgregarNotaForm.resx">
+    <EmbeddedResource Include="UNA\Formularios\Notas\AgregarNotaForm.resx">
       <DependentUpon>AgregarNotaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UNA\Formularios\EditarCuadernoForm.resx">
+    <EmbeddedResource Include="UNA\Formularios\AgregarUsuarioForm.resx">
+      <DependentUpon>AgregarUsuarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UNA\Formularios\Cuadernos\EditarCuadernoForm.resx">
       <DependentUpon>EditarCuadernoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\Formularios\HistorialForm.resx">
@@ -161,10 +170,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UNA\Formularios\NotasForm.resx">
+    <EmbeddedResource Include="UNA\Formularios\Notas\NotasForm.resx">
       <DependentUpon>NotasForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UNA\Formularios\VerNotaForm.resx">
+    <EmbeddedResource Include="UNA\Formularios\Notas\VerNotaForm.resx">
       <DependentUpon>VerNotaForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

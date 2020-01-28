@@ -19,7 +19,6 @@ namespace DatabaseAccess.UNA
                 Transaction = Connection.BeginTransaction();
             }
         }
-
         public override void CloseConnection()
         {
             if(Connection != null)
@@ -27,7 +26,6 @@ namespace DatabaseAccess.UNA
                 Connection.Close();
             }
         }
-
         public override void CommitTransaction()
         {
             if (IsTransaction())
@@ -35,8 +33,6 @@ namespace DatabaseAccess.UNA
                 Transaction.Commit();
             }
         }
-
-   
         public override bool IsTransaction()
         {
             if(Transaction != null)
@@ -48,13 +44,11 @@ namespace DatabaseAccess.UNA
                 return false;
             }
         }
-
         public override void OpenConnection()
         {
             Connection = new MySqlConnection(ConnectionString);
             Connection.Open();
         }
-
         public override void RollBackTransaction()
         {
             if(IsTransaction())
@@ -68,7 +62,6 @@ namespace DatabaseAccess.UNA
             return mySqlCommand.ExecuteNonQuery();
             
         }
-        
         public override DataTable QuerySQL(string sql)
         {
             DataTable result = new DataTable();
@@ -76,6 +69,5 @@ namespace DatabaseAccess.UNA
             mySqlDataAdapter.Fill(result);
             return result;
         }
-
     }
 }

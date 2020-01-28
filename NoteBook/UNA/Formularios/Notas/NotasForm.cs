@@ -21,6 +21,20 @@ namespace NoteBook.UNA.Formularios
         public NotasForm()
         {
             InitializeComponent();
+            if (dataGridViewNotas.Rows.Count == 0)
+            {
+                dataGridViewNotas.Visible = false;
+                labelNotasDisponibles.Visible = false;
+                labelAgregar.Visible = true;
+                labelNoNotas.Visible = true;
+            }
+            else
+            {
+                dataGridViewNotas.Visible = true;
+                labelNotasDisponibles.Visible = true;
+                labelAgregar.Visible = false;
+                labelNoNotas.Visible = false;
+            }
         }
 
         private void buttonAgregarNota_Click(object sender, EventArgs e)
@@ -80,17 +94,6 @@ namespace NoteBook.UNA.Formularios
             notaForm.ShowDialog();
             Show();
         }
-
-        private void buttonRefrescar_Click(object sender, EventArgs e)
-        {
-            textBoxTituloNotaBusqueda.Text = "";
-            comboBoxPrivacidadNotaBusqueda.Text = "";
-            textBoxNotaNotaBusqueda.Text = "";
-            dataGridViewNotas.DataSource = null; 
-            dataGridViewNotas.DataSource = EncontrarCuadernoActual().notas;
-
-        }
-
         private void textBoxTituloNotaBusqueda_TextChanged(object sender, EventArgs e)
         {
             List<Nota> tituloNota = new List<Nota>();
@@ -108,69 +111,24 @@ namespace NoteBook.UNA.Formularios
             }
             dataGridViewNotas.DataSource = tituloNota;
         }
-
-        private void comboBoxPrivacidadNotaBusqueda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            List<Nota> privacidadloNota = new List<Nota>();
-            foreach (Cuaderno c in Datos.cuadernos)
-            {
-                if (c.Nombre == EncontrarCuadernoActual().Nombre)
-                {
-                    foreach (Nota n in c.notas)
-                    {
-                        if (comboBoxPrivacidadNotaBusqueda.Text == n.Privacidad)
-                        {
-                            privacidadloNota.Add(n);
-                        }
-                    }
-                }
-            }
-            dataGridViewNotas.DataSource = privacidadloNota;
-        }
-
-
         private void notaBusqueda_Click(object sender, EventArgs e)
         {
             List<Nota> nota = new List<Nota>();
             foreach (Cuaderno c in Datos.cuadernos)
             {
-                if (c.Nombre == EncontrarCuadernoActual().Nombre)
-                {
-                    foreach (Nota n in c.notas)
-                    {
-                        if (textBoxTituloNotaBusqueda.Text == n.Titulo &&
-                        comboBoxPrivacidadNotaBusqueda.Text == n.Privacidad)
-                        {
-                            nota.Add(n);
-                        }
-                    }
-                }
+                //if (c.Nombre == EncontrarCuadernoActual().Nombre)
+                //{
+                //    foreach (Nota n in c.notas)
+                //    {
+                //        if (textBoxTituloNotaBusqueda.Text == n.Titulo &&
+                //        comboBoxPrivacidadNotaBusqueda.Text == n.Privacidad)
+                //        {
+                //            nota.Add(n);
+                //        }
+                //    }
+                //}
             }
             dataGridViewNotas.DataSource = nota;
-        }
-
-        private void textBoxNotaNotaBusqueda_TextChanged_1(object sender, EventArgs e)
-        {
-            List<Nota> nota = new List<Nota>();
-            foreach (Cuaderno c in Datos.cuadernos)
-            {
-                if (c.Nombre == EncontrarCuadernoActual().Nombre)
-                {
-                    foreach (Nota n in c.notas)
-                    {
-                        if (textBoxNotaNotaBusqueda.Text.Contains(n.Texto))
-                        {
-                            nota.Add(n);
-                        }
-                    }
-                }
-            }
-            dataGridViewNotas.DataSource = nota;
-        }
-
-        private void dataGridViewNotas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

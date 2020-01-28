@@ -28,7 +28,7 @@ namespace NoteBook.UNA.Formularios
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
             dataGridViewCuadernos.DataSource = mysqlAccess.QuerySQL("SELECT nombre, categoria, color FROM dbproyecto.cuadernos");
-            if(dataGridViewCuadernos.Rows.Count == 0)
+            if (dataGridViewCuadernos.Rows.Count == 0)
             {
                 dataGridViewCuadernos.Visible = false;
                 labelCuadernosDisponibles.Visible = false;
@@ -42,20 +42,19 @@ namespace NoteBook.UNA.Formularios
                 labelAgregar.Visible = false;
                 labelNoCuadernos.Visible = false;
             }
-            
-            mysqlAccess.CloseConnection();
 
+            mysqlAccess.CloseConnection();
         }
 
         private void MenuPrincipalForm_Load(object sender, EventArgs e)
         {
 
             IngresarUsuarioForm signin = new IngresarUsuarioForm();
-            //signin.ShowDialog();
-            //signin.Close();
+            signin.ShowDialog();
+            signin.Close();
 
             Show();
-            statusStripUsuario.Text = "Usuario Actual: " + LogIn.usuario.nombreUsuario;
+            statusStripUsuario.Text = "Usuario Actual: " + LogIn.usuario.NombreUsuario;
             
         }
 
@@ -117,5 +116,24 @@ namespace NoteBook.UNA.Formularios
         {
         }
 
+        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void agregarUsuarioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (LogIn.usuario.TipoUsuario.Equals("Administrador"))
+            {
+                AgregarUsuarioForm agregarUsuario = new AgregarUsuarioForm();
+                Hide();
+                agregarUsuario.ShowDialog();
+                Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permiso para realizar esta función", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

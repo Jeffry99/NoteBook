@@ -20,20 +20,13 @@ namespace NoteBook.UNA.Formularios
         {
             InitializeComponent();
         }
-
-        private void textBoxCategoria_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            if(Validar() == true)
+            if(Validar())
             {
                 AgregarCuaderno();
             }
         }
-
         public void AgregarCuaderno()
         {
             int ultimoIndice = 0;
@@ -52,7 +45,7 @@ namespace NoteBook.UNA.Formularios
             Datos.SaveToFile();
             Limpiar();
 
-            Accion accion = new Accion(LogIn.usuario.nombreUsuario, "Ha agregado un cuaderno", cuaderno.Nombre, "");
+            Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Ha agregado un cuaderno", cuaderno.Nombre, "");
             RegistroAcciones.acciones.Add(accion);
             RegistroAcciones.SaveToFile();
             MessageBox.Show("Se ha agregado el cuaderno", "Cuaderno Agregado", MessageBoxButtons.OK);
@@ -99,12 +92,10 @@ namespace NoteBook.UNA.Formularios
             
             return resultado;            
         }
-
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         public void Limpiar()
         {
             textBoxNombre.Clear();
@@ -114,17 +105,6 @@ namespace NoteBook.UNA.Formularios
             errorProviderColor.Clear();
             errorProviderNombre.Clear();
         }
-
-        private void comboBoxColor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxColor_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //e.KeyChar = " ";
-        }
-
         private void buttonColor_Click(object sender, EventArgs e)
         {
             ColorDialog MyDialog = new ColorDialog();

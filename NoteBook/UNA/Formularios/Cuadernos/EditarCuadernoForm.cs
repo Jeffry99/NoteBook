@@ -40,7 +40,7 @@ namespace NoteBook.UNA.Formularios
             //Datos.cuadernos.Add(cuaderno);
             Datos.SaveToFile();
             Limpiar();
-            Accion accion = new Accion(LogIn.usuario.nombreUsuario, "Ha editado un cuaderno", cuaderno.Nombre, "");
+            Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Ha editado un cuaderno", cuaderno.Nombre, "");
             RegistroAcciones.acciones.Add(accion);
             RegistroAcciones.SaveToFile();
             MessageBox.Show("Se ha editado el cuaderno", "Cuaderno Editado", MessageBoxButtons.OK);

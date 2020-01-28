@@ -34,11 +34,10 @@ namespace NoteBook
         {
             if((int)e.KeyChar == (int)Keys.Enter)
             {
-                validarUsuario();
+                ValidarCampos();
             }
         }
-
-        private bool validarUsuario()
+        private bool ValidarCampos()
         {
             if (txtBoxUsuario.TextLength == 0)
             {
@@ -49,8 +48,7 @@ namespace NoteBook
                 errorProviderContraseña.SetError(txtBoxContrasena, "No se ha ingresado una contraseña");
             }
             
-            LogIn.Validar(txtBoxUsuario.Text, txtBoxContrasena.Text);
-            if(LogIn.Validar(txtBoxUsuario.Text, txtBoxContrasena.Text) == true)
+            if(LogIn.ValidarUsuario(txtBoxUsuario.Text, txtBoxContrasena.Text))
             {
                 Close();
                 return true;
@@ -60,37 +58,18 @@ namespace NoteBook
                 errorProviderError.SetError(btnAceptar, "Usuario o contraseña incorrectos");
                 return false;
             }
-
-        }
-
-        public string DevolverNomUsuario()
-        {
-            return txtBoxUsuario.Text;
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            validarUsuario();
+            ValidarCampos();
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Application.Exit();
-
         }
-
-        private void IngresarUsuarioForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBoxUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void IngresarUsuarioForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (validarUsuario() == false)
+            if (ValidarCampos() == false)
             {
                 Application.Exit();
             }
