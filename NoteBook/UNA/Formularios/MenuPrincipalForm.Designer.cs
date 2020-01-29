@@ -75,7 +75,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1371, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1371, 30);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -155,7 +155,7 @@
             // 
             this.labelCuadernosDisponibles.AutoSize = true;
             this.labelCuadernosDisponibles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCuadernosDisponibles.Location = new System.Drawing.Point(582, 99);
+            this.labelCuadernosDisponibles.Location = new System.Drawing.Point(582, 95);
             this.labelCuadernosDisponibles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCuadernosDisponibles.Name = "labelCuadernosDisponibles";
             this.labelCuadernosDisponibles.Size = new System.Drawing.Size(215, 25);
@@ -165,7 +165,7 @@
             // labelNombreCuadernoBusqueda
             // 
             this.labelNombreCuadernoBusqueda.AutoSize = true;
-            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(898, 69);
+            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(898, 65);
             this.labelNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelNombreCuadernoBusqueda.Name = "labelNombreCuadernoBusqueda";
             this.labelNombreCuadernoBusqueda.Size = new System.Drawing.Size(149, 17);

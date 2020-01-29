@@ -30,7 +30,7 @@ namespace NoteBook.UNA.Formularios
                 resultado = false;
                 errorProvider.SetError(textBoxContrasena, "Debe ingresar una contraseña");
             }
-            if(comboBoxTipoUsuario.SelectedItem == null)
+            if (comboBoxTipoUsuario.SelectedItem == null)
             {
                 resultado = false;
                 errorProvider.SetError(comboBoxTipoUsuario, "Debe definir el tipo de usuario");
@@ -41,12 +41,18 @@ namespace NoteBook.UNA.Formularios
         {
             if (ValidarCampos())
             {
-                MysqlAccess mysqlAccess = new MysqlAccess();
-                mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
-                mysqlAccess.OpenConnection();
-                mysqlAccess.QuerySQL("INSERT INTO dbproyecto.Usuarios VALUES(nombre_usuario, contraseña, tipo_usuario)"
-                    +"VALUES("+textBoxNombreUsuario.Text+","+textBoxContrasena.Text+","+comboBoxTipoUsuario.SelectedIndex.ToString()+")");
+
             }
+        }
+
+        public void AgregarUsuario()
+        {
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            mysqlAccess.EjectSQL("INSERT INTO dbproyecto.usuarios (nombre_usuario, nombre_real, contraseña, tipo_usuario) " +
+                "VALUES ('" + textBoxNombreUsuario.Text + "','" + textBoxNombreReal.Text + "','" + textBoxContrasena.Text + "','" 
+                + comboBoxTipoUsuario.SelectedItem.ToString() + "')");
         }
     }
 }

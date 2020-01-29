@@ -38,13 +38,15 @@
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonVolver = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.labelNombreReal = new System.Windows.Forms.Label();
+            this.textBoxNombreReal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNombreUsuario
             // 
             this.labelNombreUsuario.AutoSize = true;
-            this.labelNombreUsuario.Location = new System.Drawing.Point(91, 80);
+            this.labelNombreUsuario.Location = new System.Drawing.Point(94, 54);
             this.labelNombreUsuario.Name = "labelNombreUsuario";
             this.labelNombreUsuario.Size = new System.Drawing.Size(135, 17);
             this.labelNombreUsuario.TabIndex = 1;
@@ -53,7 +55,7 @@
             // labelContrasena
             // 
             this.labelContrasena.AutoSize = true;
-            this.labelContrasena.Location = new System.Drawing.Point(91, 151);
+            this.labelContrasena.Location = new System.Drawing.Point(94, 196);
             this.labelContrasena.Name = "labelContrasena";
             this.labelContrasena.Size = new System.Drawing.Size(85, 17);
             this.labelContrasena.TabIndex = 2;
@@ -62,7 +64,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(91, 231);
+            this.label1.Location = new System.Drawing.Point(94, 265);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 17);
             this.label1.TabIndex = 3;
@@ -70,17 +72,18 @@
             // 
             // textBoxNombreUsuario
             // 
-            this.textBoxNombreUsuario.Location = new System.Drawing.Point(252, 80);
+            this.textBoxNombreUsuario.Location = new System.Drawing.Point(252, 54);
             this.textBoxNombreUsuario.Name = "textBoxNombreUsuario";
             this.textBoxNombreUsuario.Size = new System.Drawing.Size(274, 22);
             this.textBoxNombreUsuario.TabIndex = 5;
             // 
             // textBoxContrasena
             // 
-            this.textBoxContrasena.Location = new System.Drawing.Point(252, 151);
+            this.textBoxContrasena.Location = new System.Drawing.Point(252, 191);
             this.textBoxContrasena.Name = "textBoxContrasena";
             this.textBoxContrasena.Size = new System.Drawing.Size(274, 22);
             this.textBoxContrasena.TabIndex = 6;
+            this.textBoxContrasena.UseSystemPasswordChar = true;
             // 
             // comboBoxTipoUsuario
             // 
@@ -89,7 +92,7 @@
             this.comboBoxTipoUsuario.Items.AddRange(new object[] {
             "Administrador",
             "Regular"});
-            this.comboBoxTipoUsuario.Location = new System.Drawing.Point(252, 231);
+            this.comboBoxTipoUsuario.Location = new System.Drawing.Point(252, 258);
             this.comboBoxTipoUsuario.Name = "comboBoxTipoUsuario";
             this.comboBoxTipoUsuario.Size = new System.Drawing.Size(274, 24);
             this.comboBoxTipoUsuario.TabIndex = 7;
@@ -117,11 +120,29 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // labelNombreReal
+            // 
+            this.labelNombreReal.AutoSize = true;
+            this.labelNombreReal.Location = new System.Drawing.Point(94, 125);
+            this.labelNombreReal.Name = "labelNombreReal";
+            this.labelNombreReal.Size = new System.Drawing.Size(95, 17);
+            this.labelNombreReal.TabIndex = 10;
+            this.labelNombreReal.Text = "Nombre Real:";
+            // 
+            // textBoxNombreReal
+            // 
+            this.textBoxNombreReal.Location = new System.Drawing.Point(252, 122);
+            this.textBoxNombreReal.Name = "textBoxNombreReal";
+            this.textBoxNombreReal.Size = new System.Drawing.Size(274, 22);
+            this.textBoxNombreReal.TabIndex = 11;
+            // 
             // AgregarUsuarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(687, 410);
+            this.Controls.Add(this.textBoxNombreReal);
+            this.Controls.Add(this.labelNombreReal);
             this.Controls.Add(this.buttonVolver);
             this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.comboBoxTipoUsuario);
@@ -148,5 +169,7 @@
         private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.Button buttonVolver;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.TextBox textBoxNombreReal;
+        private System.Windows.Forms.Label labelNombreReal;
     }
 }
