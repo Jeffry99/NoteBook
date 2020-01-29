@@ -46,19 +46,19 @@ namespace NoteBook.UNA.Formularios
         {
             if (ValidarCampos())
             {
-                Usuario usuario = new Usuario
-                {
-                    NombreUsuario = textBoxNombreUsuario.Text,
-                    NombreReal = textBoxNombreReal.Text,
-                    Contrasena = textBoxContrasena.Text,
-                    TipoUsuario = comboBoxTipoUsuario.SelectedItem.ToString()
-                };
+                // usuario = new Usuario()
+                //{
+                //    NombreUsuario = textBoxNombreUsuario.Text,
+                //    NombreReal = textBoxNombreReal.Text,
+                //    Contrasena = textBoxContrasena.Text,
+                //    TipoUsuario = comboBoxTipoUsuario.SelectedItem.ToString()
+                //};
 
-                AgregarUsuario(usuario);
+                //AgregarUsuario(usuario);
             }
         }
 
-        public void AgregarUsuario(Usuario usuario)
+        public void AgregarUsuario()
         {
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;

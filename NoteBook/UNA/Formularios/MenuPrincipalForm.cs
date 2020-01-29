@@ -1,6 +1,7 @@
 ﻿using DatabaseAccess.UNA;
 using Microsoft.Build.Framework.XamlTypes;
 using Newtonsoft.Json;
+using NoteBook.UNA.Formularios.Usuario;
 using NoteBook.UNA.Helpers;
 using NoteBook.UNA.Miscelaneo;
 using System;
@@ -99,7 +100,10 @@ namespace NoteBook.UNA.Formularios
 
         private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            CambiarContrasenaForm cambiarContrasena = new CambiarContrasenaForm();
+            Hide();
+            cambiarContrasena.ShowDialog();
+            Show();
         }
 
         private void agregarUsuarioToolStripMenuItem1_Click(object sender, EventArgs e)

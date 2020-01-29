@@ -166,7 +166,7 @@
             // labelNombreCuadernoBusqueda
             // 
             this.labelNombreCuadernoBusqueda.AutoSize = true;
-            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(898, 65);
+            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(888, 68);
             this.labelNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelNombreCuadernoBusqueda.Name = "labelNombreCuadernoBusqueda";
             this.labelNombreCuadernoBusqueda.Size = new System.Drawing.Size(149, 17);
@@ -175,7 +175,7 @@
             // 
             // textBoxNombreCuadernoBusqueda
             // 
-            this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(1057, 62);
+            this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(1047, 65);
             this.textBoxNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxNombreCuadernoBusqueda.Name = "textBoxNombreCuadernoBusqueda";
             this.textBoxNombreCuadernoBusqueda.Size = new System.Drawing.Size(175, 22);
@@ -184,10 +184,10 @@
             // 
             // buttonBusqueda
             // 
-            this.buttonBusqueda.Location = new System.Drawing.Point(1232, 58);
+            this.buttonBusqueda.Location = new System.Drawing.Point(1232, 65);
             this.buttonBusqueda.Margin = new System.Windows.Forms.Padding(5);
             this.buttonBusqueda.Name = "buttonBusqueda";
-            this.buttonBusqueda.Size = new System.Drawing.Size(110, 30);
+            this.buttonBusqueda.Size = new System.Drawing.Size(110, 23);
             this.buttonBusqueda.TabIndex = 12;
             this.buttonBusqueda.Text = "Buscar";
             this.buttonBusqueda.UseVisualStyleBackColor = true;

@@ -79,3 +79,4 @@ C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\Note
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\bin\Debug\Microsoft.Build.Framework.pdb
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\bin\Debug\Microsoft.Build.Framework.xml
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.AgregarUsuarioForm.resources
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.Usuario.CambiarContrasenaForm.resources

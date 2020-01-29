@@ -90,10 +90,10 @@
     <Compile Include="UNA\Formularios\Notas\AgregarNotaForm.Designer.cs">
       <DependentUpon>AgregarNotaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\Formularios\AgregarUsuarioForm.cs">
+    <Compile Include="UNA\Formularios\Usuarios\AgregarUsuarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\Formularios\AgregarUsuarioForm.Designer.cs">
+    <Compile Include="UNA\Formularios\Usuarios\AgregarUsuarioForm.Designer.cs">
       <DependentUpon>AgregarUsuarioForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\Formularios\Cuadernos\EditarCuadernoForm.cs">
@@ -114,10 +114,16 @@
     <Compile Include="UNA\Formularios\MenuPrincipalForm.Designer.cs">
       <DependentUpon>MenuPrincipalForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UNA\Formularios\IngresarUsuarioForm.cs">
+    <Compile Include="UNA\Formularios\Usuarios\CambiarContrasenaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UNA\Formularios\IngresarUsuarioForm.Designer.cs">
+    <Compile Include="UNA\Formularios\Usuarios\CambiarContrasenaForm.Designer.cs">
+      <DependentUpon>CambiarContrasenaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UNA\Formularios\Usuarios\IngresarUsuarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UNA\Formularios\Usuarios\IngresarUsuarioForm.Designer.cs">
       <DependentUpon>IngresarUsuarioForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -145,7 +151,7 @@
     <EmbeddedResource Include="UNA\Formularios\Notas\AgregarNotaForm.resx">
       <DependentUpon>AgregarNotaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UNA\Formularios\AgregarUsuarioForm.resx">
+    <EmbeddedResource Include="UNA\Formularios\Usuarios\AgregarUsuarioForm.resx">
       <DependentUpon>AgregarUsuarioForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\Formularios\Cuadernos\EditarCuadernoForm.resx">
@@ -157,7 +163,10 @@
     <EmbeddedResource Include="UNA\Formularios\MenuPrincipalForm.resx">
       <DependentUpon>MenuPrincipalForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UNA\Formularios\IngresarUsuarioForm.resx">
+    <EmbeddedResource Include="UNA\Formularios\Usuarios\CambiarContrasenaForm.resx">
+      <DependentUpon>CambiarContrasenaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UNA\Formularios\Usuarios\IngresarUsuarioForm.resx">
       <DependentUpon>IngresarUsuarioForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
