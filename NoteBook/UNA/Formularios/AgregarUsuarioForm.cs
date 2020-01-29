@@ -25,6 +25,11 @@ namespace NoteBook.UNA.Formularios
                 resultado = false;
                 errorProvider.SetError(textBoxNombreUsuario, "Debe ingresar el nombre de usuario");
             }
+            if (textBoxNombreReal.Text.Equals(""))
+            {
+                resultado = false;
+                errorProvider.SetError(textBoxNombreReal, "Debe ingresar el nombre completo");
+            }
             if (textBoxContrasena.Text.Equals(""))
             {
                 resultado = false;
@@ -41,18 +46,32 @@ namespace NoteBook.UNA.Formularios
         {
             if (ValidarCampos())
             {
+                Usuario usuario = new Usuario
+                {
+                    NombreUsuario = textBoxNombreUsuario.Text,
+                    NombreReal = textBoxNombreReal.Text,
+                    Contrasena = textBoxContrasena.Text,
+                    TipoUsuario = comboBoxTipoUsuario.SelectedItem.ToString()
+                };
 
+                AgregarUsuario(usuario);
             }
         }
 
-        public void AgregarUsuario()
+        public void AgregarUsuario(Usuario usuario)
         {
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
             mysqlAccess.EjectSQL("INSERT INTO dbproyecto.usuarios (nombre_usuario, nombre_real, contraseña, tipo_usuario) " +
-                "VALUES ('" + textBoxNombreUsuario.Text + "','" + textBoxNombreReal.Text + "','" + textBoxContrasena.Text + "','" 
+                "VALUES ('" + textBoxNombreUsuario.Text + "','" + textBoxNombreReal.Text + "','" + textBoxContrasena.Text + "','"
                 + comboBoxTipoUsuario.SelectedItem.ToString() + "')");
+            mysqlAccess.CloseConnection();
+        }
+
+        private void buttonVolver_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

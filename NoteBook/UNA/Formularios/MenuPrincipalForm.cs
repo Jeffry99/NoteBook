@@ -24,10 +24,7 @@ namespace NoteBook.UNA.Formularios
         public MenuPrincipalForm()
         {
             InitializeComponent();
-            MysqlAccess mysqlAccess = new MysqlAccess();
-            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
-            mysqlAccess.OpenConnection();
-            dataGridViewCuadernos.DataSource = mysqlAccess.QuerySQL("SELECT nombre, categoria, color FROM dbproyecto.cuadernos");
+            CargarDataGrid();
             if (dataGridViewCuadernos.Rows.Count == 0)
             {
                 dataGridViewCuadernos.Visible = false;
@@ -42,8 +39,8 @@ namespace NoteBook.UNA.Formularios
                 labelAgregar.Visible = false;
                 labelNoCuadernos.Visible = false;
             }
-
-            mysqlAccess.CloseConnection();
+            labelCuadernoNoEncontrado.Visible = false;
+            
         }
 
         private void MenuPrincipalForm_Load(object sender, EventArgs e)
@@ -52,7 +49,6 @@ namespace NoteBook.UNA.Formularios
             IngresarUsuarioForm signin = new IngresarUsuarioForm();
             signin.ShowDialog();
             signin.Close();
-
             Show();
             statusStripUsuario.Text = "Usuario Actual: " + LogIn.usuario.NombreUsuario;
             
@@ -63,9 +59,7 @@ namespace NoteBook.UNA.Formularios
             Hide();
             AgregarCuadernoForm agregarCuaderno = new AgregarCuadernoForm();
             agregarCuaderno.ShowDialog();
-
-            dataGridViewCuadernos.DataSource = Datos.cuadernos;
-
+            CargarDataGrid();
             Show();
         }
 
@@ -98,22 +92,9 @@ namespace NoteBook.UNA.Formularios
             Show();
 
         }
-
-        private void textBoxNombreCuadernoBusqueda_TextChanged(object sender, EventArgs e)
-        {
-            List<Cuaderno> cuadernoNombre = new List<Cuaderno>();
-            foreach (Cuaderno c in Datos.cuadernos)
-            {
-                Console.WriteLine(c.Nombre);
-                if (c.Nombre == textBoxNombreCuadernoBusqueda.Text)
-                {
-                    cuadernoNombre.Add(c);
-                }
-            }
-            dataGridViewCuadernos.DataSource = cuadernoNombre;
-        }
         private void buttonBusqueda_Click(object sender, EventArgs e)
         {
+            BuscarCuaderno();
         }
 
         private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -133,6 +114,41 @@ namespace NoteBook.UNA.Formularios
             else
             {
                 MessageBox.Show("No tiene permiso para realizar esta función", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void CargarDataGrid()
+        {
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            dataGridViewCuadernos.DataSource = mysqlAccess.QuerySQL("SELECT nombre, categoria, color FROM dbproyecto.cuadernos");
+            mysqlAccess.CloseConnection();
+        }
+
+        private void textBoxNombreCuadernoBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                BuscarCuaderno();
+            }
+        }
+        public void BuscarCuaderno()
+        {
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            dataGridViewCuadernos.DataSource = mysqlAccess.QuerySQL("SELECT nombre, categoria, color FROM dbproyecto.cuadernos WHERE nombre LIKE '%"
+                + textBoxNombreCuadernoBusqueda.Text + "%'");
+            mysqlAccess.CloseConnection();
+            if (dataGridViewCuadernos.Rows.Count == 0)
+            {
+                dataGridViewCuadernos.Visible = false;
+                labelCuadernoNoEncontrado.Visible = true;
+            }
+            else
+            {
+                dataGridViewCuadernos.Visible = true;
+                labelCuadernoNoEncontrado.Visible = false;
             }
         }
     }

@@ -44,6 +44,7 @@
             this.buttonBusqueda = new System.Windows.Forms.Button();
             this.labelNoCuadernos = new System.Windows.Forms.Label();
             this.labelAgregar = new System.Windows.Forms.Label();
+            this.labelCuadernoNoEncontrado = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).BeginInit();
@@ -75,7 +76,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1371, 30);
+            this.menuStrip.Size = new System.Drawing.Size(1371, 28);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -179,7 +180,7 @@
             this.textBoxNombreCuadernoBusqueda.Name = "textBoxNombreCuadernoBusqueda";
             this.textBoxNombreCuadernoBusqueda.Size = new System.Drawing.Size(175, 22);
             this.textBoxNombreCuadernoBusqueda.TabIndex = 9;
-            this.textBoxNombreCuadernoBusqueda.TextChanged += new System.EventHandler(this.textBoxNombreCuadernoBusqueda_TextChanged);
+            this.textBoxNombreCuadernoBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNombreCuadernoBusqueda_KeyPress);
             // 
             // buttonBusqueda
             // 
@@ -211,12 +212,23 @@
             this.labelAgregar.TabIndex = 16;
             this.labelAgregar.Text = "Este usuario no ha agregado cuadernos aún, presione el botón para agregar";
             // 
+            // labelCuadernoNoEncontrado
+            // 
+            this.labelCuadernoNoEncontrado.AutoSize = true;
+            this.labelCuadernoNoEncontrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCuadernoNoEncontrado.Location = new System.Drawing.Point(462, 277);
+            this.labelCuadernoNoEncontrado.Name = "labelCuadernoNoEncontrado";
+            this.labelCuadernoNoEncontrado.Size = new System.Drawing.Size(449, 32);
+            this.labelCuadernoNoEncontrado.TabIndex = 17;
+            this.labelCuadernoNoEncontrado.Text = "¡No se han encontrado cuadernos!";
+            // 
             // MenuPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(1371, 571);
+            this.Controls.Add(this.labelCuadernoNoEncontrado);
             this.Controls.Add(this.labelAgregar);
             this.Controls.Add(this.labelNoCuadernos);
             this.Controls.Add(this.buttonBusqueda);
@@ -261,5 +273,6 @@
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarUsuarioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
+        private System.Windows.Forms.Label labelCuadernoNoEncontrado;
     }
 }

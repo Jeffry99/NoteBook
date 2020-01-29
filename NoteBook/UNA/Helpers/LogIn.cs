@@ -32,8 +32,6 @@ namespace NoteBook.UNA.Helpers
                 usuario.Contrasena = contrasena;
                 usuario.TipoUsuario = "Administrador";
                 return true;
-                
-
             }
         }
     }

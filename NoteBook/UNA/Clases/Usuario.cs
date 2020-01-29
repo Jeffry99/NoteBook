@@ -22,5 +22,10 @@ namespace NoteBook
             get;
             set;
         }
+        public string NombreReal
+        {
+            get;
+            set;
+        }
     }
 }

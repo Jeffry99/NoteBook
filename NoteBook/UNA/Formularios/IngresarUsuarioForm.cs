@@ -69,7 +69,7 @@ namespace NoteBook
         }
         private void IngresarUsuarioForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (ValidarCampos() == false)
+            if (!ValidarCampos())
             {
                 Application.Exit();
             }

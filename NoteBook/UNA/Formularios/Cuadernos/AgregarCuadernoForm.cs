@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.IO;
 using NoteBook.UNA.Miscelaneo;
 using NoteBook.UNA.Helpers;
+using DatabaseAccess.UNA;
 
 namespace NoteBook.UNA.Formularios
 {
@@ -19,6 +20,7 @@ namespace NoteBook.UNA.Formularios
         public AgregarCuadernoForm()
         {
             InitializeComponent();
+            EncontrarIdUsuario(LogIn.usuario.NombreUsuario);
         }
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
@@ -29,20 +31,30 @@ namespace NoteBook.UNA.Formularios
         }
         public void AgregarCuaderno()
         {
-            int ultimoIndice = 0;
-            foreach (Cuaderno c in Datos.cuadernos)
-            {
-                ultimoIndice++;
-            }
-            Cuaderno cuaderno = new Cuaderno
-            {
-                Nombre = textBoxNombre.Text,
-                Categoria = textBoxCategoria.Text,
-                Color = pictureBoxColor.BackColor.ToString(),
-                Orden = ultimoIndice + 1
-            };
-            Datos.cuadernos.Add(cuaderno);
-            Datos.SaveToFile();
+            Cuaderno cuaderno = new Cuaderno();
+            //int ultimoIndice = 0;
+            //foreach (Cuaderno c in Datos.cuadernos)
+            //{
+            //    ultimoIndice++;
+            //}
+            //{
+            //    Nombre = textBoxNombre.Text,
+            //    Categoria = textBoxCategoria.Text,
+            //    Color = pictureBoxColor.BackColor.ToString(),
+            //    Orden = ultimoIndice + 1
+            //};
+            //Datos.cuadernos.Add(cuaderno);
+            //Datos.SaveToFile();
+
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+
+            //mysqlAccess.EjectSQL("INSERT INTO dbproyecto.cuadernos (idUsuario, nombre, categoria, color, orden) " +
+            //    "VALUES ('" + textBoxNombreUsuario.Text + "','" + textBoxNombreReal.Text + "','" + textBoxContrasena.Text + "','"
+            //    + comboBoxTipoUsuario.SelectedItem.ToString() + "')");
+            EncontrarIdUsuario(LogIn.usuario.NombreUsuario);
+            mysqlAccess.CloseConnection();
             Limpiar();
 
             Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Ha agregado un cuaderno", cuaderno.Nombre, "");
@@ -81,14 +93,7 @@ namespace NoteBook.UNA.Formularios
             {
                 errorProviderColor.Clear();
             }
-            foreach (Cuaderno c in Datos.cuadernos)
-            {
-                if (textBoxNombre.Text == c.Nombre)
-                {
-                    resultado = false;
-                    errorProviderNombre.SetError(textBoxNombre, "Ya hay un cuaderno con este nombre");
-                }
-            }
+            //validar para cuadernos con el mismo nombre
             
             return resultado;            
         }
@@ -116,6 +121,15 @@ namespace NoteBook.UNA.Formularios
                 pictureBoxColor.BackColor = MyDialog.Color;
             }
             buttonAgregar.Focus();
+        }
+        public void EncontrarIdUsuario(string nombreUsuario)
+        {
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            char idUsuario = 'd';
+            DataTable data = mysqlAccess.QuerySQL("SELECT idUsuarios FROM dbproyecto.usuarios WHERE nombre_usuario = '" + nombreUsuario+"'");
+            mysqlAccess.CloseConnection();
         }
     }
 }
