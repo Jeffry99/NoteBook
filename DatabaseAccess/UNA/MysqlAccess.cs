@@ -69,5 +69,12 @@ namespace DatabaseAccess.UNA
             mySqlDataAdapter.Fill(result);
             return result;
         }
+        //public List<string> QuerySQL_(string sql)
+        //{
+        //    List<string> result = new List<string>();
+        //    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(sql, (MySqlConnection)Connection);
+        //    mySqlDataAdapter.Fill(result);
+        //    return result;
+        //}
     }
 }

@@ -1,4 +1,5 @@
-﻿using NoteBook.UNA.Helpers;
+﻿using DatabaseAccess.UNA;
+using NoteBook.UNA.Helpers;
 using NoteBook.UNA.Miscelaneo;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,11 @@ namespace NoteBook.UNA.Formularios
 {
     public partial class EditarCuadernoForm : Form
     {
+        public Cuaderno Cuaderno
+        {
+            get;
+            set;
+        }
         public EditarCuadernoForm()
         {
             InitializeComponent();
@@ -31,18 +37,17 @@ namespace NoteBook.UNA.Formularios
         {
             //TODO Terminar esta funcion del programa
             //Obtener el cuaderno que se quiere editar 
-            Cuaderno cuaderno = new Cuaderno();
-            foreach (Cuaderno c in Datos.cuadernos)
-            {
-                
-            }
-            
-            //Datos.cuadernos.Add(cuaderno);
-            Datos.SaveToFile();
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            //mysqlAccess.EjectSQL("UPDATE dbproyecto.cuadernos SET nombre ='"+textBoxNombre.Text+"' WHERE nombre = " );
+            //double otherNumber = dt.Rows[i].Field<double>("DoubleColumn");
+            DataTable data = mysqlAccess.QuerySQL("SELECT idUsuarios FROM dbproyecto.usuarios WHERE nombre = ");
+
             Limpiar();
-            Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Ha editado un cuaderno", cuaderno.Nombre, "");
-            RegistroAcciones.acciones.Add(accion);
-            RegistroAcciones.SaveToFile();
+            //Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Ha editado un cuaderno", cuaderno.Nombre, "");
+            //RegistroAcciones.acciones.Add(accion);
+            //RegistroAcciones.SaveToFile();
             MessageBox.Show("Se ha editado el cuaderno", "Cuaderno Editado", MessageBoxButtons.OK);
         }
 
@@ -67,9 +72,9 @@ namespace NoteBook.UNA.Formularios
             {
                 errorProviderCategoria.Clear();
             }
-            if (comboBoxColor.Text.Equals(""))
+            if (pictureBoxColor.BackColor.Equals(BackColor))
             {
-                errorProviderColor.SetError(comboBoxColor, "Debe seleccionar un color");
+                errorProviderColor.SetError(buttonSeleccionarColor, "Debe seleccionar un color");
                 resultado = false;
             }
             else
@@ -88,12 +93,22 @@ namespace NoteBook.UNA.Formularios
         {
             textBoxNombre.Clear();
             textBoxCategoria.Clear();
-            comboBoxColor.SelectedItem = null;
             errorProviderCategoria.Clear();
             errorProviderColor.Clear();
             errorProviderNombre.Clear();
         }
 
+        private void buttonSeleccionarColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog MyDialog = new ColorDialog();
+            MyDialog.AllowFullOpen = false;
+            MyDialog.ShowHelp = true;
 
+            if (MyDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxColor.BackColor = MyDialog.Color;
+            }
+            buttonCambiar.Focus();
+        }
     }
 }

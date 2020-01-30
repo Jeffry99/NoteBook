@@ -19,13 +19,18 @@ namespace NoteBook.UNA.Formularios
 {
     public partial class MenuPrincipalForm : Form
     {
-        public static List<Cuaderno> cuadernos;
+        
         public static List<Nota> nota;
 
         public MenuPrincipalForm()
         {
             InitializeComponent();
             CargarDataGrid();
+            //List<Cuaderno> cuadernos = new List<Cuaderno>();
+            //Cuaderno cuaderno1 = new Cuaderno();
+            //cuaderno1.Nombre = "cuaderno333";
+            //cuadernos.Insert(0, cuaderno1);
+            //dataGridViewCuadernos.DataSource = cuadernos.ToArray();
             if (dataGridViewCuadernos.Rows.Count == 0)
             {
                 dataGridViewCuadernos.Visible = false;
@@ -69,11 +74,11 @@ namespace NoteBook.UNA.Formularios
         {
             Hide();
             Cuaderno cuaderno = new Cuaderno();
-            foreach (DataGridViewRow c in dataGridViewCuadernos.SelectedRows)
+            foreach (DataGridViewRow d in dataGridViewCuadernos.SelectedRows)
             {
-                cuaderno = (Cuaderno)c.DataBoundItem;
+                cuaderno = (Cuaderno)d.DataBoundItem;
             }
-
+            //string nombreCuaderno = dataGridViewCuadernos.Rows.field<string>("nombre");
 
 
 

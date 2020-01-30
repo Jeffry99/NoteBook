@@ -49,11 +49,10 @@ namespace NoteBook.UNA.Formularios
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
-
-            //mysqlAccess.EjectSQL("INSERT INTO dbproyecto.cuadernos (idUsuario, nombre, categoria, color, orden) " +
-            //    "VALUES ('" + textBoxNombreUsuario.Text + "','" + textBoxNombreReal.Text + "','" + textBoxContrasena.Text + "','"
-            //    + comboBoxTipoUsuario.SelectedItem.ToString() + "')");
-            EncontrarIdUsuario(LogIn.usuario.NombreUsuario);
+            int orden = 1;
+            mysqlAccess.EjectSQL("INSERT INTO dbproyecto.cuadernos (idUsuario, nombre, categoria, color, orden) " +
+                "VALUES ('"+EncontrarIdUsuario(LogIn.usuario.NombreUsuario)+"','"+ textBoxNombre.Text + "','" + textBoxCategoria.Text + "','" + pictureBoxColor.BackColor.ToString() + "','"+orden+"')");
+            
             mysqlAccess.CloseConnection();
             Limpiar();
 
@@ -122,14 +121,19 @@ namespace NoteBook.UNA.Formularios
             }
             buttonAgregar.Focus();
         }
-        public void EncontrarIdUsuario(string nombreUsuario)
+        public int EncontrarIdUsuario(string nombreUsuario)
         {
+            int idUsuario = 0;
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
-            char idUsuario = 'd';
             DataTable data = mysqlAccess.QuerySQL("SELECT idUsuarios FROM dbproyecto.usuarios WHERE nombre_usuario = '" + nombreUsuario+"'");
+            foreach (int s in data.Rows.OfType<DataRow>().Select(dr => dr.Field<int>("idUsuarios")).ToList())
+            {
+                idUsuario = s;
+            }
             mysqlAccess.CloseConnection();
+            return idUsuario;
         }
     }
 }

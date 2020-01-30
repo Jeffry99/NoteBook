@@ -34,15 +34,17 @@
             this.labelColor = new System.Windows.Forms.Label();
             this.textBoxCategoria = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.comboBoxColor = new System.Windows.Forms.ComboBox();
             this.buttonCambiar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.errorProviderNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderCategoria = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderColor = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBoxColor = new System.Windows.Forms.PictureBox();
+            this.buttonSeleccionarColor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCategoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNombre
@@ -86,23 +88,6 @@
             this.textBoxNombre.Size = new System.Drawing.Size(357, 22);
             this.textBoxNombre.TabIndex = 0;
             // 
-            // comboBoxColor
-            // 
-            this.comboBoxColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxColor.FormattingEnabled = true;
-            this.comboBoxColor.Items.AddRange(new object[] {
-            "Amarillo",
-            "Azul",
-            "Blanco",
-            "Gris",
-            "Negro",
-            "Rojo",
-            "Verde"});
-            this.comboBoxColor.Location = new System.Drawing.Point(188, 195);
-            this.comboBoxColor.Name = "comboBoxColor";
-            this.comboBoxColor.Size = new System.Drawing.Size(357, 24);
-            this.comboBoxColor.TabIndex = 2;
-            // 
             // buttonCambiar
             // 
             this.buttonCambiar.Location = new System.Drawing.Point(521, 266);
@@ -134,15 +119,35 @@
             // 
             this.errorProviderColor.ContainerControl = this;
             // 
+            // pictureBoxColor
+            // 
+            this.pictureBoxColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxColor.Location = new System.Drawing.Point(188, 195);
+            this.pictureBoxColor.Name = "pictureBoxColor";
+            this.pictureBoxColor.Size = new System.Drawing.Size(100, 24);
+            this.pictureBoxColor.TabIndex = 9;
+            this.pictureBoxColor.TabStop = false;
+            // 
+            // buttonSeleccionarColor
+            // 
+            this.buttonSeleccionarColor.Location = new System.Drawing.Point(295, 195);
+            this.buttonSeleccionarColor.Name = "buttonSeleccionarColor";
+            this.buttonSeleccionarColor.Size = new System.Drawing.Size(250, 24);
+            this.buttonSeleccionarColor.TabIndex = 10;
+            this.buttonSeleccionarColor.Text = "Seleccionar Color";
+            this.buttonSeleccionarColor.UseVisualStyleBackColor = true;
+            this.buttonSeleccionarColor.Click += new System.EventHandler(this.buttonSeleccionarColor_Click);
+            // 
             // EditarCuadernoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(682, 353);
+            this.Controls.Add(this.buttonSeleccionarColor);
+            this.Controls.Add(this.pictureBoxColor);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonCambiar);
-            this.Controls.Add(this.comboBoxColor);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.textBoxCategoria);
             this.Controls.Add(this.labelColor);
@@ -153,6 +158,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCategoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,11 +171,12 @@
         private System.Windows.Forms.Label labelColor;
         private System.Windows.Forms.TextBox textBoxCategoria;
         private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.ComboBox comboBoxColor;
         private System.Windows.Forms.Button buttonCambiar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.ErrorProvider errorProviderNombre;
         private System.Windows.Forms.ErrorProvider errorProviderCategoria;
         private System.Windows.Forms.ErrorProvider errorProviderColor;
+        private System.Windows.Forms.Button buttonSeleccionarColor;
+        private System.Windows.Forms.PictureBox pictureBoxColor;
     }
 }
