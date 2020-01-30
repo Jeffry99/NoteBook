@@ -47,10 +47,11 @@ namespace NoteBook.UNA.Formularios.Usuario
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
             DataTable dat =  mysqlAccess.QuerySQL("SELECT contraseña FROM dbproyecto.usuarios WHERE nombre_usuario = '" + LogIn.usuario.NombreUsuario + "'");
-            Console.WriteLine(dat.Rows[0][0].ToString());
+            
             mysqlAccess.CloseConnection();
+            Console.WriteLine(dat.Rows[0][0].ToString() + textBoxContrasenaActual.Text);
 
-            if (!(dat.Rows[0][0].ToString() == textBoxContrasenaActual.Text))
+            if ((dat.Rows[0][0].ToString() != textBoxContrasenaActual.Text))
             {
                 resultado = false;
                 errorProvider.SetError(textBoxContrasenaActual, "La contraseña es incorrecta");
