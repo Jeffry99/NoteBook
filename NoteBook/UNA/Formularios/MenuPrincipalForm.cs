@@ -19,34 +19,15 @@ namespace NoteBook.UNA.Formularios
 {
     public partial class MenuPrincipalForm : Form
     {
-        
+
         public static List<Nota> nota;
 
         public MenuPrincipalForm()
         {
             InitializeComponent();
-            CargarDataGrid();
-            //List<Cuaderno> cuadernos = new List<Cuaderno>();
-            //Cuaderno cuaderno1 = new Cuaderno();
-            //cuaderno1.Nombre = "cuaderno333";
-            //cuadernos.Insert(0, cuaderno1);
-            //dataGridViewCuadernos.DataSource = cuadernos.ToArray();
-            if (dataGridViewCuadernos.Rows.Count == 0)
-            {
-                dataGridViewCuadernos.Visible = false;
-                labelCuadernosDisponibles.Visible = false;
-                labelAgregar.Visible = true;
-                labelNoCuadernos.Visible = true;
-            }
-            else
-            {
-                dataGridViewCuadernos.Visible = true;
-                labelCuadernosDisponibles.Visible = true;
-                labelAgregar.Visible = false;
-                labelNoCuadernos.Visible = false;
-            }
-            labelCuadernoNoEncontrado.Visible = false;
-            
+
+
+
         }
 
         private void MenuPrincipalForm_Load(object sender, EventArgs e)
@@ -56,8 +37,11 @@ namespace NoteBook.UNA.Formularios
             signin.ShowDialog();
             signin.Close();
             Show();
+
+            CargarDataGrid();
+            ValidarDataTable();
             statusStripUsuario.Text = "Usuario Actual: " + LogIn.usuario.NombreUsuario;
-            
+
         }
 
         private void buttonAgregarCuaderno_Click(object sender, EventArgs e)
@@ -130,7 +114,7 @@ namespace NoteBook.UNA.Formularios
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
-            dataGridViewCuadernos.DataSource = mysqlAccess.QuerySQL("SELECT nombre, categoria, color FROM dbproyecto.cuadernos");
+            dataGridViewCuadernos.DataSource = mysqlAccess.QuerySQL("SELECT nombre, categoria, color FROM dbproyecto.cuadernos WHERE idUsuario ='" + LogIn.EncontrarIdUsuario() + "'");
             mysqlAccess.CloseConnection();
         }
 
@@ -147,7 +131,7 @@ namespace NoteBook.UNA.Formularios
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
             dataGridViewCuadernos.DataSource = mysqlAccess.QuerySQL("SELECT nombre, categoria, color FROM dbproyecto.cuadernos WHERE nombre LIKE '%"
-                + textBoxNombreCuadernoBusqueda.Text + "%'");
+                + textBoxNombreCuadernoBusqueda.Text + "%' AND idUsuario = '"+LogIn.EncontrarIdUsuario()+"'");
             mysqlAccess.CloseConnection();
             if (dataGridViewCuadernos.Rows.Count == 0)
             {
@@ -159,6 +143,26 @@ namespace NoteBook.UNA.Formularios
                 dataGridViewCuadernos.Visible = true;
                 labelCuadernoNoEncontrado.Visible = false;
             }
+
+
+        }
+        public void ValidarDataTable()
+        {
+            if (dataGridViewCuadernos.Rows.Count == 0)
+            {
+                dataGridViewCuadernos.Visible = false;
+                labelCuadernosDisponibles.Visible = false;
+                labelAgregar.Visible = true;
+                labelNoCuadernos.Visible = true;
+            }
+            else
+            {
+                dataGridViewCuadernos.Visible = true;
+                labelCuadernosDisponibles.Visible = true;
+                labelAgregar.Visible = false;
+                labelNoCuadernos.Visible = false;
+            }
+            labelCuadernoNoEncontrado.Visible = false;
         }
     }
 }

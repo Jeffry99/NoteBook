@@ -20,7 +20,6 @@ namespace NoteBook.UNA.Formularios
         public AgregarCuadernoForm()
         {
             InitializeComponent();
-            EncontrarIdUsuario(LogIn.usuario.NombreUsuario);
         }
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
@@ -51,7 +50,7 @@ namespace NoteBook.UNA.Formularios
             mysqlAccess.OpenConnection();
             int orden = 1;
             mysqlAccess.EjectSQL("INSERT INTO dbproyecto.cuadernos (idUsuario, nombre, categoria, color, orden) " +
-                "VALUES ('"+EncontrarIdUsuario(LogIn.usuario.NombreUsuario)+"','"+ textBoxNombre.Text + "','" + textBoxCategoria.Text + "','" + pictureBoxColor.BackColor.ToString() + "','"+orden+"')");
+                "VALUES ('"+LogIn.EncontrarIdUsuario()+"','"+ textBoxNombre.Text + "','" + textBoxCategoria.Text + "','" + pictureBoxColor.BackColor.ToString() + "','"+orden+"')");
             
             mysqlAccess.CloseConnection();
             Limpiar();
@@ -60,6 +59,7 @@ namespace NoteBook.UNA.Formularios
             RegistroAcciones.acciones.Add(accion);
             RegistroAcciones.SaveToFile();
             MessageBox.Show("Se ha agregado el cuaderno", "Cuaderno Agregado", MessageBoxButtons.OK);
+            Close();
         }
 
         public bool Validar()
@@ -121,19 +121,6 @@ namespace NoteBook.UNA.Formularios
             }
             buttonAgregar.Focus();
         }
-        public int EncontrarIdUsuario(string nombreUsuario)
-        {
-            int idUsuario = 0;
-            MysqlAccess mysqlAccess = new MysqlAccess();
-            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
-            mysqlAccess.OpenConnection();
-            DataTable data = mysqlAccess.QuerySQL("SELECT idUsuarios FROM dbproyecto.usuarios WHERE nombre_usuario = '" + nombreUsuario+"'");
-            foreach (int s in data.Rows.OfType<DataRow>().Select(dr => dr.Field<int>("idUsuarios")).ToList())
-            {
-                idUsuario = s;
-            }
-            mysqlAccess.CloseConnection();
-            return idUsuario;
-        }
+        
     }
 }

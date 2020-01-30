@@ -34,5 +34,16 @@ namespace NoteBook.UNA.Helpers
                 return true;
             }
         }
+        public static int EncontrarIdUsuario()
+        {
+            int idUsuario = 0;
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable data = mysqlAccess.QuerySQL("SELECT idUsuarios FROM dbproyecto.usuarios WHERE nombre_usuario = '" + usuario.NombreUsuario + "'");
+            idUsuario = Convert.ToInt32(data.Rows[0][0].ToString());
+            mysqlAccess.CloseConnection();
+            return idUsuario;
+        }
     }
 }
