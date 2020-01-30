@@ -58,21 +58,19 @@ namespace NoteBook.UNA.Formularios
         {
             Hide();
             Cuaderno cuaderno = new Cuaderno();
-            foreach (DataGridViewRow d in dataGridViewCuadernos.SelectedRows)
-            {
-                cuaderno = (Cuaderno)d.DataBoundItem;
-            }
-            //string nombreCuaderno = dataGridViewCuadernos.Rows.field<string>("nombre");
+            string nombreCuaderno = dataGridViewCuadernos.SelectedRows[0].Cells[0].Value.ToString();
+
 
 
 
             NotasForm notas = new NotasForm();
-            notas.Text = cuaderno.Nombre;
+            notas.cuaderno.Nombre = nombreCuaderno;
+            notas.Text = nombreCuaderno;
             notas.ShowDialog();
 
 
             Show();
-            dataGridViewCuadernos.DataSource = Datos.cuadernos;
+           
         }
         private void historialToolStripMenuItem_Click_1(object sender, EventArgs e)
         {

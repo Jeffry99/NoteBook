@@ -30,7 +30,7 @@ namespace NoteBook.UNA.Helpers
             {
                 usuario.NombreUsuario = nomUsuario;
                 usuario.Contrasena = contrasena;
-                usuario.TipoUsuario = "Administrador";
+                usuario.TipoUsuario = ObtenerTipoUsuario();
                 return true;
             }
         }
@@ -44,6 +44,18 @@ namespace NoteBook.UNA.Helpers
             idUsuario = Convert.ToInt32(data.Rows[0][0].ToString());
             mysqlAccess.CloseConnection();
             return idUsuario;
+        }
+        
+        public static string ObtenerTipoUsuario()
+        {
+            string tipoUsuario;
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable data = mysqlAccess.QuerySQL("SELECT tipo_usuario FROM dbproyecto.usuarios WHERE nombre_usuario = '" + usuario.NombreUsuario + "'");
+            tipoUsuario = data.Rows[0][0].ToString();
+            mysqlAccess.CloseConnection();
+            return tipoUsuario;
         }
     }
 }

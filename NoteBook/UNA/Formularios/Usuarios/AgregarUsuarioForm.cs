@@ -46,15 +46,7 @@ namespace NoteBook.UNA.Formularios
         {
             if (ValidarCampos())
             {
-                // usuario = new Usuario()
-                //{
-                //    NombreUsuario = textBoxNombreUsuario.Text,
-                //    NombreReal = textBoxNombreReal.Text,
-                //    Contrasena = textBoxContrasena.Text,
-                //    TipoUsuario = comboBoxTipoUsuario.SelectedItem.ToString()
-                //};
-
-                //AgregarUsuario(usuario);
+                AgregarUsuario();
             }
         }
 
@@ -67,6 +59,8 @@ namespace NoteBook.UNA.Formularios
                 "VALUES ('" + textBoxNombreUsuario.Text + "','" + textBoxNombreReal.Text + "','" + textBoxContrasena.Text + "','"
                 + comboBoxTipoUsuario.SelectedItem.ToString() + "')");
             mysqlAccess.CloseConnection();
+            MessageBox.Show("Se ha agregado el usuario", "Listo", MessageBoxButtons.OK);
+            Close();
         }
 
         private void buttonVolver_Click(object sender, EventArgs e)

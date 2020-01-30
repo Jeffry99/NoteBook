@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using DatabaseAccess.UNA;
+using Newtonsoft.Json;
+using NoteBook.UNA.Helpers;
 using NoteBook.UNA.Miscelaneo;
 using System;
 using System.Collections.Generic;
@@ -17,7 +19,7 @@ namespace NoteBook.UNA.Formularios
     {
 
         public static List<Cuaderno> cuadernos;
-        
+        public Cuaderno cuaderno = new Cuaderno();
         public NotasForm()
         {
             InitializeComponent();
@@ -52,27 +54,38 @@ namespace NoteBook.UNA.Formularios
 
         private void NotasForm_Load(object sender, EventArgs e)
         {
-            dataGridViewNotas.DataSource = EncontrarCuadernoActual().notas;
+            CargarDataGrid();
         }
 
         public Cuaderno EncontrarCuadernoActual()
         {
             Cuaderno cuaderno = new Cuaderno();
-            foreach (Cuaderno c in Datos.cuadernos)
-            {
-                if (c.Nombre.Equals(Text))
-                {
-                    cuaderno = c;
-                }
-            }
+            
             return cuaderno;
         }
-
+        public void CargarDataGrid()
+        {
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            dataGridViewNotas.DataSource = mysqlAccess.QuerySQL("SELECT titulo, categoria, color, fecha_creacion, fecha_modificacion FROM dbproyecto.notas WHERE idCuadernos ='" + EncontrarIdCuaderno() + "'");
+            mysqlAccess.CloseConnection();
+        }
         private void buttonEditarNota_Click(object sender, EventArgs e)
         {
 
         }
-
+        public int EncontrarIdCuaderno()
+        {
+            int idUsuario = 0;
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable data = mysqlAccess.QuerySQL("SELECT idCuadernos FROM dbproyecto.cuadernos WHERE nombre = '" + cuaderno.Nombre + "'");
+            idUsuario = Convert.ToInt32(data.Rows[0][0].ToString());
+            mysqlAccess.CloseConnection();
+            return idUsuario;
+        }
         private void buttonVolver_Click(object sender, EventArgs e)
         {
             Close();
