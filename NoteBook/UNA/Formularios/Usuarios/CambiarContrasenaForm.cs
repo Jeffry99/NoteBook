@@ -42,19 +42,6 @@ namespace NoteBook.UNA.Formularios.Usuario
         public bool ValidarContrasenas()
         {
             bool resultado = true;
-           
-            MysqlAccess mysqlAccess = new MysqlAccess();
-            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
-            mysqlAccess.OpenConnection();
-            DataTable dat =  mysqlAccess.QuerySQL("SELECT contraseña FROM dbproyecto.usuarios WHERE nombre_usuario = '" + LogIn.usuario.NombreUsuario + "'");
-            Console.WriteLine(dat.Rows[0][0].ToString());
-            mysqlAccess.CloseConnection();
-
-            if (!(dat.Rows[0][0].ToString() == textBoxContrasenaActual.Text))
-            {
-                resultado = false;
-                errorProvider.SetError(textBoxContrasenaActual, "La contraseña es incorrecta");
-            }
             if (!textBoxContrasenaNueva.Text.Equals(textBoxConfirmarContrasena.Text))
             {
                 resultado = false;
@@ -107,17 +94,6 @@ namespace NoteBook.UNA.Formularios.Usuario
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void buttonCambiarContrasena_Click(object sender, EventArgs e)
-        {
-            if (ValidarCampos())
-            {
-                if (ValidarContrasenas())
-                {
-                    CambiarContrasena();
-                }
-            }
         }
     }
 }

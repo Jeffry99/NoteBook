@@ -32,20 +32,3 @@ C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\Data
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\DatabaseAccess\obj\Debug\DatabaseAccess.csproj.CopyComplete
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\DatabaseAccess\obj\Debug\DatabaseAccess.exe
 C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\DatabaseAccess\obj\Debug\DatabaseAccess.pdb
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\bin\Debug\DatabaseAccess.exe.config
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\bin\Debug\DatabaseAccess.exe
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\bin\Debug\DatabaseAccess.pdb
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\bin\Debug\Google.Protobuf.dll
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\bin\Debug\MySql.Data.dll
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\bin\Debug\Renci.SshNet.dll
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\bin\Debug\Ubiety.Dns.Core.dll
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\bin\Debug\Google.Protobuf.xml
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\bin\Debug\MySql.Data.xml
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\bin\Debug\Renci.SshNet.xml
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\obj\Debug\DatabaseAccess.csprojAssemblyReference.cache
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\obj\Debug\DatabaseAccess.Properties.Resources.resources
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\obj\Debug\DatabaseAccess.csproj.GenerateResource.cache
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\obj\Debug\DatabaseAccess.csproj.CopyComplete
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\obj\Debug\DatabaseAccess.exe
-C:\Users\Luis Valverde\Desktop\NoteBook\DatabaseAccess\obj\Debug\DatabaseAccess.pdb
