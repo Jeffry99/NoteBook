@@ -80,7 +80,7 @@ namespace NoteBook.UNA.Formularios.Notas
             }
             richTextBoxNota.Focus();
         }
-        private bool Validar()
+        private bool ValidarCampos()
         {
             bool result = true;
             if (textBoxTitulo.TextLength == 0)
@@ -212,7 +212,7 @@ namespace NoteBook.UNA.Formularios.Notas
         private void buttonListo_Click(object sender, EventArgs e)
         {
             errorProvider.Clear();
-            if (Validar())
+            if (ValidarCampos())
             {
                 EditarNota();
             }

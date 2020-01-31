@@ -50,7 +50,7 @@ namespace NoteBook.UNA.Formularios
             Show();
 
             CargarDataGrid();
-            ValidarDataTable();
+            ValidarDataGrid();
             Console.WriteLine(LogIn.usuario.NombreUsuario);
             toolStripStatusLabelUsuario.Text = "Usuario Actual: " + LogIn.usuario.NombreUsuario;
 
@@ -64,7 +64,7 @@ namespace NoteBook.UNA.Formularios
             
             Show();
             CargarDataGrid();
-            ValidarDataTable();
+            ValidarDataGrid();
         }
 
 
@@ -75,7 +75,6 @@ namespace NoteBook.UNA.Formularios
             string nombreCuaderno = dataGridViewCuadernos.SelectedRows[0].Cells[0].Value.ToString();
  
             NotasForm notas = new NotasForm(nombreCuaderno);
-            notas.Text = nombreCuaderno;
             notas.ShowDialog();
             Show();
         }
@@ -118,7 +117,7 @@ namespace NoteBook.UNA.Formularios
                 labelCuadernoNoEncontrado.Visible = false;
             }
         }
-        public void ValidarDataTable()
+        public void ValidarDataGrid()
         {
             if (dataGridViewCuadernos.Rows.Count == 0)
             {
@@ -151,7 +150,7 @@ namespace NoteBook.UNA.Formularios
                 editarCuaderno.ShowDialog();
                 Show();
                 CargarDataGrid();
-                ValidarDataTable();
+                ValidarDataGrid();
             }
         }
 
@@ -172,31 +171,22 @@ namespace NoteBook.UNA.Formularios
                 int idCuaderno = Convert.ToInt32(data.Rows[0][0].ToString());
                 try
                 {
-                    if(MessageBox.Show("¿Desea eliminar el cuaderno seleccionado?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("¿Desea eliminar el cuaderno seleccionado?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         mysqlAccess.EjectSQL("DELETE FROM dbproyecto.cuadernos WHERE idCuadernos = '" + idCuaderno + "'");
                         Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Se ha eliminado un cuaderno", "Cuaderno", "Cuaderno: " + nombreCuaderno);
                         RegistroAcciones.Save(accion);
-                    }
-                    
-                    
+                    }    
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("No puede eliminar este cuaderno porque tiene notas asociadas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 mysqlAccess.CloseConnection();
-
                 CargarDataGrid();
-                ValidarDataTable();
+                ValidarDataGrid();
             } 
         }
-
-        private void buttonEliminarCuaderno_DragOver(object sender, DragEventArgs e)
-        {
-            helpProvider.SetHelpString(buttonEliminarCuaderno, "Debe dar click sobre el cuaderno que desea eliminar");
-        }
-
         private void buttonEliminarCuaderno_MouseHover(object sender, EventArgs e)
         {
             helpProvider.SetHelpString(buttonEliminarCuaderno, "Debe dar click sobre el cuaderno que desea eliminar");
@@ -214,9 +204,7 @@ namespace NoteBook.UNA.Formularios
             {
                 MessageBox.Show("No tiene permiso para realizar esta función", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-
         private void agregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (LogIn.usuario.TipoUsuario.Equals("Administrador"))
@@ -231,7 +219,6 @@ namespace NoteBook.UNA.Formularios
                 MessageBox.Show("No tiene permiso para realizar esta función", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void cambiarContraseñaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             CambiarContrasenaForm cambiarContrasena = new CambiarContrasenaForm();
@@ -239,7 +226,6 @@ namespace NoteBook.UNA.Formularios
             cambiarContrasena.ShowDialog();
             Show();
         }
-
         private void cerrarSesiónToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Desea salir?", "Confirmar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
@@ -248,18 +234,16 @@ namespace NoteBook.UNA.Formularios
                 IngresarUsuarioForm signin = new IngresarUsuarioForm();
                 signin.ShowDialog();
                 signin.Close();
-
-
                 CargarDataGrid();
-                ValidarDataTable();
+                ValidarDataGrid();
                 toolStripStatusLabelUsuario.Text = "Usuario Actual: " + LogIn.usuario.NombreUsuario;
                 Show();
             }
         }
 
-        private void menuToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void buttonSalir_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

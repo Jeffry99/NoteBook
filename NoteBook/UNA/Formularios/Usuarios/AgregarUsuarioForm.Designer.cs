@@ -162,7 +162,7 @@
             this.Controls.Add(this.labelContrasena);
             this.Controls.Add(this.labelNombreUsuario);
             this.Name = "AgregarUsuarioForm";
-            this.Text = "Agregar Usuario";
+            this.Text = "Agregar Usuario : U1";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

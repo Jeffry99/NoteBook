@@ -161,7 +161,7 @@
             this.Controls.Add(this.labelCategoria);
             this.Controls.Add(this.labelNombre);
             this.Name = "EditarCuadernoForm";
-            this.Text = "Editar Cuaderno";
+            this.Text = "Editar Cuaderno : C2";
             this.Load += new System.EventHandler(this.EditarCuadernoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCategoria)).EndInit();

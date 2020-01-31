@@ -238,7 +238,7 @@
             this.Controls.Add(this.labelPrivacidad);
             this.Controls.Add(this.labelTitulo);
             this.Name = "EditarNotaForm";
-            this.Text = "Editar Nota";
+            this.Text = "Editar Nota : N2";
             this.Load += new System.EventHandler(this.EditarNotaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColorLetra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();

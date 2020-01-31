@@ -24,7 +24,7 @@ namespace NoteBook.UNA.Formularios
         }
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            if(Validar())
+            if(ValidarCampos())
             {
                 AgregarCuaderno();
             }
@@ -46,7 +46,7 @@ namespace NoteBook.UNA.Formularios
             Close();
         }
 
-        public bool Validar()
+        public bool ValidarCampos()
         {
             bool resultado = true;
             if (textBoxNombre.Text.Equals(""))

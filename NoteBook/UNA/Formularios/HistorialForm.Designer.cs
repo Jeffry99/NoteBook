@@ -65,7 +65,7 @@
             this.Controls.Add(this.buttonVolver);
             this.Controls.Add(this.dataGridViewHistorial);
             this.Name = "HistorialForm";
-            this.Text = "Historial de Cambios";
+            this.Text = "Historial de Cambios : F2";
             this.Load += new System.EventHandler(this.HistorialForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorial)).EndInit();
             this.ResumeLayout(false);

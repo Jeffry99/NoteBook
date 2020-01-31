@@ -242,6 +242,7 @@
             this.Controls.Add(this.labelPrivacidad);
             this.Controls.Add(this.labelTitulo);
             this.Name = "AgregarNotaForm";
+            this.Text = "Agregar Nota : N1";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColorLetra)).EndInit();

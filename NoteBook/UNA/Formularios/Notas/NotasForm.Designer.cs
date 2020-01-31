@@ -95,7 +95,6 @@
             this.textBoxTituloNotaBusqueda.Name = "textBoxTituloNotaBusqueda";
             this.textBoxTituloNotaBusqueda.Size = new System.Drawing.Size(132, 22);
             this.textBoxTituloNotaBusqueda.TabIndex = 6;
-            this.textBoxTituloNotaBusqueda.TextChanged += new System.EventHandler(this.textBoxTituloNotaBusqueda_TextChanged);
             // 
             // notaBusqueda
             // 
@@ -201,6 +200,7 @@
             this.Controls.Add(this.buttonAgregarNota);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "NotasForm";
+            this.Text = "Notas : N3";
             this.Load += new System.EventHandler(this.NotasForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotas)).EndInit();
             this.ResumeLayout(false);

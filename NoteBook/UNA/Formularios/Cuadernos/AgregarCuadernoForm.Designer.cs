@@ -164,7 +164,7 @@
             this.Controls.Add(this.labelNombre);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "AgregarCuadernoForm";
-            this.Text = "Agregar Cuaderno";
+            this.Text = "Agregar Cuaderno : C1";
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCategoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderColor)).EndInit();

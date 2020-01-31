@@ -18,8 +18,6 @@ namespace NoteBook.UNA.Formularios
 {
     public partial class NotasForm : Form
     {
-
-        public static List<Cuaderno> cuadernos;
         public Cuaderno cuaderno = new Cuaderno();
         public NotasForm(string nombreCuaderno)
         {
@@ -27,12 +25,10 @@ namespace NoteBook.UNA.Formularios
             InitializeComponent();
             
         }
-
         private void buttonAgregarNota_Click(object sender, EventArgs e)
         {
             Hide();
             AgregarNotaForm agregarNota = new AgregarNotaForm(cuaderno.Nombre);
-            agregarNota.Text = "Agregar Nota en: " + agregarNota.CuadernoActual.Nombre;
             agregarNota.ShowDialog();
             
             CargarDataGrid();
@@ -46,13 +42,6 @@ namespace NoteBook.UNA.Formularios
             CargarDataGrid();
             ValidarDataGrid();
         }
-
-        public Cuaderno EncontrarCuadernoActual()
-        {
-            Cuaderno cuaderno = new Cuaderno();
-            
-            return cuaderno;
-        }
         public void CargarDataGrid()
         {
             MysqlAccess mysqlAccess = new MysqlAccess();
@@ -63,7 +52,6 @@ namespace NoteBook.UNA.Formularios
         }
         private void buttonEditarNota_Click(object sender, EventArgs e)
         {
-            
             if (dataGridViewNotas.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Debe seleccionar una nota", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -80,7 +68,6 @@ namespace NoteBook.UNA.Formularios
                 CargarDataGrid();
                 ValidarDataGrid();
             }
-            
         }
         public int EncontrarIdCuaderno()
         {
@@ -111,9 +98,6 @@ namespace NoteBook.UNA.Formularios
             Hide();
             notaForm.ShowDialog();
             Show();
-        }
-        private void textBoxTituloNotaBusqueda_TextChanged(object sender, EventArgs e)
-        {
         }
         private void notaBusqueda_Click(object sender, EventArgs e)
         {

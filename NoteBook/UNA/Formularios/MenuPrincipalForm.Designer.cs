@@ -59,6 +59,7 @@
             this.buttonAgregarCuaderno = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.buttonSalir = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -91,7 +92,6 @@
             this.menuToolStripMenuItem1.Name = "menuToolStripMenuItem1";
             this.menuToolStripMenuItem1.Size = new System.Drawing.Size(60, 24);
             this.menuToolStripMenuItem1.Text = "Menu";
-            this.menuToolStripMenuItem1.Click += new System.EventHandler(this.menuToolStripMenuItem1_Click);
             // 
             // verHistorialDeCambiosToolStripMenuItem
             // 
@@ -274,7 +274,6 @@
             this.buttonEliminarCuaderno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEliminarCuaderno.UseVisualStyleBackColor = true;
             this.buttonEliminarCuaderno.Click += new System.EventHandler(this.buttonEliminarCuaderno_Click);
-            this.buttonEliminarCuaderno.DragOver += new System.Windows.Forms.DragEventHandler(this.buttonEliminarCuaderno_DragOver);
             this.buttonEliminarCuaderno.MouseHover += new System.EventHandler(this.buttonEliminarCuaderno_MouseHover);
             // 
             // buttonModificarCuaderno
@@ -336,12 +335,23 @@
             this.toolStripStatusLabelUsuario.Name = "toolStripStatusLabelUsuario";
             this.toolStripStatusLabelUsuario.Size = new System.Drawing.Size(0, 16);
             // 
+            // buttonSalir
+            // 
+            this.buttonSalir.Location = new System.Drawing.Point(40, 482);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(90, 47);
+            this.buttonSalir.TabIndex = 21;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
+            // 
             // MenuPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(1382, 573);
+            this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.buttonEliminarCuaderno);
             this.Controls.Add(this.buttonModificarCuaderno);
@@ -358,7 +368,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "MenuPrincipalForm";
-            this.Text = "Cuadernos";
+            this.Text = "Cuadernos : F1";
             this.Load += new System.EventHandler(this.MenuPrincipalForm_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -402,5 +412,6 @@
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelUsuario;
+        private System.Windows.Forms.Button buttonSalir;
     }
 }

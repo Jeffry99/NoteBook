@@ -145,7 +145,7 @@
             this.Controls.Add(this.labelContrasenaActual);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CambiarContrasenaForm";
-            this.Text = "Cambiar Contraseña";
+            this.Text = "Cambiar Contraseña : U2";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
