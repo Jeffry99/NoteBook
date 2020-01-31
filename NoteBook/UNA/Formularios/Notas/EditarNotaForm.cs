@@ -164,6 +164,8 @@ namespace NoteBook.UNA.Formularios.Notas
                 + "', categoria = '" + Nota.Categoria + "', color = '" + Nota.Color + "', fuente = '" + Nota.Fuente + "', color_letra = '" + Nota.ColorLetra
                 + "', fecha_modificacion = '" + fechaModificacion + "', texto = '" + Nota.Texto+ "' WHERE titulo = '"+Nota.Titulo+"'");
             mysqlAccess.CloseConnection();
+            Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Se ha editado una nota", "Nota", "Nota: " + Nota.Titulo);
+            RegistroAcciones.Save(accion);
             MessageBox.Show("Se ha editado la nota exitosamente", "Listo", MessageBoxButtons.OK);
             Close();
         }
@@ -186,19 +188,24 @@ namespace NoteBook.UNA.Formularios.Notas
             DataTable data = mysqlAccess.QuerySQL("SELECT titulo, privacidad, categoria, color, fuente, color_letra, texto FROM dbproyecto.notas WHERE titulo = '" + Nota.Titulo +"' AND idCuadernos = '"+ObtenerIdCuaderno()+"'");
             Nota.Color = data.Rows[0][3].ToString();
             Nota.ColorLetra = data.Rows[0][5].ToString();
-            Nota.Texto = data.Rows[0][6].ToString();
+            
             textBoxTitulo.Text = data.Rows[0][0].ToString();
             textBoxCategoria.Text = data.Rows[0][2].ToString();
             pictureBoxColor.BackColor = Color.FromArgb(Convert.ToInt32(data.Rows[0][3].ToString()));
             textBoxFuente.Text = data.Rows[0][4].ToString();
-           
+            Nota.Privacidad = data.Rows[0][1].ToString();
+
             pictureBoxColorLetra.BackColor = Color.FromArgb(Convert.ToInt32(data.Rows[0][5].ToString()));
             richTextBoxNota.Text = data.Rows[0][6].ToString();
+            
             int pri = 0;
             if(Nota.Privacidad == "Privado")
             {
                 pri = 1;
+                richTextBoxNota.Text = Encrypt.Desencriptar(data.Rows[0][6].ToString());         
             }
+          
+           
             comboBoxPrivacidad.SelectedIndex = pri;
         }
 

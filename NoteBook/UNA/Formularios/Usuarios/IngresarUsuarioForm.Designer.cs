@@ -38,7 +38,6 @@
             this.errorProviderUsuario = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderContraseña = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderError)).BeginInit();
@@ -111,23 +110,12 @@
             // 
             this.errorProviderError.ContainerControl = this;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(180, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Ingresar Usuario";
-            // 
             // IngresarUsuarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(528, 222);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtBoxContrasena);
@@ -156,7 +144,6 @@
         private System.Windows.Forms.ErrorProvider errorProviderUsuario;
         private System.Windows.Forms.ErrorProvider errorProviderContraseña;
         private System.Windows.Forms.ErrorProvider errorProviderError;
-        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -38,13 +38,10 @@ namespace NoteBook.UNA.Formularios
             mysqlAccess.OpenConnection();
             mysqlAccess.EjectSQL("INSERT INTO dbproyecto.cuadernos (idUsuario, nombre, categoria, color) " +
                 "VALUES ('"+LogIn.EncontrarIdUsuario()+"','"+ textBoxNombre.Text + "','" + textBoxCategoria.Text + "','" + colorCuaderno +"')");
-            
             mysqlAccess.CloseConnection();
             Limpiar();
-
-            Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Ha agregado un cuaderno", cuaderno.Nombre, "");
-            RegistroAcciones.acciones.Add(accion);
-            RegistroAcciones.SaveToFile();
+            Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Se ha agregado un cuaderno", "Cuaderno", "Cuaderno: "+cuaderno.Nombre);
+            RegistroAcciones.Save(accion);
             MessageBox.Show("Se ha agregado el cuaderno", "Cuaderno Agregado", MessageBoxButtons.OK);
             Close();
         }

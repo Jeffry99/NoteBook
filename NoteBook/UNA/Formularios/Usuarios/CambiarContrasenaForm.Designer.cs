@@ -74,7 +74,7 @@
             this.textBoxContrasenaActual.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxContrasenaActual.Name = "textBoxContrasenaActual";
             this.textBoxContrasenaActual.Size = new System.Drawing.Size(257, 22);
-            this.textBoxContrasenaActual.TabIndex = 3;
+            this.textBoxContrasenaActual.TabIndex = 0;
             this.textBoxContrasenaActual.UseSystemPasswordChar = true;
             this.textBoxContrasenaActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxContrasenaActual_KeyPress);
             // 
@@ -84,7 +84,7 @@
             this.textBoxContrasenaNueva.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxContrasenaNueva.Name = "textBoxContrasenaNueva";
             this.textBoxContrasenaNueva.Size = new System.Drawing.Size(257, 22);
-            this.textBoxContrasenaNueva.TabIndex = 4;
+            this.textBoxContrasenaNueva.TabIndex = 1;
             this.textBoxContrasenaNueva.UseSystemPasswordChar = true;
             this.textBoxContrasenaNueva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxContrasenaNueva_KeyPress);
             // 
@@ -94,7 +94,7 @@
             this.textBoxConfirmarContrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxConfirmarContrasena.Name = "textBoxConfirmarContrasena";
             this.textBoxConfirmarContrasena.Size = new System.Drawing.Size(257, 22);
-            this.textBoxConfirmarContrasena.TabIndex = 5;
+            this.textBoxConfirmarContrasena.TabIndex = 2;
             this.textBoxConfirmarContrasena.UseSystemPasswordChar = true;
             this.textBoxConfirmarContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxConfirmarContrasena_KeyPress);
             // 
@@ -106,7 +106,7 @@
             this.buttonCambiarContrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCambiarContrasena.Name = "buttonCambiarContrasena";
             this.buttonCambiarContrasena.Size = new System.Drawing.Size(127, 33);
-            this.buttonCambiarContrasena.TabIndex = 6;
+            this.buttonCambiarContrasena.TabIndex = 3;
             this.buttonCambiarContrasena.Text = "Guardar";
             this.buttonCambiarContrasena.UseVisualStyleBackColor = true;
             this.buttonCambiarContrasena.Click += new System.EventHandler(this.buttonCambiarContrasena_Click);
@@ -120,7 +120,7 @@
             this.buttonCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(127, 33);
-            this.buttonCancelar.TabIndex = 7;
+            this.buttonCancelar.TabIndex = 4;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);

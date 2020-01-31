@@ -75,15 +75,17 @@
             this.textBoxNombreUsuario.Location = new System.Drawing.Point(252, 54);
             this.textBoxNombreUsuario.Name = "textBoxNombreUsuario";
             this.textBoxNombreUsuario.Size = new System.Drawing.Size(274, 22);
-            this.textBoxNombreUsuario.TabIndex = 5;
+            this.textBoxNombreUsuario.TabIndex = 0;
+            this.textBoxNombreUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNombreUsuario_KeyPress);
             // 
             // textBoxContrasena
             // 
             this.textBoxContrasena.Location = new System.Drawing.Point(252, 191);
             this.textBoxContrasena.Name = "textBoxContrasena";
             this.textBoxContrasena.Size = new System.Drawing.Size(274, 22);
-            this.textBoxContrasena.TabIndex = 6;
+            this.textBoxContrasena.TabIndex = 2;
             this.textBoxContrasena.UseSystemPasswordChar = true;
+            this.textBoxContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxContrasena_KeyPress);
             // 
             // comboBoxTipoUsuario
             // 
@@ -95,7 +97,7 @@
             this.comboBoxTipoUsuario.Location = new System.Drawing.Point(252, 258);
             this.comboBoxTipoUsuario.Name = "comboBoxTipoUsuario";
             this.comboBoxTipoUsuario.Size = new System.Drawing.Size(274, 24);
-            this.comboBoxTipoUsuario.TabIndex = 7;
+            this.comboBoxTipoUsuario.TabIndex = 3;
             // 
             // buttonAgregar
             // 
@@ -104,7 +106,7 @@
             this.buttonAgregar.Location = new System.Drawing.Point(548, 362);
             this.buttonAgregar.Name = "buttonAgregar";
             this.buttonAgregar.Size = new System.Drawing.Size(127, 36);
-            this.buttonAgregar.TabIndex = 8;
+            this.buttonAgregar.TabIndex = 4;
             this.buttonAgregar.Text = "  Guardar";
             this.buttonAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAgregar.UseVisualStyleBackColor = true;
@@ -114,10 +116,10 @@
             // 
             this.buttonVolver.Image = global::NoteBook.Properties.Resources.back_button;
             this.buttonVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonVolver.Location = new System.Drawing.Point(390, 362);
+            this.buttonVolver.Location = new System.Drawing.Point(386, 362);
             this.buttonVolver.Name = "buttonVolver";
-            this.buttonVolver.Size = new System.Drawing.Size(127, 36);
-            this.buttonVolver.TabIndex = 9;
+            this.buttonVolver.Size = new System.Drawing.Size(131, 36);
+            this.buttonVolver.TabIndex = 5;
             this.buttonVolver.Text = " Cancelar";
             this.buttonVolver.UseVisualStyleBackColor = true;
             this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
@@ -140,7 +142,8 @@
             this.textBoxNombreReal.Location = new System.Drawing.Point(252, 122);
             this.textBoxNombreReal.Name = "textBoxNombreReal";
             this.textBoxNombreReal.Size = new System.Drawing.Size(274, 22);
-            this.textBoxNombreReal.TabIndex = 11;
+            this.textBoxNombreReal.TabIndex = 1;
+            this.textBoxNombreReal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNombreReal_KeyPress);
             // 
             // AgregarUsuarioForm
             // 

@@ -51,7 +51,8 @@ namespace NoteBook.UNA.Formularios
 
             CargarDataGrid();
             ValidarDataTable();
-            statusStripUsuario.Text = "Usuario Actual: " + LogIn.usuario.NombreUsuario;
+            Console.WriteLine(LogIn.usuario.NombreUsuario);
+            toolStripStatusLabelUsuario.Text = "Usuario Actual: " + LogIn.usuario.NombreUsuario;
 
         }
 
@@ -77,42 +78,10 @@ namespace NoteBook.UNA.Formularios
             notas.Text = nombreCuaderno;
             notas.ShowDialog();
             Show();
-           
-        }
-        private void historialToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            HistorialForm historial = new HistorialForm();
-            Hide();
-            historial.ShowDialog();
-            Show();
-
         }
         private void buttonBusqueda_Click(object sender, EventArgs e)
         {
             BuscarCuaderno();
-        }
-
-        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CambiarContrasenaForm cambiarContrasena = new CambiarContrasenaForm();
-            Hide();
-            cambiarContrasena.ShowDialog();
-            Show();
-        }
-
-        private void agregarUsuarioToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            if (LogIn.usuario.TipoUsuario.Equals("Administrador"))
-            {
-                AgregarUsuarioForm agregarUsuario = new AgregarUsuarioForm();
-                Hide();
-                agregarUsuario.ShowDialog();
-                Show();
-            }
-            else
-            {
-                MessageBox.Show("No tiene permiso para realizar esta función", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
         public void CargarDataGrid()
         {
@@ -203,11 +172,18 @@ namespace NoteBook.UNA.Formularios
                 int idCuaderno = Convert.ToInt32(data.Rows[0][0].ToString());
                 try
                 {
-                    mysqlAccess.EjectSQL("DELETE FROM dbproyecto.cuadernos WHERE idCuadernos = '" + idCuaderno + "'");
+                    if(MessageBox.Show("¿Desea eliminar el cuaderno seleccionado?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        mysqlAccess.EjectSQL("DELETE FROM dbproyecto.cuadernos WHERE idCuadernos = '" + idCuaderno + "'");
+                        Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Se ha eliminado un cuaderno", "Cuaderno", "Cuaderno: " + nombreCuaderno);
+                        RegistroAcciones.Save(accion);
+                    }
+                    
+                    
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("No puede eliminar este cuaderno porque tiene notas relacionadas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No puede eliminar este cuaderno porque tiene notas asociadas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 mysqlAccess.CloseConnection();
 
@@ -225,10 +201,48 @@ namespace NoteBook.UNA.Formularios
         {
             helpProvider.SetHelpString(buttonEliminarCuaderno, "Debe dar click sobre el cuaderno que desea eliminar");
         }
-
-        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        private void verHistorialDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("¿Desea salir?", "Confirmar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (LogIn.usuario.TipoUsuario.Equals("Administrador"))
+            {
+                HistorialForm historial = new HistorialForm();
+                Hide();
+                historial.ShowDialog();
+                Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permiso para realizar esta función", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void agregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (LogIn.usuario.TipoUsuario.Equals("Administrador"))
+            {
+                AgregarUsuarioForm agregarUsuario = new AgregarUsuarioForm();
+                Hide();
+                agregarUsuario.ShowDialog();
+                Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permiso para realizar esta función", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cambiarContraseñaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CambiarContrasenaForm cambiarContrasena = new CambiarContrasenaForm();
+            Hide();
+            cambiarContrasena.ShowDialog();
+            Show();
+        }
+
+        private void cerrarSesiónToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea salir?", "Confirmar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 Hide();
                 IngresarUsuarioForm signin = new IngresarUsuarioForm();
@@ -238,11 +252,14 @@ namespace NoteBook.UNA.Formularios
 
                 CargarDataGrid();
                 ValidarDataTable();
-                statusStripUsuario.Text = "Usuario Actual: " + LogIn.usuario.NombreUsuario;
+                toolStripStatusLabelUsuario.Text = "Usuario Actual: " + LogIn.usuario.NombreUsuario;
                 Show();
             }
-            
-            
+        }
+
+        private void menuToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

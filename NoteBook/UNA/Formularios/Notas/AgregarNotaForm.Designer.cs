@@ -185,7 +185,7 @@
             this.textBoxFuente.Location = new System.Drawing.Point(479, 102);
             this.textBoxFuente.Name = "textBoxFuente";
             this.textBoxFuente.Size = new System.Drawing.Size(122, 22);
-            this.textBoxFuente.TabIndex = 19;
+            this.textBoxFuente.TabIndex = 1;
             // 
             // errorProvider
             // 
@@ -242,7 +242,6 @@
             this.Controls.Add(this.labelPrivacidad);
             this.Controls.Add(this.labelTitulo);
             this.Name = "AgregarNotaForm";
-            this.Text = "AgregarNotaForm";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColorLetra)).EndInit();

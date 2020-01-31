@@ -43,7 +43,6 @@
             this.dataGridViewHistorial.RowTemplate.Height = 24;
             this.dataGridViewHistorial.Size = new System.Drawing.Size(1018, 315);
             this.dataGridViewHistorial.TabIndex = 0;
-            this.dataGridViewHistorial.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewHistorial_CellContentClick);
             // 
             // buttonVolver
             // 

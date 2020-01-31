@@ -12,6 +12,7 @@ namespace NoteBook.UNA.Helpers
     public static class LogIn
     {
         public static Usuario usuario = new Usuario();
+        public static bool UsuarioHaSidoAutenticado = false;
         public static bool ValidarUsuario(string nomUsuario, string contrasena)
         {
             //Agregar codigo para validar con usuarios guardados en el sistema
@@ -31,6 +32,7 @@ namespace NoteBook.UNA.Helpers
                 usuario.NombreUsuario = nomUsuario;
                 usuario.Contrasena = contrasena;
                 usuario.TipoUsuario = ObtenerTipoUsuario();
+                UsuarioHaSidoAutenticado = true;
                 return true;
             }
         }
@@ -43,6 +45,7 @@ namespace NoteBook.UNA.Helpers
                 MysqlAccess mysqlAccess = new MysqlAccess();
                 mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
                 mysqlAccess.OpenConnection();
+                Console.WriteLine(usuario.NombreUsuario + "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
                 DataTable data = mysqlAccess.QuerySQL("SELECT idUsuarios FROM dbproyecto.usuarios WHERE nombre_usuario = '" + usuario.NombreUsuario + "'");
                 idUsuario = Convert.ToInt32(data.Rows[0][0].ToString());
                 mysqlAccess.CloseConnection();

@@ -17,17 +17,10 @@ namespace NoteBook.UNA.Formularios
         {
             InitializeComponent();
         }
-
-        private void dataGridViewHistorial_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void HistorialForm_Load(object sender, EventArgs e)
         {
-            dataGridViewHistorial.DataSource = RegistroAcciones.acciones;
+            dataGridViewHistorial.DataSource = RegistroAcciones.Load();
         }
-
         private void buttonVolver_Click(object sender, EventArgs e)
         {
             Close();

@@ -53,6 +53,8 @@ namespace NoteBook.UNA.Formularios
                 +"', color = '"+pictureBoxColor.BackColor.ToArgb().ToString()+"' WHERE nombre = '"+Cuaderno.Nombre+"'");
             mysqlAccess.CloseConnection();
             Limpiar();
+            Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Se ha editado un cuaderno", "Cuaderno", "Cuaderno: " + Cuaderno.Nombre);
+            RegistroAcciones.Save(accion);
             MessageBox.Show("Se ha editado el cuaderno", "Cuaderno Editado", MessageBoxButtons.OK);
             Close();
         }

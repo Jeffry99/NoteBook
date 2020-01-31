@@ -1,6 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using DatabaseAccess.UNA;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,38 +12,49 @@ namespace NoteBook.UNA.Helpers
 {
     public static class RegistroAcciones
     {
-        public static List<Accion> acciones = new List<Accion>();
-
-        public static void SaveToFile()
+        public static int IdUsuario
         {
-            string output = JsonConvert.SerializeObject(acciones);
-            string path = @".\RegistroAcciones.json";
+            get;
+            set;
+        }
+        public static void Save(Accion accion)
+        {
             
-            if (!File.Exists(path))
-            {
-                File.WriteAllText(path, output);
-            }
-            else
-            {
-                File.Delete(path);
-                File.WriteAllText(path, output);
-            }
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable data = mysqlAccess.QuerySQL("SELECT idUsuarios FROM dbproyecto.usuarios WHERE nombre_usuario = '"+accion.Usuario+"'");
+            IdUsuario = Convert.ToInt32(data.Rows[0][0]);
+            Console.WriteLine("IDusuario: " + IdUsuario);
+
+            mysqlAccess.EjectSQL("INSERT INTO dbproyecto.transacciones (fecha, idUsuario, accion, objeto, info_adicional) VALUES " +
+            "('" + DateTime.Now.ToString() + "','" + IdUsuario + "','" + accion._Accion + "','" + accion.Objeto + "','" + accion.InfoAdicional + "')");
+            
+            mysqlAccess.CloseConnection();
         }
 
-        public static void LoadFile()
+        public static DataTable Load()
         {
-            string path = @".\RegistroAcciones.json";
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable data = mysqlAccess.QuerySQL("SELECT idUsuario, accion, objeto, info_adicional, fecha FROM dbproyecto.transacciones");
 
-            if (File.Exists(path))
-            {
-                string readText = File.ReadAllText(path);
-                acciones = JsonConvert.DeserializeObject<List<Accion>>(readText);
-            }
-            else
-            {
-                acciones = new List<Accion>();
-            }
+            mysqlAccess.CloseConnection();
+            return data;
         }
+        public static string ObtenerNombreUsuario()
+        {
+            string nombreUsuario = "";
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable data = mysqlAccess.QuerySQL("SELECT nombre_usuario FROM dbproyecto.usuarios WHERE idUsuarios = '"+IdUsuario+"'");
+            mysqlAccess.CloseConnection();
+            nombreUsuario = data.Rows[0][0].ToString();
+            return nombreUsuario;
+        }
+
 
     }
 }

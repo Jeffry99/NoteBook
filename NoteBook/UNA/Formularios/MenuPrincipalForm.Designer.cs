@@ -30,9 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipalForm));
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusStripUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.verHistorialDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarContraseñaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesiónToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,19 +57,13 @@
             this.buttonModificarCuaderno = new System.Windows.Forms.Button();
             this.buttonBusqueda = new System.Windows.Forms.Button();
             this.buttonAgregarCuaderno = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 551);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 17, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1382, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // statusStripUsuario
             // 
@@ -75,12 +74,62 @@
             // menuStrip
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem1,
+            this.usuarioToolStripMenuItem1});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1382, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1382, 28);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
+            // 
+            // menuToolStripMenuItem1
+            // 
+            this.menuToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verHistorialDeCambiosToolStripMenuItem});
+            this.menuToolStripMenuItem1.Name = "menuToolStripMenuItem1";
+            this.menuToolStripMenuItem1.Size = new System.Drawing.Size(60, 24);
+            this.menuToolStripMenuItem1.Text = "Menu";
+            this.menuToolStripMenuItem1.Click += new System.EventHandler(this.menuToolStripMenuItem1_Click);
+            // 
+            // verHistorialDeCambiosToolStripMenuItem
+            // 
+            this.verHistorialDeCambiosToolStripMenuItem.Name = "verHistorialDeCambiosToolStripMenuItem";
+            this.verHistorialDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(256, 26);
+            this.verHistorialDeCambiosToolStripMenuItem.Text = "Ver Historial de Cambios";
+            this.verHistorialDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.verHistorialDeCambiosToolStripMenuItem_Click);
+            // 
+            // usuarioToolStripMenuItem1
+            // 
+            this.usuarioToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarUsuarioToolStripMenuItem,
+            this.cambiarContraseñaToolStripMenuItem1,
+            this.cerrarSesiónToolStripMenuItem1});
+            this.usuarioToolStripMenuItem1.Name = "usuarioToolStripMenuItem1";
+            this.usuarioToolStripMenuItem1.Size = new System.Drawing.Size(73, 24);
+            this.usuarioToolStripMenuItem1.Text = "Usuario";
+            // 
+            // agregarUsuarioToolStripMenuItem
+            // 
+            this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
+            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
+            this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem_Click);
+            // 
+            // cambiarContraseñaToolStripMenuItem1
+            // 
+            this.cambiarContraseñaToolStripMenuItem1.Name = "cambiarContraseñaToolStripMenuItem1";
+            this.cambiarContraseñaToolStripMenuItem1.Size = new System.Drawing.Size(226, 26);
+            this.cambiarContraseñaToolStripMenuItem1.Text = "Cambiar Contraseña";
+            this.cambiarContraseñaToolStripMenuItem1.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem1_Click);
+            // 
+            // cerrarSesiónToolStripMenuItem1
+            // 
+            this.cerrarSesiónToolStripMenuItem1.Name = "cerrarSesiónToolStripMenuItem1";
+            this.cerrarSesiónToolStripMenuItem1.Size = new System.Drawing.Size(226, 26);
+            this.cerrarSesiónToolStripMenuItem1.Text = "Cerrar Sesión";
+            this.cerrarSesiónToolStripMenuItem1.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem1_Click);
             // 
             // menuToolStripMenuItem
             // 
@@ -95,7 +144,6 @@
             this.historialToolStripMenuItem.Name = "historialToolStripMenuItem";
             this.historialToolStripMenuItem.Size = new System.Drawing.Size(251, 26);
             this.historialToolStripMenuItem.Text = "Ver historial de cambios";
-            this.historialToolStripMenuItem.Click += new System.EventHandler(this.historialToolStripMenuItem_Click_1);
             // 
             // usuarioToolStripMenuItem
             // 
@@ -112,21 +160,18 @@
             this.agregarUsuarioToolStripMenuItem1.Name = "agregarUsuarioToolStripMenuItem1";
             this.agregarUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(226, 26);
             this.agregarUsuarioToolStripMenuItem1.Text = "Agregar Usuario";
-            this.agregarUsuarioToolStripMenuItem1.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem1_Click);
             // 
             // cambiarContraseñaToolStripMenuItem
             // 
             this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
             this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar Contraseña";
-            this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click);
             // 
             // cerrarSesiónToolStripMenuItem
             // 
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
             this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
-            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // dataGridViewCuadernos
             // 
@@ -265,15 +310,31 @@
             // 
             this.buttonAgregarCuaderno.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarCuaderno.Image")));
             this.buttonAgregarCuaderno.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAgregarCuaderno.Location = new System.Drawing.Point(587, 482);
+            this.buttonAgregarCuaderno.Location = new System.Drawing.Point(587, 471);
             this.buttonAgregarCuaderno.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.buttonAgregarCuaderno.Name = "buttonAgregarCuaderno";
-            this.buttonAgregarCuaderno.Size = new System.Drawing.Size(175, 47);
+            this.buttonAgregarCuaderno.Size = new System.Drawing.Size(174, 58);
             this.buttonAgregarCuaderno.TabIndex = 2;
             this.buttonAgregarCuaderno.Text = "Agregar Cuaderno";
             this.buttonAgregarCuaderno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAgregarCuaderno.UseVisualStyleBackColor = true;
             this.buttonAgregarCuaderno.Click += new System.EventHandler(this.buttonAgregarCuaderno_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelUsuario});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 551);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1382, 22);
+            this.statusStrip1.TabIndex = 20;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelUsuario
+            // 
+            this.toolStripStatusLabelUsuario.Name = "toolStripStatusLabelUsuario";
+            this.toolStripStatusLabelUsuario.Size = new System.Drawing.Size(0, 16);
             // 
             // MenuPrincipalForm
             // 
@@ -281,6 +342,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(1382, 573);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.buttonEliminarCuaderno);
             this.Controls.Add(this.buttonModificarCuaderno);
             this.Controls.Add(this.labelCuadernoNoEncontrado);
@@ -292,23 +354,24 @@
             this.Controls.Add(this.labelCuadernosDisponibles);
             this.Controls.Add(this.dataGridViewCuadernos);
             this.Controls.Add(this.buttonAgregarCuaderno);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "MenuPrincipalForm";
             this.Text = "Cuadernos";
             this.Load += new System.EventHandler(this.MenuPrincipalForm_Load);
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusStripUsuario;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
@@ -331,5 +394,13 @@
         private System.Windows.Forms.Button buttonEliminarCuaderno;
         private System.Windows.Forms.HelpProvider helpProvider;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem verHistorialDeCambiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem agregarUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelUsuario;
     }
 }

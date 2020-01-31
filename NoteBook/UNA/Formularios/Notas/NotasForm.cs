@@ -168,9 +168,13 @@ namespace NoteBook.UNA.Formularios
                 mysqlAccess.OpenConnection();
                 DataTable data = mysqlAccess.QuerySQL("SELECT idNotas FROM dbproyecto.notas WHERE titulo = '" + tituloNota + "'");
                 int idNota = Convert.ToInt32(data.Rows[0][0].ToString());
-                mysqlAccess.EjectSQL("DELETE FROM dbproyecto.notas WHERE idNotas = '" + idNota + "'");
+                if (MessageBox.Show("¿Desea eliminar la nota seleccionada?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    mysqlAccess.EjectSQL("DELETE FROM dbproyecto.notas WHERE idNotas = '" + idNota + "'");
+                    Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Se ha eliminado una nota", "Nota", "Nota: " + tituloNota);
+                    RegistroAcciones.Save(accion);
+                }
                 mysqlAccess.CloseConnection();
-
                 CargarDataGrid();
                 ValidarDataGrid();
             }

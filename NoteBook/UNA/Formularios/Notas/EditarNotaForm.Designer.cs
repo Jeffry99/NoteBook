@@ -102,7 +102,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(492, 560);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(130, 37);
-            this.buttonCancelar.TabIndex = 36;
+            this.buttonCancelar.TabIndex = 6;
             this.buttonCancelar.Text = "  Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
@@ -114,7 +114,7 @@
             this.buttonListo.Location = new System.Drawing.Point(647, 560);
             this.buttonListo.Name = "buttonListo";
             this.buttonListo.Size = new System.Drawing.Size(130, 37);
-            this.buttonListo.TabIndex = 35;
+            this.buttonListo.TabIndex = 5;
             this.buttonListo.Text = "Guardar";
             this.buttonListo.UseVisualStyleBackColor = true;
             this.buttonListo.Click += new System.EventHandler(this.buttonListo_Click);
@@ -124,7 +124,7 @@
             this.buttonFuente.Location = new System.Drawing.Point(620, 102);
             this.buttonFuente.Name = "buttonFuente";
             this.buttonFuente.Size = new System.Drawing.Size(157, 56);
-            this.buttonFuente.TabIndex = 34;
+            this.buttonFuente.TabIndex = 4;
             this.buttonFuente.Text = "Seleccionar Fuente y Color";
             this.buttonFuente.UseVisualStyleBackColor = true;
             this.buttonFuente.Click += new System.EventHandler(this.buttonFuente_Click);
@@ -134,7 +134,7 @@
             this.buttonColor.Location = new System.Drawing.Point(576, 38);
             this.buttonColor.Name = "buttonColor";
             this.buttonColor.Size = new System.Drawing.Size(201, 32);
-            this.buttonColor.TabIndex = 32;
+            this.buttonColor.TabIndex = 3;
             this.buttonColor.Text = "Seleccionar Color";
             this.buttonColor.UseVisualStyleBackColor = true;
             this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
@@ -149,21 +149,21 @@
             this.comboBoxPrivacidad.Location = new System.Drawing.Point(130, 85);
             this.comboBoxPrivacidad.Name = "comboBoxPrivacidad";
             this.comboBoxPrivacidad.Size = new System.Drawing.Size(201, 24);
-            this.comboBoxPrivacidad.TabIndex = 28;
+            this.comboBoxPrivacidad.TabIndex = 1;
             // 
             // textBoxCategoria
             // 
             this.textBoxCategoria.Location = new System.Drawing.Point(130, 135);
             this.textBoxCategoria.Name = "textBoxCategoria";
             this.textBoxCategoria.Size = new System.Drawing.Size(201, 22);
-            this.textBoxCategoria.TabIndex = 30;
+            this.textBoxCategoria.TabIndex = 2;
             // 
             // textBoxTitulo
             // 
             this.textBoxTitulo.Location = new System.Drawing.Point(130, 43);
             this.textBoxTitulo.Name = "textBoxTitulo";
             this.textBoxTitulo.Size = new System.Drawing.Size(201, 22);
-            this.textBoxTitulo.TabIndex = 25;
+            this.textBoxTitulo.TabIndex = 0;
             // 
             // labelFuente
             // 

@@ -51,7 +51,7 @@ namespace NoteBook.UNA.Formularios.Usuario
             mysqlAccess.CloseConnection();
             Console.WriteLine(dat.Rows[0][0].ToString() + textBoxContrasenaActual.Text);
 
-            if ((dat.Rows[0][0].ToString() != textBoxContrasenaActual.Text))
+            if ((dat.Rows[0][0].ToString() != Encrypt.Encriptar(textBoxContrasenaActual.Text)))
             {
                 resultado = false;
                 errorProvider.SetError(textBoxContrasenaActual, "La contraseña es incorrecta");
@@ -71,7 +71,10 @@ namespace NoteBook.UNA.Formularios.Usuario
             //dataGridViewCuadernos.DataSource = mysqlAccess.QuerySQL("SELECT nombre, categoria, color FROM dbproyecto.cuadernos");
             mysqlAccess.EjectSQL("UPDATE dbproyecto.usuarios SET contraseña = '" + textBoxConfirmarContrasena.Text + "' WHERE nombre_usuario = '" + LogIn.usuario.NombreUsuario + "'");
             mysqlAccess.CloseConnection();
+            Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Se ha cambiado la contraseña", "Usuario", "Usuario: " + LogIn.usuario.NombreUsuario);
+            RegistroAcciones.Save(accion);
             MessageBox.Show("Se ha cambiado la contraseña con éxito", "Listo", MessageBoxButtons.OK);
+
             Close();
         }
         private void textBoxContrasenaActual_KeyPress(object sender, KeyPressEventArgs e)

@@ -107,7 +107,7 @@
             this.buttonColor.Location = new System.Drawing.Point(332, 183);
             this.buttonColor.Name = "buttonColor";
             this.buttonColor.Size = new System.Drawing.Size(213, 29);
-            this.buttonColor.TabIndex = 10;
+            this.buttonColor.TabIndex = 2;
             this.buttonColor.Text = "Seleccionar Color";
             this.buttonColor.UseVisualStyleBackColor = true;
             this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);

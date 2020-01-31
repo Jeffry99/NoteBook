@@ -168,20 +168,28 @@ namespace NoteBook.UNA.Formularios
             nota.FechaCreacion = DateTime.Now.ToString();
             nota.FechaModificacion = "Esta nota no ha sido modificada";
             nota.Texto = richTextBoxNota.Text;
-
+            
+            string encripta = Encrypt.Encriptar(nota.Texto);
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
-            mysqlAccess.EjectSQL("INSERT INTO dbproyecto.notas (idCuadernos, titulo, privacidad, categoria, color, fuente, color_letra, fecha_creacion, fecha_modificacion, texto) " +
-                "VALUES ('"+ObtenerIdCuaderno()+"','"+nota.Titulo+"','"+nota.Privacidad+"','"+nota.Categoria+"','"+nota.Color+"','"+nota.Fuente+"','"+nota.ColorLetra
-                +"','"+nota.FechaCreacion+"','"+nota.FechaModificacion+"','"+nota.Texto+"')");
-
-
-            nota = new Nota();
-            Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Ha agregado una nota", nota.Titulo, "En el cuaderno: " + CuadernoActual.Nombre);
-            RegistroAcciones.acciones.Add(accion);
-            RegistroAcciones.SaveToFile();
             
+            if(nota.Privacidad == "Privado")
+            {
+                mysqlAccess.EjectSQL("INSERT INTO dbproyecto.notas (idCuadernos, titulo, privacidad, categoria, color, fuente, color_letra, fecha_creacion, fecha_modificacion, texto) " +
+                "VALUES ('" + ObtenerIdCuaderno() + "','" + nota.Titulo + "','" + nota.Privacidad + "','" + nota.Categoria + "','" + nota.Color + "','" + nota.Fuente + "','" + nota.ColorLetra
+                + "','" + nota.FechaCreacion + "','" + nota.FechaModificacion + "','" + encripta + "')");
+            }
+            else
+            {
+                mysqlAccess.EjectSQL("INSERT INTO dbproyecto.notas (idCuadernos, titulo, privacidad, categoria, color, fuente, color_letra, fecha_creacion, fecha_modificacion, texto) " +
+                "VALUES ('" + ObtenerIdCuaderno() + "','" + nota.Titulo + "','" + nota.Privacidad + "','" + nota.Categoria + "','" + nota.Color + "','" + nota.Fuente + "','" + nota.ColorLetra
+                + "','" + nota.FechaCreacion + "','" + nota.FechaModificacion + "','" + nota.Texto + "')");
+            }
+
+
+            Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Se ha agregado una nota", "Nota", "Nota: " + nota.Titulo);
+            RegistroAcciones.Save(accion);
             MessageBox.Show("Se ha agregado la nota correctamente", "Nota agregada", MessageBoxButtons.OK);
             
             Limpiar();

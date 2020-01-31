@@ -64,6 +64,18 @@ namespace NoteBook.UNA.Formularios
                 + comboBoxTipoUsuario.SelectedItem.ToString() + "')");
             mysqlAccess.CloseConnection();
             MessageBox.Show("Se ha agregado el usuario", "Listo", MessageBoxButtons.OK);
+
+            if (LogIn.UsuarioHaSidoAutenticado == false)
+            {
+                Accion accion = new Accion(textBoxNombreUsuario.Text, "Se ha agregado un usuario", "Usuario", "Usuario nuevo: " + textBoxNombreUsuario.Text);
+                RegistroAcciones.Save(accion);
+            }
+            else
+            {
+                Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Se ha agregado un usuario", "Usuario", "Usuario nuevo: " + textBoxNombreUsuario.Text);
+                RegistroAcciones.Save(accion);
+            }
+            
             Close();
         }
         private void buttonVolver_Click(object sender, EventArgs e)
@@ -86,6 +98,47 @@ namespace NoteBook.UNA.Formularios
                 errorProvider.SetError(textBoxNombreUsuario, "Ya hay un usuario con este nombre");
             }
             return resultado;
+        }
+        public int ObtenerIdUsuario()
+        {
+            int idUsuario = 0;
+            try
+            {
+
+                MysqlAccess mysqlAccess = new MysqlAccess();
+                mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+                mysqlAccess.OpenConnection();
+                DataTable data = mysqlAccess.QuerySQL("SELECT idUsuarios FROM dbproyecto.usuarios WHERE nombre_usuario = '" + textBoxNombreUsuario.Text + "'");
+                idUsuario = Convert.ToInt32(data.Rows[0][0].ToString());
+                mysqlAccess.CloseConnection();
+                //return idUsuario;
+            }
+            catch (Exception) { }
+            return idUsuario;
+        }
+
+        private void textBoxNombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                textBoxNombreReal.Focus();
+            }
+        }
+
+        private void textBoxNombreReal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                textBoxContrasena.Focus();
+            }
+        }
+
+        private void textBoxContrasena_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                comboBoxTipoUsuario.Focus();
+            }
         }
     }
 }
