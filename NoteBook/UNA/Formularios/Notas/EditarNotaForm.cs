@@ -1,6 +1,5 @@
-﻿using NoteBook.UNA.Helpers;
-using NoteBook.UNA.Miscelaneo;
-using DatabaseAccess.UNA;
+﻿using DatabaseAccess.UNA;
+using NoteBook.UNA.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,14 +8,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.Windows.Forms;
 
-namespace NoteBook.UNA.Formularios
+namespace NoteBook.UNA.Formularios.Notas
 {
-    public partial class AgregarNotaForm : Form
+    public partial class EditarNotaForm : Form
     {
-        private Nota nota = new Nota();
+        public EditarNotaForm()
+        {
+            InitializeComponent();
+        }
+        public Nota Nota
+        {
+            get;
+            set;
+        }
         private string colorNota = "";
 
         public Cuaderno CuadernoActual
@@ -24,15 +30,16 @@ namespace NoteBook.UNA.Formularios
             get;
             set;
         }
-        public AgregarNotaForm(string nombreCuaderno)
+        public EditarNotaForm(string nombreCuaderno)
         {
             InitializeComponent();
+            Nota = new Nota();
             CuadernoActual = new Cuaderno();
             CuadernoActual.Nombre = nombreCuaderno;
-            pictureBoxColorLetra.BackColor = Color.Black;
+            pictureBoxColorLetra.BackColor = richTextBoxNota.ForeColor;
             textBoxFuente.Text = richTextBoxNota.Font.ToString();
-            nota.ColorLetra = Color.Black.ToArgb().ToString();
-            nota.Fuente = richTextBoxNota.Font.ToString();
+            Nota.ColorLetra = richTextBoxNota.ForeColor.ToString();
+            Nota.Fuente = richTextBoxNota.Font.ToString();
         }
 
         private void buttonColor_Click(object sender, EventArgs e)
@@ -44,7 +51,7 @@ namespace NoteBook.UNA.Formularios
             if (MyDialog.ShowDialog() == DialogResult.OK)
             {
                 colorNota = MyDialog.Color.ToArgb().ToString();
-                nota.Color = colorNota;
+                Nota.Color = colorNota;
                 pictureBoxColor.BackColor = MyDialog.Color;
 
             }
@@ -67,20 +74,11 @@ namespace NoteBook.UNA.Formularios
                 richTextBoxNota.ForeColor = fontDialog1.Color;
                 textBoxFuente.Text = fontDialog1.Font.ToString();
                 pictureBoxColorLetra.BackColor = fontDialog1.Color;
-                nota.Fuente = fontDialog1.Font.ToString();
-                nota.ColorLetra = fontDialog1.Color.ToArgb().ToString();
+
+                Nota.Fuente = fontDialog1.Font.ToString();
+                Nota.ColorLetra = fontDialog1.Color.ToArgb().ToString();
             }
             richTextBoxNota.Focus();
-        }
-
-        private void buttonAgregar_Click(object sender, EventArgs e)
-        {
-            errorProvider.Clear();
-            if (Validar())
-            {
-                AgregarNota();
-            }
-            
         }
         private bool Validar()
         {
@@ -95,7 +93,7 @@ namespace NoteBook.UNA.Formularios
                 errorProvider.SetError(comboBoxPrivacidad, "Debe seleccionar la privacidad");
                 result = false;
             }
-            if(textBoxCategoria.TextLength == 0)
+            if (textBoxCategoria.TextLength == 0)
             {
                 errorProvider.SetError(textBoxCategoria, "Debe ingresar una categoría");
                 result = false;
@@ -105,7 +103,7 @@ namespace NoteBook.UNA.Formularios
                 errorProvider.SetError(buttonColor, "Debe seleccionar un color");
                 result = false;
             }
-            if(textBoxFuente.TextLength == 0)
+            if (textBoxFuente.TextLength == 0)
             {
                 errorProvider.SetError(buttonFuente, "Debe seleccionar la fuente y el color de letra");
                 result = false;
@@ -124,7 +122,7 @@ namespace NoteBook.UNA.Formularios
 
         private void comboBoxPrivacidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-             textBoxCategoria.Focus();
+            textBoxCategoria.Focus();
         }
 
         private void textBoxCategoria_KeyPress(object sender, KeyPressEventArgs e)
@@ -150,37 +148,23 @@ namespace NoteBook.UNA.Formularios
             Limpiar();
             Close();
         }
-
-        public void AgregarNotaEnCuadernoActual(Nota nota)
+        public void EditarNota()
         {
             
-        }
-        public void AgregarNota()
-        {
-            nota.Titulo = textBoxTitulo.Text;
-            nota.Privacidad = comboBoxPrivacidad.SelectedItem.ToString();
-            nota.Categoria = textBoxCategoria.Text;
-            nota.Texto = richTextBoxNota.Text;
-            nota.FechaCreacion = DateTime.Now.ToString();
-            nota.FechaModificacion = "Esta nota no ha sido modificada";
-            nota.Texto = richTextBoxNota.Text;
-
+            Nota.Privacidad = comboBoxPrivacidad.SelectedItem.ToString();
+            Nota.Categoria = textBoxCategoria.Text;
+            Nota.Texto = richTextBoxNota.Text;
+            string tituloNuevo = textBoxTitulo.Text;
+            Console.WriteLine("Titulo: "+Nota.Titulo);
+            string fechaModificacion = DateTime.Now.ToString();
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
-            mysqlAccess.EjectSQL("INSERT INTO dbproyecto.notas (idCuadernos, titulo, privacidad, categoria, color, fuente, color_letra, fecha_creacion, fecha_modificacion, texto) " +
-                "VALUES ('"+ObtenerIdCuaderno()+"','"+nota.Titulo+"','"+nota.Privacidad+"','"+nota.Categoria+"','"+nota.Color+"','"+nota.Fuente+"','"+nota.ColorLetra
-                +"','"+nota.FechaCreacion+"','"+nota.FechaModificacion+"','"+nota.Texto+"')");
-
-
-            nota = new Nota();
-            Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Ha agregado una nota", nota.Titulo, "En el cuaderno: " + CuadernoActual.Nombre);
-            RegistroAcciones.acciones.Add(accion);
-            RegistroAcciones.SaveToFile();
-            
-            MessageBox.Show("Se ha agregado la nota correctamente", "Nota agregada", MessageBoxButtons.OK);
-            
-            Limpiar();
+            mysqlAccess.EjectSQL("UPDATE dbproyecto.notas SET idCuadernos = '" + ObtenerIdCuaderno() + "', titulo = '" + tituloNuevo + "', privacidad = '" + Nota.Privacidad
+                + "', categoria = '" + Nota.Categoria + "', color = '" + Nota.Color + "', fuente = '" + Nota.Fuente + "', color_letra = '" + Nota.ColorLetra
+                + "', fecha_modificacion = '" + fechaModificacion + "', texto = '" + Nota.Texto+ "' WHERE titulo = '"+Nota.Titulo+"'");
+            mysqlAccess.CloseConnection();
+            MessageBox.Show("Se ha editado la nota exitosamente", "Listo", MessageBoxButtons.OK);
             Close();
         }
         public int ObtenerIdCuaderno()
@@ -188,16 +172,43 @@ namespace NoteBook.UNA.Formularios
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
-            Console.WriteLine("Cuaderno: " + CuadernoActual.Nombre + " idUsuario: " + LogIn.EncontrarIdUsuario());
-            DataTable data = mysqlAccess.QuerySQL("SELECT idCuadernos FROM dbproyecto.cuadernos WHERE nombre = '"+CuadernoActual.Nombre+"' AND idUsuario = '"+LogIn.EncontrarIdUsuario()+"'");
+            DataTable data = mysqlAccess.QuerySQL("SELECT idCuadernos FROM dbproyecto.cuadernos WHERE nombre = '" + CuadernoActual.Nombre + "' AND idUsuario = '" + LogIn.EncontrarIdUsuario() + "'");
+            mysqlAccess.CloseConnection();
             int idCuaderno = Convert.ToInt32(data.Rows[0][0]);
             return idCuaderno;
         }
+
+        private void EditarNotaForm_Load(object sender, EventArgs e)
+        {
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable data = mysqlAccess.QuerySQL("SELECT titulo, privacidad, categoria, color, fuente, color_letra, texto FROM dbproyecto.notas WHERE titulo = '" + Nota.Titulo +"' AND idCuadernos = '"+ObtenerIdCuaderno()+"'");
+            Nota.Color = data.Rows[0][3].ToString();
+            Nota.ColorLetra = data.Rows[0][5].ToString();
+            Nota.Texto = data.Rows[0][6].ToString();
+            textBoxTitulo.Text = data.Rows[0][0].ToString();
+            textBoxCategoria.Text = data.Rows[0][2].ToString();
+            pictureBoxColor.BackColor = Color.FromArgb(Convert.ToInt32(data.Rows[0][3].ToString()));
+            textBoxFuente.Text = data.Rows[0][4].ToString();
+           
+            pictureBoxColorLetra.BackColor = Color.FromArgb(Convert.ToInt32(data.Rows[0][5].ToString()));
+            richTextBoxNota.Text = data.Rows[0][6].ToString();
+            int pri = 0;
+            if(Nota.Privacidad == "Privado")
+            {
+                pri = 1;
+            }
+            comboBoxPrivacidad.SelectedIndex = pri;
+        }
+
+        private void buttonListo_Click(object sender, EventArgs e)
+        {
+            errorProvider.Clear();
+            if (Validar())
+            {
+                EditarNota();
+            }
+        }
     }
-
-
-
-    
-
-
 }

@@ -80,6 +80,7 @@
             this.textBoxCategoria.Name = "textBoxCategoria";
             this.textBoxCategoria.Size = new System.Drawing.Size(357, 22);
             this.textBoxCategoria.TabIndex = 1;
+            this.textBoxCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCategoria_KeyPress);
             // 
             // textBoxNombre
             // 
@@ -87,6 +88,7 @@
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(357, 22);
             this.textBoxNombre.TabIndex = 0;
+            this.textBoxNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNombre_KeyPress);
             // 
             // buttonAgregar
             // 

@@ -123,3 +123,4 @@ C:\Users\Luis Valverde\Desktop\NoteBook\NoteBook\obj\Debug\NoteBook.csproj.Gener
 C:\Users\Luis Valverde\Desktop\NoteBook\NoteBook\obj\Debug\NoteBook.csproj.CopyComplete
 C:\Users\Luis Valverde\Desktop\NoteBook\NoteBook\obj\Debug\NoteBook.exe
 C:\Users\Luis Valverde\Desktop\NoteBook\NoteBook\obj\Debug\NoteBook.pdb
+C:\Users\jeffr\Desktop\UNA\Programación II Verano\GitHub\NoteBook\NoteBook\NoteBook\obj\Debug\NoteBook.UNA.Formularios.Notas.EditarNotaForm.resources

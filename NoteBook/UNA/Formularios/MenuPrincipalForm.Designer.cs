@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusStripUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -45,9 +46,13 @@
             this.labelNoCuadernos = new System.Windows.Forms.Label();
             this.labelAgregar = new System.Windows.Forms.Label();
             this.labelCuadernoNoEncontrado = new System.Windows.Forms.Label();
+            this.buttonModificarCuaderno = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.buttonEliminarCuaderno = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -55,10 +60,10 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusStripUsuario});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 549);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 551);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 17, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1371, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1382, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -76,7 +81,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1371, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1382, 28);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -142,7 +147,7 @@
             this.dataGridViewCuadernos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewCuadernos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCuadernos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewCuadernos.Location = new System.Drawing.Point(34, 138);
+            this.dataGridViewCuadernos.Location = new System.Drawing.Point(40, 139);
             this.dataGridViewCuadernos.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridViewCuadernos.Name = "dataGridViewCuadernos";
             this.dataGridViewCuadernos.RowHeadersWidth = 51;
@@ -222,12 +227,40 @@
             this.labelCuadernoNoEncontrado.TabIndex = 17;
             this.labelCuadernoNoEncontrado.Text = "¡No se han encontrado cuadernos!";
             // 
+            // buttonModificarCuaderno
+            // 
+            this.buttonModificarCuaderno.Location = new System.Drawing.Point(1162, 482);
+            this.buttonModificarCuaderno.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.buttonModificarCuaderno.Name = "buttonModificarCuaderno";
+            this.buttonModificarCuaderno.Size = new System.Drawing.Size(86, 47);
+            this.buttonModificarCuaderno.TabIndex = 18;
+            this.buttonModificarCuaderno.Text = "Editar";
+            this.buttonModificarCuaderno.UseVisualStyleBackColor = true;
+            this.buttonModificarCuaderno.Click += new System.EventHandler(this.buttonModificarCuaderno_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // buttonEliminarCuaderno
+            // 
+            this.buttonEliminarCuaderno.Location = new System.Drawing.Point(1256, 482);
+            this.buttonEliminarCuaderno.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.buttonEliminarCuaderno.Name = "buttonEliminarCuaderno";
+            this.buttonEliminarCuaderno.Size = new System.Drawing.Size(86, 47);
+            this.buttonEliminarCuaderno.TabIndex = 19;
+            this.buttonEliminarCuaderno.Text = "Eliminar";
+            this.buttonEliminarCuaderno.UseVisualStyleBackColor = true;
+            this.buttonEliminarCuaderno.Click += new System.EventHandler(this.buttonEliminarCuaderno_Click);
+            // 
             // MenuPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(1371, 571);
+            this.ClientSize = new System.Drawing.Size(1382, 573);
+            this.Controls.Add(this.buttonEliminarCuaderno);
+            this.Controls.Add(this.buttonModificarCuaderno);
             this.Controls.Add(this.labelCuadernoNoEncontrado);
             this.Controls.Add(this.labelAgregar);
             this.Controls.Add(this.labelNoCuadernos);
@@ -249,6 +282,7 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +308,8 @@
         private System.Windows.Forms.ToolStripMenuItem agregarUsuarioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
         private System.Windows.Forms.Label labelCuadernoNoEncontrado;
+        private System.Windows.Forms.Button buttonModificarCuaderno;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button buttonEliminarCuaderno;
     }
 }

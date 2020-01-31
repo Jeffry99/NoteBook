@@ -17,6 +17,7 @@ namespace NoteBook.UNA.Formularios
 {
     public partial class AgregarCuadernoForm : Form
     {
+        string colorCuaderno = "";
         public AgregarCuadernoForm()
         {
             InitializeComponent();
@@ -31,26 +32,12 @@ namespace NoteBook.UNA.Formularios
         public void AgregarCuaderno()
         {
             Cuaderno cuaderno = new Cuaderno();
-            //int ultimoIndice = 0;
-            //foreach (Cuaderno c in Datos.cuadernos)
-            //{
-            //    ultimoIndice++;
-            //}
-            //{
-            //    Nombre = textBoxNombre.Text,
-            //    Categoria = textBoxCategoria.Text,
-            //    Color = pictureBoxColor.BackColor.ToString(),
-            //    Orden = ultimoIndice + 1
-            //};
-            //Datos.cuadernos.Add(cuaderno);
-            //Datos.SaveToFile();
 
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
-            int orden = 1;
-            mysqlAccess.EjectSQL("INSERT INTO dbproyecto.cuadernos (idUsuario, nombre, categoria, color, orden) " +
-                "VALUES ('"+LogIn.EncontrarIdUsuario()+"','"+ textBoxNombre.Text + "','" + textBoxCategoria.Text + "','" + pictureBoxColor.BackColor.ToString() + "','"+orden+"')");
+            mysqlAccess.EjectSQL("INSERT INTO dbproyecto.cuadernos (idUsuario, nombre, categoria, color) " +
+                "VALUES ('"+LogIn.EncontrarIdUsuario()+"','"+ textBoxNombre.Text + "','" + textBoxCategoria.Text + "','" + colorCuaderno +"')");
             
             mysqlAccess.CloseConnection();
             Limpiar();
@@ -114,13 +101,28 @@ namespace NoteBook.UNA.Formularios
             ColorDialog MyDialog = new ColorDialog();
             MyDialog.AllowFullOpen = false;
             MyDialog.ShowHelp = true;
-
             if (MyDialog.ShowDialog() == DialogResult.OK)
             {
                 pictureBoxColor.BackColor = MyDialog.Color;
+                colorCuaderno = MyDialog.Color.ToArgb().ToString();
             }
             buttonAgregar.Focus();
         }
-        
+
+        private void textBoxNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                textBoxCategoria.Focus();
+            }
+        }
+
+        private void textBoxCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                buttonColor.Focus();
+            }
+        }
     }
 }

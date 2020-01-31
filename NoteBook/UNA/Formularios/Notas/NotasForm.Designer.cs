@@ -38,12 +38,13 @@
             this.labelAgregar = new System.Windows.Forms.Label();
             this.labelNoNotas = new System.Windows.Forms.Label();
             this.labelNotasDisponibles = new System.Windows.Forms.Label();
+            this.buttonEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotas)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAgregarNota
             // 
-            this.buttonAgregarNota.Location = new System.Drawing.Point(947, 398);
+            this.buttonAgregarNota.Location = new System.Drawing.Point(640, 472);
             this.buttonAgregarNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAgregarNota.Name = "buttonAgregarNota";
             this.buttonAgregarNota.Size = new System.Drawing.Size(132, 46);
@@ -54,12 +55,12 @@
             // 
             // buttonEditarNota
             // 
-            this.buttonEditarNota.Location = new System.Drawing.Point(1109, 398);
+            this.buttonEditarNota.Location = new System.Drawing.Point(1171, 472);
             this.buttonEditarNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEditarNota.Name = "buttonEditarNota";
-            this.buttonEditarNota.Size = new System.Drawing.Size(132, 46);
+            this.buttonEditarNota.Size = new System.Drawing.Size(86, 46);
             this.buttonEditarNota.TabIndex = 1;
-            this.buttonEditarNota.Text = "Editar Nota";
+            this.buttonEditarNota.Text = "Editar";
             this.buttonEditarNota.UseVisualStyleBackColor = true;
             this.buttonEditarNota.Click += new System.EventHandler(this.buttonEditarNota_Click);
             // 
@@ -69,8 +70,10 @@
             this.dataGridViewNotas.AllowUserToDeleteRows = false;
             this.dataGridViewNotas.AllowUserToResizeColumns = false;
             this.dataGridViewNotas.AllowUserToResizeRows = false;
+            this.dataGridViewNotas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridViewNotas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewNotas.BackgroundColor = System.Drawing.SystemColors.GrayText;
+            this.dataGridViewNotas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewNotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewNotas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewNotas.Location = new System.Drawing.Point(26, 100);
@@ -78,16 +81,17 @@
             this.dataGridViewNotas.Name = "dataGridViewNotas";
             this.dataGridViewNotas.RowHeadersWidth = 51;
             this.dataGridViewNotas.RowTemplate.Height = 24;
-            this.dataGridViewNotas.Size = new System.Drawing.Size(1215, 238);
+            this.dataGridViewNotas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewNotas.Size = new System.Drawing.Size(1323, 323);
             this.dataGridViewNotas.TabIndex = 2;
             this.dataGridViewNotas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNotas_CellContentDoubleClick);
             // 
             // buttonVolver
             // 
-            this.buttonVolver.Location = new System.Drawing.Point(26, 398);
+            this.buttonVolver.Location = new System.Drawing.Point(26, 472);
             this.buttonVolver.Margin = new System.Windows.Forms.Padding(4);
             this.buttonVolver.Name = "buttonVolver";
-            this.buttonVolver.Size = new System.Drawing.Size(169, 46);
+            this.buttonVolver.Size = new System.Drawing.Size(125, 46);
             this.buttonVolver.TabIndex = 3;
             this.buttonVolver.Text = "Volver";
             this.buttonVolver.UseVisualStyleBackColor = true;
@@ -96,7 +100,7 @@
             // labelTituloNotaBusqueda
             // 
             this.labelTituloNotaBusqueda.AutoSize = true;
-            this.labelTituloNotaBusqueda.Location = new System.Drawing.Point(847, 24);
+            this.labelTituloNotaBusqueda.Location = new System.Drawing.Point(943, 67);
             this.labelTituloNotaBusqueda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTituloNotaBusqueda.Name = "labelTituloNotaBusqueda";
             this.labelTituloNotaBusqueda.Size = new System.Drawing.Size(114, 17);
@@ -105,7 +109,7 @@
             // 
             // textBoxTituloNotaBusqueda
             // 
-            this.textBoxTituloNotaBusqueda.Location = new System.Drawing.Point(969, 21);
+            this.textBoxTituloNotaBusqueda.Location = new System.Drawing.Point(1077, 62);
             this.textBoxTituloNotaBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTituloNotaBusqueda.Name = "textBoxTituloNotaBusqueda";
             this.textBoxTituloNotaBusqueda.Size = new System.Drawing.Size(132, 22);
@@ -114,7 +118,7 @@
             // 
             // notaBusqueda
             // 
-            this.notaBusqueda.Location = new System.Drawing.Point(1109, 21);
+            this.notaBusqueda.Location = new System.Drawing.Point(1217, 57);
             this.notaBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.notaBusqueda.Name = "notaBusqueda";
             this.notaBusqueda.Size = new System.Drawing.Size(132, 30);
@@ -126,7 +130,7 @@
             // labelAgregar
             // 
             this.labelAgregar.AutoSize = true;
-            this.labelAgregar.Location = new System.Drawing.Point(428, 181);
+            this.labelAgregar.Location = new System.Drawing.Point(481, 193);
             this.labelAgregar.Name = "labelAgregar";
             this.labelAgregar.Size = new System.Drawing.Size(470, 17);
             this.labelAgregar.TabIndex = 18;
@@ -136,7 +140,7 @@
             // 
             this.labelNoNotas.AutoSize = true;
             this.labelNoNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoNotas.Location = new System.Drawing.Point(484, 140);
+            this.labelNoNotas.Location = new System.Drawing.Point(549, 149);
             this.labelNoNotas.Name = "labelNoNotas";
             this.labelNoNotas.Size = new System.Drawing.Size(349, 32);
             this.labelNoNotas.TabIndex = 17;
@@ -146,19 +150,30 @@
             // 
             this.labelNotasDisponibles.AutoSize = true;
             this.labelNotasDisponibles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotasDisponibles.Location = new System.Drawing.Point(554, 62);
+            this.labelNotasDisponibles.Location = new System.Drawing.Point(635, 60);
             this.labelNotasDisponibles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNotasDisponibles.Name = "labelNotasDisponibles";
             this.labelNotasDisponibles.Size = new System.Drawing.Size(169, 25);
             this.labelNotasDisponibles.TabIndex = 19;
             this.labelNotasDisponibles.Text = "Notas Disponibles";
             // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Location = new System.Drawing.Point(1263, 472);
+            this.buttonEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(86, 46);
+            this.buttonEliminar.TabIndex = 20;
+            this.buttonEliminar.Text = "Eliminar";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            // 
             // NotasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(1276, 458);
+            this.ClientSize = new System.Drawing.Size(1382, 573);
+            this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.labelNotasDisponibles);
             this.Controls.Add(this.labelAgregar);
             this.Controls.Add(this.labelNoNotas);
@@ -198,5 +213,6 @@
         private System.Windows.Forms.Label labelAgregar;
         private System.Windows.Forms.Label labelNoNotas;
         private System.Windows.Forms.Label labelNotasDisponibles;
+        private System.Windows.Forms.Button buttonEliminar;
     }
 }

@@ -55,7 +55,7 @@
             // labelTitulo
             // 
             this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Location = new System.Drawing.Point(80, 49);
+            this.labelTitulo.Location = new System.Drawing.Point(32, 49);
             this.labelTitulo.Name = "labelTitulo";
             this.labelTitulo.Size = new System.Drawing.Size(47, 17);
             this.labelTitulo.TabIndex = 0;
@@ -64,7 +64,7 @@
             // labelPrivacidad
             // 
             this.labelPrivacidad.AutoSize = true;
-            this.labelPrivacidad.Location = new System.Drawing.Point(80, 88);
+            this.labelPrivacidad.Location = new System.Drawing.Point(32, 95);
             this.labelPrivacidad.Name = "labelPrivacidad";
             this.labelPrivacidad.Size = new System.Drawing.Size(78, 17);
             this.labelPrivacidad.TabIndex = 1;
@@ -73,7 +73,7 @@
             // labelCategoria
             // 
             this.labelCategoria.AutoSize = true;
-            this.labelCategoria.Location = new System.Drawing.Point(80, 130);
+            this.labelCategoria.Location = new System.Drawing.Point(32, 141);
             this.labelCategoria.Name = "labelCategoria";
             this.labelCategoria.Size = new System.Drawing.Size(73, 17);
             this.labelCategoria.TabIndex = 2;
@@ -82,7 +82,7 @@
             // labelColor
             // 
             this.labelColor.AutoSize = true;
-            this.labelColor.Location = new System.Drawing.Point(80, 168);
+            this.labelColor.Location = new System.Drawing.Point(410, 51);
             this.labelColor.Name = "labelColor";
             this.labelColor.Size = new System.Drawing.Size(45, 17);
             this.labelColor.TabIndex = 3;
@@ -91,7 +91,7 @@
             // labelFuente
             // 
             this.labelFuente.AutoSize = true;
-            this.labelFuente.Location = new System.Drawing.Point(80, 203);
+            this.labelFuente.Location = new System.Drawing.Point(410, 105);
             this.labelFuente.Name = "labelFuente";
             this.labelFuente.Size = new System.Drawing.Size(56, 17);
             this.labelFuente.TabIndex = 4;
@@ -99,17 +99,17 @@
             // 
             // textBoxTitulo
             // 
-            this.textBoxTitulo.Location = new System.Drawing.Point(195, 49);
+            this.textBoxTitulo.Location = new System.Drawing.Point(117, 46);
             this.textBoxTitulo.Name = "textBoxTitulo";
-            this.textBoxTitulo.Size = new System.Drawing.Size(370, 22);
+            this.textBoxTitulo.Size = new System.Drawing.Size(201, 22);
             this.textBoxTitulo.TabIndex = 1;
             this.textBoxTitulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTitulo_KeyPress);
             // 
             // textBoxCategoria
             // 
-            this.textBoxCategoria.Location = new System.Drawing.Point(195, 127);
+            this.textBoxCategoria.Location = new System.Drawing.Point(117, 138);
             this.textBoxCategoria.Name = "textBoxCategoria";
-            this.textBoxCategoria.Size = new System.Drawing.Size(370, 22);
+            this.textBoxCategoria.Size = new System.Drawing.Size(201, 22);
             this.textBoxCategoria.TabIndex = 3;
             this.textBoxCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCategoria_KeyPress);
             // 
@@ -120,15 +120,15 @@
             this.comboBoxPrivacidad.Items.AddRange(new object[] {
             "Público",
             "Privado"});
-            this.comboBoxPrivacidad.Location = new System.Drawing.Point(195, 88);
+            this.comboBoxPrivacidad.Location = new System.Drawing.Point(117, 88);
             this.comboBoxPrivacidad.Name = "comboBoxPrivacidad";
-            this.comboBoxPrivacidad.Size = new System.Drawing.Size(370, 24);
+            this.comboBoxPrivacidad.Size = new System.Drawing.Size(201, 24);
             this.comboBoxPrivacidad.TabIndex = 2;
             this.comboBoxPrivacidad.SelectedIndexChanged += new System.EventHandler(this.comboBoxPrivacidad_SelectedIndexChanged);
             // 
             // buttonColor
             // 
-            this.buttonColor.Location = new System.Drawing.Point(364, 160);
+            this.buttonColor.Location = new System.Drawing.Point(563, 41);
             this.buttonColor.Name = "buttonColor";
             this.buttonColor.Size = new System.Drawing.Size(201, 32);
             this.buttonColor.TabIndex = 4;
@@ -138,9 +138,9 @@
             // 
             // buttonFuente
             // 
-            this.buttonFuente.Location = new System.Drawing.Point(364, 203);
+            this.buttonFuente.Location = new System.Drawing.Point(607, 105);
             this.buttonFuente.Name = "buttonFuente";
-            this.buttonFuente.Size = new System.Drawing.Size(201, 56);
+            this.buttonFuente.Size = new System.Drawing.Size(157, 56);
             this.buttonFuente.TabIndex = 5;
             this.buttonFuente.Text = "Seleccionar Fuente y Color";
             this.buttonFuente.UseVisualStyleBackColor = true;
@@ -148,7 +148,7 @@
             // 
             // buttonAgregar
             // 
-            this.buttonAgregar.Location = new System.Drawing.Point(589, 585);
+            this.buttonAgregar.Location = new System.Drawing.Point(634, 563);
             this.buttonAgregar.Name = "buttonAgregar";
             this.buttonAgregar.Size = new System.Drawing.Size(130, 37);
             this.buttonAgregar.TabIndex = 6;
@@ -158,7 +158,7 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(435, 585);
+            this.buttonCancelar.Location = new System.Drawing.Point(479, 563);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(130, 37);
             this.buttonCancelar.TabIndex = 7;
@@ -168,18 +168,18 @@
             // 
             // richTextBoxNota
             // 
-            this.richTextBoxNota.Location = new System.Drawing.Point(83, 288);
+            this.richTextBoxNota.Location = new System.Drawing.Point(35, 206);
             this.richTextBoxNota.Name = "richTextBoxNota";
-            this.richTextBoxNota.Size = new System.Drawing.Size(636, 291);
+            this.richTextBoxNota.Size = new System.Drawing.Size(729, 338);
             this.richTextBoxNota.TabIndex = 5;
             this.richTextBoxNota.Text = "";
             // 
             // textBoxFuente
             // 
             this.textBoxFuente.Enabled = false;
-            this.textBoxFuente.Location = new System.Drawing.Point(195, 203);
+            this.textBoxFuente.Location = new System.Drawing.Point(479, 102);
             this.textBoxFuente.Name = "textBoxFuente";
-            this.textBoxFuente.Size = new System.Drawing.Size(163, 22);
+            this.textBoxFuente.Size = new System.Drawing.Size(122, 22);
             this.textBoxFuente.TabIndex = 19;
             // 
             // errorProvider
@@ -189,7 +189,7 @@
             // labelColorLetra
             // 
             this.labelColorLetra.AutoSize = true;
-            this.labelColorLetra.Location = new System.Drawing.Point(80, 240);
+            this.labelColorLetra.Location = new System.Drawing.Point(410, 141);
             this.labelColorLetra.Name = "labelColorLetra";
             this.labelColorLetra.Size = new System.Drawing.Size(102, 17);
             this.labelColorLetra.TabIndex = 21;
@@ -197,17 +197,19 @@
             // 
             // pictureBoxColor
             // 
-            this.pictureBoxColor.Location = new System.Drawing.Point(195, 168);
+            this.pictureBoxColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxColor.Location = new System.Drawing.Point(479, 46);
             this.pictureBoxColor.Name = "pictureBoxColor";
-            this.pictureBoxColor.Size = new System.Drawing.Size(163, 24);
+            this.pictureBoxColor.Size = new System.Drawing.Size(78, 24);
             this.pictureBoxColor.TabIndex = 22;
             this.pictureBoxColor.TabStop = false;
             // 
             // pictureBoxColorLetra
             // 
-            this.pictureBoxColorLetra.Location = new System.Drawing.Point(195, 231);
+            this.pictureBoxColorLetra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxColorLetra.Location = new System.Drawing.Point(516, 132);
             this.pictureBoxColorLetra.Name = "pictureBoxColorLetra";
-            this.pictureBoxColorLetra.Size = new System.Drawing.Size(163, 26);
+            this.pictureBoxColorLetra.Size = new System.Drawing.Size(85, 26);
             this.pictureBoxColorLetra.TabIndex = 23;
             this.pictureBoxColorLetra.TabStop = false;
             // 
@@ -216,7 +218,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(800, 639);
+            this.ClientSize = new System.Drawing.Size(800, 612);
             this.Controls.Add(this.pictureBoxColorLetra);
             this.Controls.Add(this.pictureBoxColor);
             this.Controls.Add(this.labelColorLetra);

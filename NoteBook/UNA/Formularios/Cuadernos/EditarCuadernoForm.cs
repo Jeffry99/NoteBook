@@ -20,9 +20,20 @@ namespace NoteBook.UNA.Formularios
             get;
             set;
         }
-        public EditarCuadernoForm()
+        public EditarCuadernoForm(string nombreCuaderno)
         {
             InitializeComponent();
+            Cuaderno = new Cuaderno();
+            Cuaderno.Nombre = nombreCuaderno;
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable table = mysqlAccess.QuerySQL("SELECT nombre, categoria, color FROM dbproyecto.cuadernos WHERE nombre = '" + Cuaderno.Nombre + "' AND idUsuario = '" + LogIn.EncontrarIdUsuario() + "'");
+            textBoxNombre.Text = table.Rows[0][0].ToString();
+            textBoxCategoria.Text = table.Rows[0][1].ToString();
+            pictureBoxColor.BackColor = Color.FromArgb(Convert.ToInt32(table.Rows[0][2].ToString()));
+            mysqlAccess.CloseConnection();
+
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)
@@ -35,20 +46,15 @@ namespace NoteBook.UNA.Formularios
 
         public void EditarCuaderno()
         {
-            //TODO Terminar esta funcion del programa
-            //Obtener el cuaderno que se quiere editar 
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
-            //mysqlAccess.EjectSQL("UPDATE dbproyecto.cuadernos SET nombre ='"+textBoxNombre.Text+"' WHERE nombre = " );
-            //double otherNumber = dt.Rows[i].Field<double>("DoubleColumn");
-            DataTable data = mysqlAccess.QuerySQL("SELECT idUsuarios FROM dbproyecto.usuarios WHERE nombre = ");
-
+            mysqlAccess.EjectSQL("UPDATE dbproyecto.cuadernos SET nombre ='"+textBoxNombre.Text+"', categoria = '"+textBoxCategoria.Text
+                +"', color = '"+pictureBoxColor.BackColor.ToArgb().ToString()+"' WHERE nombre = '"+Cuaderno.Nombre+"'");
+            mysqlAccess.CloseConnection();
             Limpiar();
-            //Accion accion = new Accion(LogIn.usuario.NombreUsuario, "Ha editado un cuaderno", cuaderno.Nombre, "");
-            //RegistroAcciones.acciones.Add(accion);
-            //RegistroAcciones.SaveToFile();
             MessageBox.Show("Se ha editado el cuaderno", "Cuaderno Editado", MessageBoxButtons.OK);
+            Close();
         }
 
         public bool Validar()
@@ -109,6 +115,16 @@ namespace NoteBook.UNA.Formularios
                 pictureBoxColor.BackColor = MyDialog.Color;
             }
             buttonCambiar.Focus();
+        }
+
+        private void EditarCuadernoForm_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonCancelar_Click_1(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

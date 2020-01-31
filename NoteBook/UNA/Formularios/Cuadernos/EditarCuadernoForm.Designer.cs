@@ -106,6 +106,7 @@
             this.buttonCancelar.TabIndex = 8;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click_1);
             // 
             // errorProviderNombre
             // 
@@ -155,6 +156,7 @@
             this.Controls.Add(this.labelNombre);
             this.Name = "EditarCuadernoForm";
             this.Text = "Editar Cuaderno";
+            this.Load += new System.EventHandler(this.EditarCuadernoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCategoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderColor)).EndInit();

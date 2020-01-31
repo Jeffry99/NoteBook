@@ -1,5 +1,6 @@
 ﻿using DatabaseAccess.UNA;
 using Newtonsoft.Json;
+using NoteBook.UNA.Formularios.Notas;
 using NoteBook.UNA.Helpers;
 using NoteBook.UNA.Miscelaneo;
 using System;
@@ -20,41 +21,28 @@ namespace NoteBook.UNA.Formularios
 
         public static List<Cuaderno> cuadernos;
         public Cuaderno cuaderno = new Cuaderno();
-        public NotasForm()
+        public NotasForm(string nombreCuaderno)
         {
+            cuaderno.Nombre = nombreCuaderno;
             InitializeComponent();
-            if (dataGridViewNotas.Rows.Count == 0)
-            {
-                dataGridViewNotas.Visible = false;
-                labelNotasDisponibles.Visible = false;
-                labelAgregar.Visible = true;
-                labelNoNotas.Visible = true;
-            }
-            else
-            {
-                dataGridViewNotas.Visible = true;
-                labelNotasDisponibles.Visible = true;
-                labelAgregar.Visible = false;
-                labelNoNotas.Visible = false;
-            }
+            
         }
 
         private void buttonAgregarNota_Click(object sender, EventArgs e)
         {
             Hide();
-            AgregarNotaForm agregarNota = new AgregarNotaForm();
-            agregarNota.CuadernoActual = EncontrarCuadernoActual();
+            AgregarNotaForm agregarNota = new AgregarNotaForm(cuaderno.Nombre);
             agregarNota.Text = "Agregar Nota en: " + agregarNota.CuadernoActual.Nombre;
             agregarNota.ShowDialog();
-            dataGridViewNotas.DataSource = EncontrarCuadernoActual().notas;
+            CargarDataGrid();
             Show();
-
         }
 
 
         private void NotasForm_Load(object sender, EventArgs e)
         {
             CargarDataGrid();
+            ValidarDataGrid();
         }
 
         public Cuaderno EncontrarCuadernoActual()
@@ -68,12 +56,20 @@ namespace NoteBook.UNA.Formularios
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
-            dataGridViewNotas.DataSource = mysqlAccess.QuerySQL("SELECT titulo, categoria, color, fecha_creacion, fecha_modificacion FROM dbproyecto.notas WHERE idCuadernos ='" + EncontrarIdCuaderno() + "'");
+            dataGridViewNotas.DataSource = mysqlAccess.QuerySQL("SELECT titulo, privacidad, categoria, color, fecha_creacion, fecha_modificacion FROM dbproyecto.notas WHERE idCuadernos ='" + EncontrarIdCuaderno() + "'");
             mysqlAccess.CloseConnection();
         }
         private void buttonEditarNota_Click(object sender, EventArgs e)
         {
+            Hide();
+            string tituloNota = dataGridViewNotas.SelectedRows[0].Cells[0].Value.ToString();
+            EditarNotaForm editarNota = new EditarNotaForm(cuaderno.Nombre);
+            editarNota.Nota.Titulo = tituloNota;
+            editarNota.ShowDialog();
+            Show();
 
+            CargarDataGrid();
+            ValidarDataGrid();
         }
         public int EncontrarIdCuaderno()
         {
@@ -109,39 +105,27 @@ namespace NoteBook.UNA.Formularios
         }
         private void textBoxTituloNotaBusqueda_TextChanged(object sender, EventArgs e)
         {
-            List<Nota> tituloNota = new List<Nota>();
-            foreach (Cuaderno c in Datos.cuadernos)
-            {
-                if (c.Nombre == EncontrarCuadernoActual().Nombre) { 
-                    foreach(Nota n in c.notas)
-                    {
-                        if (textBoxTituloNotaBusqueda.Text == n.Titulo)
-                        {
-                            tituloNota.Add(n);
-                        }
-                    }
-                }
-            }
-            dataGridViewNotas.DataSource = tituloNota;
         }
         private void notaBusqueda_Click(object sender, EventArgs e)
         {
-            List<Nota> nota = new List<Nota>();
-            foreach (Cuaderno c in Datos.cuadernos)
+            
+        }
+        public void ValidarDataGrid()
+        {
+            if (dataGridViewNotas.Rows.Count == 0)
             {
-                //if (c.Nombre == EncontrarCuadernoActual().Nombre)
-                //{
-                //    foreach (Nota n in c.notas)
-                //    {
-                //        if (textBoxTituloNotaBusqueda.Text == n.Titulo &&
-                //        comboBoxPrivacidadNotaBusqueda.Text == n.Privacidad)
-                //        {
-                //            nota.Add(n);
-                //        }
-                //    }
-                //}
+                dataGridViewNotas.Visible = false;
+                labelNotasDisponibles.Visible = false;
+                labelAgregar.Visible = true;
+                labelNoNotas.Visible = true;
             }
-            dataGridViewNotas.DataSource = nota;
+            else
+            {
+                dataGridViewNotas.Visible = true;
+                labelNotasDisponibles.Visible = true;
+                labelAgregar.Visible = false;
+                labelNoNotas.Visible = false;
+            }
         }
     }
 }

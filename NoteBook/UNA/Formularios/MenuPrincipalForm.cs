@@ -49,8 +49,10 @@ namespace NoteBook.UNA.Formularios
             Hide();
             AgregarCuadernoForm agregarCuaderno = new AgregarCuadernoForm();
             agregarCuaderno.ShowDialog();
-            CargarDataGrid();
+            
             Show();
+            CargarDataGrid();
+            ValidarDataTable();
         }
 
 
@@ -59,16 +61,10 @@ namespace NoteBook.UNA.Formularios
             Hide();
             Cuaderno cuaderno = new Cuaderno();
             string nombreCuaderno = dataGridViewCuadernos.SelectedRows[0].Cells[0].Value.ToString();
-
-
-
-
-            NotasForm notas = new NotasForm();
-            notas.cuaderno.Nombre = nombreCuaderno;
+ 
+            NotasForm notas = new NotasForm(nombreCuaderno);
             notas.Text = nombreCuaderno;
             notas.ShowDialog();
-
-
             Show();
            
         }
@@ -161,6 +157,35 @@ namespace NoteBook.UNA.Formularios
                 labelNoCuadernos.Visible = false;
             }
             labelCuadernoNoEncontrado.Visible = false;
+        }
+
+        private void buttonModificarCuaderno_Click(object sender, EventArgs e)
+        {
+            Hide();
+            string nombreCuaderno = dataGridViewCuadernos.SelectedRows[0].Cells[0].Value.ToString();
+            EditarCuadernoForm editarCuaderno = new EditarCuadernoForm(nombreCuaderno);
+            editarCuaderno.ShowDialog();
+            Show();
+
+            CargarDataGrid();
+            ValidarDataTable();
+        }
+
+        private void buttonEliminarCuaderno_Click(object sender, EventArgs e)
+        {
+            Hide();
+            string nombreCuaderno = dataGridViewCuadernos.SelectedRows[0].Cells[0].Value.ToString();
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable data = mysqlAccess.QuerySQL("SELECT idCuadernos FROM dbproyecto.cuadernos WHERE nombre = '"+nombreCuaderno+"'");
+            int idCuaderno = Convert.ToInt32(data.Rows[0][0].ToString());
+            mysqlAccess.EjectSQL("DELETE FROM dbproyecto.cuadernos WHERE idCuadernos = '" + idCuaderno + "'");
+            mysqlAccess.CloseConnection();
+            Show();
+
+            CargarDataGrid();
+            ValidarDataTable();
         }
     }
 }

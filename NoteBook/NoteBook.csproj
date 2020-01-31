@@ -90,6 +90,12 @@
     <Compile Include="UNA\Formularios\Notas\AgregarNotaForm.Designer.cs">
       <DependentUpon>AgregarNotaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UNA\Formularios\Notas\EditarNotaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UNA\Formularios\Notas\EditarNotaForm.Designer.cs">
+      <DependentUpon>EditarNotaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UNA\Formularios\Usuarios\AgregarUsuarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\Formularios\Notas\AgregarNotaForm.resx">
       <DependentUpon>AgregarNotaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UNA\Formularios\Notas\EditarNotaForm.resx">
+      <DependentUpon>EditarNotaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UNA\Formularios\Usuarios\AgregarUsuarioForm.resx">
       <DependentUpon>AgregarUsuarioForm.cs</DependentUpon>
