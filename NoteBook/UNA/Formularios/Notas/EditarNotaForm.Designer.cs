@@ -97,21 +97,25 @@
             // 
             // buttonCancelar
             // 
+            this.buttonCancelar.Image = global::NoteBook.Properties.Resources.back_button;
+            this.buttonCancelar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.buttonCancelar.Location = new System.Drawing.Point(492, 560);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(130, 37);
             this.buttonCancelar.TabIndex = 36;
-            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.Text = "  Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonListo
             // 
+            this.buttonListo.Image = global::NoteBook.Properties.Resources.diskette;
+            this.buttonListo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonListo.Location = new System.Drawing.Point(647, 560);
             this.buttonListo.Name = "buttonListo";
             this.buttonListo.Size = new System.Drawing.Size(130, 37);
             this.buttonListo.TabIndex = 35;
-            this.buttonListo.Text = "Listo";
+            this.buttonListo.Text = "Guardar";
             this.buttonListo.UseVisualStyleBackColor = true;
             this.buttonListo.Click += new System.EventHandler(this.buttonListo_Click);
             // 

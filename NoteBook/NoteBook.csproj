@@ -76,6 +76,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UNA\Clases\Nota.cs" />
     <Compile Include="UNA\Clases\Cuaderno.cs" />
     <Compile Include="UNA\Formularios\Cuadernos\AgregarCuadernoForm.cs">
@@ -148,6 +153,7 @@
       <DependentUpon>VerNotaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UNA\Helpers\Accion.cs" />
+    <Compile Include="UNA\Helpers\Encrypt.cs" />
     <Compile Include="UNA\Helpers\LogIn.cs" />
     <Compile Include="UNA\Helpers\Datos.cs" />
     <Compile Include="UNA\Helpers\RegistroAcciones.cs" />
@@ -180,14 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="UNA\Formularios\Notas\NotasForm.resx">
       <DependentUpon>NotasForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,13 +214,22 @@
     <Folder Include="UNA\Recursos\Imágenes\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\2931178 - change creative design draw edit pen pencil.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DatabaseAccess\DatabaseAccess.csproj">
       <Project>{83CDD477-AFE9-4418-A7CE-D53418CCFD6F}</Project>
       <Name>DatabaseAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notebook %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notebook %283%29.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\back-button.png" />
+    <None Include="Resources\plus-sign-in-circle.png" />
+    <Content Include="Resources\rubbish-bin.png" />
+    <Content Include="Resources\searching-magnifying-glass %281%29.png" />
+    <Content Include="Resources\write.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

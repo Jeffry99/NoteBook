@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipalForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusStripUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -37,20 +38,20 @@
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarUsuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonAgregarCuaderno = new System.Windows.Forms.Button();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewCuadernos = new System.Windows.Forms.DataGridView();
             this.labelCuadernosDisponibles = new System.Windows.Forms.Label();
             this.labelNombreCuadernoBusqueda = new System.Windows.Forms.Label();
             this.textBoxNombreCuadernoBusqueda = new System.Windows.Forms.TextBox();
-            this.buttonBusqueda = new System.Windows.Forms.Button();
             this.labelNoCuadernos = new System.Windows.Forms.Label();
             this.labelAgregar = new System.Windows.Forms.Label();
             this.labelCuadernoNoEncontrado = new System.Windows.Forms.Label();
-            this.buttonModificarCuaderno = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.helpProvider = new System.Windows.Forms.HelpProvider();
             this.buttonEliminarCuaderno = new System.Windows.Forms.Button();
-            this.statusStrip1.SuspendLayout();
-            this.menuStrip.SuspendLayout();
+            this.buttonModificarCuaderno = new System.Windows.Forms.Button();
+            this.buttonBusqueda = new System.Windows.Forms.Button();
+            this.buttonAgregarCuaderno = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -58,8 +59,6 @@
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusStripUsuario});
             this.statusStrip1.Location = new System.Drawing.Point(0, 551);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 17, 0);
@@ -69,19 +68,17 @@
             // 
             // statusStripUsuario
             // 
+            this.statusStripUsuario.Margin = new System.Windows.Forms.Padding(0, 3, 0, 2);
             this.statusStripUsuario.Name = "statusStripUsuario";
             this.statusStripUsuario.Size = new System.Drawing.Size(0, 16);
             // 
             // menuStrip
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem,
-            this.usuarioToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1382, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1382, 24);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -104,7 +101,8 @@
             // 
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agregarUsuarioToolStripMenuItem1,
-            this.cambiarContraseñaToolStripMenuItem});
+            this.cambiarContraseñaToolStripMenuItem,
+            this.cerrarSesiónToolStripMenuItem});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.usuarioToolStripMenuItem.Text = "Usuario";
@@ -123,16 +121,12 @@
             this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar Contraseña";
             this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click);
             // 
-            // buttonAgregarCuaderno
+            // cerrarSesiónToolStripMenuItem
             // 
-            this.buttonAgregarCuaderno.Location = new System.Drawing.Point(596, 482);
-            this.buttonAgregarCuaderno.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.buttonAgregarCuaderno.Name = "buttonAgregarCuaderno";
-            this.buttonAgregarCuaderno.Size = new System.Drawing.Size(185, 47);
-            this.buttonAgregarCuaderno.TabIndex = 2;
-            this.buttonAgregarCuaderno.Text = "Agregar Cuaderno";
-            this.buttonAgregarCuaderno.UseVisualStyleBackColor = true;
-            this.buttonAgregarCuaderno.Click += new System.EventHandler(this.buttonAgregarCuaderno_Click);
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // dataGridViewCuadernos
             // 
@@ -171,7 +165,7 @@
             // labelNombreCuadernoBusqueda
             // 
             this.labelNombreCuadernoBusqueda.AutoSize = true;
-            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(888, 68);
+            this.labelNombreCuadernoBusqueda.Location = new System.Drawing.Point(894, 102);
             this.labelNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelNombreCuadernoBusqueda.Name = "labelNombreCuadernoBusqueda";
             this.labelNombreCuadernoBusqueda.Size = new System.Drawing.Size(149, 17);
@@ -180,23 +174,12 @@
             // 
             // textBoxNombreCuadernoBusqueda
             // 
-            this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(1047, 65);
+            this.textBoxNombreCuadernoBusqueda.Location = new System.Drawing.Point(1053, 99);
             this.textBoxNombreCuadernoBusqueda.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxNombreCuadernoBusqueda.Name = "textBoxNombreCuadernoBusqueda";
             this.textBoxNombreCuadernoBusqueda.Size = new System.Drawing.Size(175, 22);
             this.textBoxNombreCuadernoBusqueda.TabIndex = 9;
             this.textBoxNombreCuadernoBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNombreCuadernoBusqueda_KeyPress);
-            // 
-            // buttonBusqueda
-            // 
-            this.buttonBusqueda.Location = new System.Drawing.Point(1232, 65);
-            this.buttonBusqueda.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonBusqueda.Name = "buttonBusqueda";
-            this.buttonBusqueda.Size = new System.Drawing.Size(110, 23);
-            this.buttonBusqueda.TabIndex = 12;
-            this.buttonBusqueda.Text = "Buscar";
-            this.buttonBusqueda.UseVisualStyleBackColor = true;
-            this.buttonBusqueda.Click += new System.EventHandler(this.buttonBusqueda_Click);
             // 
             // labelNoCuadernos
             // 
@@ -227,31 +210,70 @@
             this.labelCuadernoNoEncontrado.TabIndex = 17;
             this.labelCuadernoNoEncontrado.Text = "¡No se han encontrado cuadernos!";
             // 
-            // buttonModificarCuaderno
-            // 
-            this.buttonModificarCuaderno.Location = new System.Drawing.Point(1162, 482);
-            this.buttonModificarCuaderno.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.buttonModificarCuaderno.Name = "buttonModificarCuaderno";
-            this.buttonModificarCuaderno.Size = new System.Drawing.Size(86, 47);
-            this.buttonModificarCuaderno.TabIndex = 18;
-            this.buttonModificarCuaderno.Text = "Editar";
-            this.buttonModificarCuaderno.UseVisualStyleBackColor = true;
-            this.buttonModificarCuaderno.Click += new System.EventHandler(this.buttonModificarCuaderno_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
             // buttonEliminarCuaderno
             // 
-            this.buttonEliminarCuaderno.Location = new System.Drawing.Point(1256, 482);
+            this.helpProvider.SetHelpString(this.buttonEliminarCuaderno, "");
+            this.buttonEliminarCuaderno.Image = global::NoteBook.Properties.Resources.rubbish_bin;
+            this.buttonEliminarCuaderno.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.buttonEliminarCuaderno.Location = new System.Drawing.Point(1241, 482);
             this.buttonEliminarCuaderno.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.buttonEliminarCuaderno.Name = "buttonEliminarCuaderno";
-            this.buttonEliminarCuaderno.Size = new System.Drawing.Size(86, 47);
+            this.helpProvider.SetShowHelp(this.buttonEliminarCuaderno, true);
+            this.buttonEliminarCuaderno.Size = new System.Drawing.Size(107, 47);
             this.buttonEliminarCuaderno.TabIndex = 19;
             this.buttonEliminarCuaderno.Text = "Eliminar";
+            this.buttonEliminarCuaderno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEliminarCuaderno.UseVisualStyleBackColor = true;
             this.buttonEliminarCuaderno.Click += new System.EventHandler(this.buttonEliminarCuaderno_Click);
+            this.buttonEliminarCuaderno.DragOver += new System.Windows.Forms.DragEventHandler(this.buttonEliminarCuaderno_DragOver);
+            this.buttonEliminarCuaderno.MouseHover += new System.EventHandler(this.buttonEliminarCuaderno_MouseHover);
+            // 
+            // buttonModificarCuaderno
+            // 
+            this.buttonModificarCuaderno.Image = global::NoteBook.Properties.Resources.write;
+            this.buttonModificarCuaderno.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.buttonModificarCuaderno.Location = new System.Drawing.Point(1113, 482);
+            this.buttonModificarCuaderno.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.buttonModificarCuaderno.Name = "buttonModificarCuaderno";
+            this.buttonModificarCuaderno.Size = new System.Drawing.Size(115, 47);
+            this.buttonModificarCuaderno.TabIndex = 18;
+            this.buttonModificarCuaderno.Text = "Editar";
+            this.buttonModificarCuaderno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonModificarCuaderno.UseVisualStyleBackColor = true;
+            this.buttonModificarCuaderno.Click += new System.EventHandler(this.buttonModificarCuaderno_Click);
+            // 
+            // buttonBusqueda
+            // 
+            this.buttonBusqueda.Image = global::NoteBook.Properties.Resources.searching_magnifying_glass__1_;
+            this.buttonBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonBusqueda.Location = new System.Drawing.Point(1238, 85);
+            this.buttonBusqueda.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonBusqueda.Name = "buttonBusqueda";
+            this.buttonBusqueda.Size = new System.Drawing.Size(110, 47);
+            this.buttonBusqueda.TabIndex = 12;
+            this.buttonBusqueda.TabStop = false;
+            this.buttonBusqueda.Text = "Buscar";
+            this.buttonBusqueda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonBusqueda.UseVisualStyleBackColor = true;
+            this.buttonBusqueda.Click += new System.EventHandler(this.buttonBusqueda_Click);
+            // 
+            // buttonAgregarCuaderno
+            // 
+            this.buttonAgregarCuaderno.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarCuaderno.Image")));
+            this.buttonAgregarCuaderno.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAgregarCuaderno.Location = new System.Drawing.Point(587, 482);
+            this.buttonAgregarCuaderno.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.buttonAgregarCuaderno.Name = "buttonAgregarCuaderno";
+            this.buttonAgregarCuaderno.Size = new System.Drawing.Size(175, 47);
+            this.buttonAgregarCuaderno.TabIndex = 2;
+            this.buttonAgregarCuaderno.Text = "Agregar Cuaderno";
+            this.buttonAgregarCuaderno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAgregarCuaderno.UseVisualStyleBackColor = true;
+            this.buttonAgregarCuaderno.Click += new System.EventHandler(this.buttonAgregarCuaderno_Click);
             // 
             // MenuPrincipalForm
             // 
@@ -275,12 +297,8 @@
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "MenuPrincipalForm";
-            this.Text = "Menu Principal";
+            this.Text = "Cuadernos";
             this.Load += new System.EventHandler(this.MenuPrincipalForm_Load);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuadernos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -311,5 +329,7 @@
         private System.Windows.Forms.Button buttonModificarCuaderno;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button buttonEliminarCuaderno;
+        private System.Windows.Forms.HelpProvider helpProvider;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
     }
 }

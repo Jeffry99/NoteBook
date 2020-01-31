@@ -34,7 +34,9 @@ namespace NoteBook.UNA.Formularios
             AgregarNotaForm agregarNota = new AgregarNotaForm(cuaderno.Nombre);
             agregarNota.Text = "Agregar Nota en: " + agregarNota.CuadernoActual.Nombre;
             agregarNota.ShowDialog();
+            
             CargarDataGrid();
+            ValidarDataGrid();
             Show();
         }
 
@@ -61,15 +63,24 @@ namespace NoteBook.UNA.Formularios
         }
         private void buttonEditarNota_Click(object sender, EventArgs e)
         {
-            Hide();
-            string tituloNota = dataGridViewNotas.SelectedRows[0].Cells[0].Value.ToString();
-            EditarNotaForm editarNota = new EditarNotaForm(cuaderno.Nombre);
-            editarNota.Nota.Titulo = tituloNota;
-            editarNota.ShowDialog();
-            Show();
+            
+            if (dataGridViewNotas.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar una nota", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Hide();
+                string tituloNota = dataGridViewNotas.SelectedRows[0].Cells[0].Value.ToString();
+                EditarNotaForm editarNota = new EditarNotaForm(cuaderno.Nombre);
+                editarNota.Nota.Titulo = tituloNota;
+                editarNota.ShowDialog();
+                Show();
 
-            CargarDataGrid();
-            ValidarDataGrid();
+                CargarDataGrid();
+                ValidarDataGrid();
+            }
+            
         }
         public int EncontrarIdCuaderno()
         {
@@ -97,8 +108,6 @@ namespace NoteBook.UNA.Formularios
                 Console.WriteLine(nota.Titulo);
             }
             notaForm.richTextBoxNota.Text = dataGridViewNotas.CurrentCell.Value.ToString();
-            //notaForm.Nota = nota;
-            //notaForm.richTextBoxNota.Text = nota.Texto;
             Hide();
             notaForm.ShowDialog();
             Show();
@@ -108,7 +117,24 @@ namespace NoteBook.UNA.Formularios
         }
         private void notaBusqueda_Click(object sender, EventArgs e)
         {
-            
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            dataGridViewNotas.DataSource = mysqlAccess.QuerySQL("SELECT titulo, privacidad, categoria, color, fecha_creacion, fecha_modificacion FROM dbproyecto.notas WHERE titulo LIKE '%"
+                + textBoxTituloNotaBusqueda.Text + "%' AND idCuadernos = '" + EncontrarIdCuaderno() + "'");
+            mysqlAccess.CloseConnection();
+            if (dataGridViewNotas.Rows.Count == 0)
+            {
+                dataGridViewNotas.Visible = false;
+                labelNoNotas.Visible = true;
+                labelAgregar.Visible = true;
+            }
+            else
+            {
+                dataGridViewNotas.Visible = true;
+                labelNoNotas.Visible = false;
+                labelAgregar.Visible = false;
+            }
         }
         public void ValidarDataGrid()
         {
@@ -126,6 +152,29 @@ namespace NoteBook.UNA.Formularios
                 labelAgregar.Visible = false;
                 labelNoNotas.Visible = false;
             }
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            if(dataGridViewNotas.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar una nota", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string tituloNota = dataGridViewNotas.SelectedRows[0].Cells[0].Value.ToString();
+                MysqlAccess mysqlAccess = new MysqlAccess();
+                mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+                mysqlAccess.OpenConnection();
+                DataTable data = mysqlAccess.QuerySQL("SELECT idNotas FROM dbproyecto.notas WHERE titulo = '" + tituloNota + "'");
+                int idNota = Convert.ToInt32(data.Rows[0][0].ToString());
+                mysqlAccess.EjectSQL("DELETE FROM dbproyecto.notas WHERE idNotas = '" + idNota + "'");
+                mysqlAccess.CloseConnection();
+
+                CargarDataGrid();
+                ValidarDataGrid();
+            }
+            
         }
     }
 }

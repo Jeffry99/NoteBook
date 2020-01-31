@@ -99,21 +99,26 @@
             // 
             // buttonAgregar
             // 
+            this.buttonAgregar.Image = global::NoteBook.Properties.Resources.diskette;
+            this.buttonAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAgregar.Location = new System.Drawing.Point(548, 362);
             this.buttonAgregar.Name = "buttonAgregar";
             this.buttonAgregar.Size = new System.Drawing.Size(127, 36);
             this.buttonAgregar.TabIndex = 8;
-            this.buttonAgregar.Text = "Agregar";
+            this.buttonAgregar.Text = "  Guardar";
+            this.buttonAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAgregar.UseVisualStyleBackColor = true;
             this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
             // 
             // buttonVolver
             // 
+            this.buttonVolver.Image = global::NoteBook.Properties.Resources.back_button;
+            this.buttonVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonVolver.Location = new System.Drawing.Point(390, 362);
             this.buttonVolver.Name = "buttonVolver";
             this.buttonVolver.Size = new System.Drawing.Size(127, 36);
             this.buttonVolver.TabIndex = 9;
-            this.buttonVolver.Text = "Cancelar";
+            this.buttonVolver.Text = " Cancelar";
             this.buttonVolver.UseVisualStyleBackColor = true;
             this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
             // 
@@ -141,6 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(687, 410);
             this.Controls.Add(this.textBoxNombreReal);
             this.Controls.Add(this.labelNombreReal);

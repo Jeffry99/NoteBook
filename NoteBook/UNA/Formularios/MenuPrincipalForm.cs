@@ -32,6 +32,17 @@ namespace NoteBook.UNA.Formularios
 
         private void MenuPrincipalForm_Load(object sender, EventArgs e)
         {
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable table = mysqlAccess.QuerySQL("SELECT idUsuarios FROM dbproyecto.usuarios");
+            mysqlAccess.CloseConnection();
+            if (table.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay usuarios registrados", "Agregar usuarios", MessageBoxButtons.OK);
+                AgregarUsuarioForm agregarUsuarioForm = new AgregarUsuarioForm();
+                agregarUsuarioForm.ShowDialog();
+            }
 
             IngresarUsuarioForm signin = new IngresarUsuarioForm();
             signin.ShowDialog();
@@ -100,7 +111,7 @@ namespace NoteBook.UNA.Formularios
             }
             else
             {
-                MessageBox.Show("No tiene permiso para realizar esta función", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No tiene permiso para realizar esta función", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void CargarDataGrid()
@@ -137,8 +148,6 @@ namespace NoteBook.UNA.Formularios
                 dataGridViewCuadernos.Visible = true;
                 labelCuadernoNoEncontrado.Visible = false;
             }
-
-
         }
         public void ValidarDataTable()
         {
@@ -162,30 +171,78 @@ namespace NoteBook.UNA.Formularios
         private void buttonModificarCuaderno_Click(object sender, EventArgs e)
         {
             Hide();
-            string nombreCuaderno = dataGridViewCuadernos.SelectedRows[0].Cells[0].Value.ToString();
-            EditarCuadernoForm editarCuaderno = new EditarCuadernoForm(nombreCuaderno);
-            editarCuaderno.ShowDialog();
-            Show();
-
-            CargarDataGrid();
-            ValidarDataTable();
+            if (dataGridViewCuadernos.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar el cuaderno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string nombreCuaderno = dataGridViewCuadernos.SelectedRows[0].Cells[0].Value.ToString();
+                EditarCuadernoForm editarCuaderno = new EditarCuadernoForm(nombreCuaderno);
+                editarCuaderno.ShowDialog();
+                Show();
+                CargarDataGrid();
+                ValidarDataTable();
+            }
         }
 
         private void buttonEliminarCuaderno_Click(object sender, EventArgs e)
         {
-            Hide();
-            string nombreCuaderno = dataGridViewCuadernos.SelectedRows[0].Cells[0].Value.ToString();
-            MysqlAccess mysqlAccess = new MysqlAccess();
-            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
-            mysqlAccess.OpenConnection();
-            DataTable data = mysqlAccess.QuerySQL("SELECT idCuadernos FROM dbproyecto.cuadernos WHERE nombre = '"+nombreCuaderno+"'");
-            int idCuaderno = Convert.ToInt32(data.Rows[0][0].ToString());
-            mysqlAccess.EjectSQL("DELETE FROM dbproyecto.cuadernos WHERE idCuadernos = '" + idCuaderno + "'");
-            mysqlAccess.CloseConnection();
-            Show();
+            string nombreCuaderno = "";
+            if (dataGridViewCuadernos.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar el cuaderno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                nombreCuaderno = dataGridViewCuadernos.SelectedRows[0].Cells[0].Value.ToString();
+                MysqlAccess mysqlAccess = new MysqlAccess();
+                mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+                mysqlAccess.OpenConnection();
+                DataTable data = mysqlAccess.QuerySQL("SELECT idCuadernos FROM dbproyecto.cuadernos WHERE nombre = '" + nombreCuaderno + "'");
+                int idCuaderno = Convert.ToInt32(data.Rows[0][0].ToString());
+                try
+                {
+                    mysqlAccess.EjectSQL("DELETE FROM dbproyecto.cuadernos WHERE idCuadernos = '" + idCuaderno + "'");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("No puede eliminar este cuaderno porque tiene notas relacionadas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                mysqlAccess.CloseConnection();
 
-            CargarDataGrid();
-            ValidarDataTable();
+                CargarDataGrid();
+                ValidarDataTable();
+            } 
+        }
+
+        private void buttonEliminarCuaderno_DragOver(object sender, DragEventArgs e)
+        {
+            helpProvider.SetHelpString(buttonEliminarCuaderno, "Debe dar click sobre el cuaderno que desea eliminar");
+        }
+
+        private void buttonEliminarCuaderno_MouseHover(object sender, EventArgs e)
+        {
+            helpProvider.SetHelpString(buttonEliminarCuaderno, "Debe dar click sobre el cuaderno que desea eliminar");
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("¿Desea salir?", "Confirmar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                Hide();
+                IngresarUsuarioForm signin = new IngresarUsuarioForm();
+                signin.ShowDialog();
+                signin.Close();
+
+
+                CargarDataGrid();
+                ValidarDataTable();
+                statusStripUsuario.Text = "Usuario Actual: " + LogIn.usuario.NombreUsuario;
+                Show();
+            }
+            
+            
         }
     }
 }

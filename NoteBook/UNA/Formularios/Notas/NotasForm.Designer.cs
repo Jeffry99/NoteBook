@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonAgregarNota = new System.Windows.Forms.Button();
             this.buttonEditarNota = new System.Windows.Forms.Button();
             this.dataGridViewNotas = new System.Windows.Forms.DataGridView();
-            this.buttonVolver = new System.Windows.Forms.Button();
             this.labelTituloNotaBusqueda = new System.Windows.Forms.Label();
             this.textBoxTituloNotaBusqueda = new System.Windows.Forms.TextBox();
             this.notaBusqueda = new System.Windows.Forms.Button();
@@ -39,28 +37,22 @@
             this.labelNoNotas = new System.Windows.Forms.Label();
             this.labelNotasDisponibles = new System.Windows.Forms.Label();
             this.buttonEliminar = new System.Windows.Forms.Button();
+            this.buttonVolver = new System.Windows.Forms.Button();
+            this.buttonAgregarNota = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotas)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonAgregarNota
-            // 
-            this.buttonAgregarNota.Location = new System.Drawing.Point(640, 472);
-            this.buttonAgregarNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonAgregarNota.Name = "buttonAgregarNota";
-            this.buttonAgregarNota.Size = new System.Drawing.Size(132, 46);
-            this.buttonAgregarNota.TabIndex = 0;
-            this.buttonAgregarNota.Text = "Agregar Nota";
-            this.buttonAgregarNota.UseVisualStyleBackColor = true;
-            this.buttonAgregarNota.Click += new System.EventHandler(this.buttonAgregarNota_Click);
-            // 
             // buttonEditarNota
             // 
-            this.buttonEditarNota.Location = new System.Drawing.Point(1171, 472);
+            this.buttonEditarNota.Image = global::NoteBook.Properties.Resources.write;
+            this.buttonEditarNota.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonEditarNota.Location = new System.Drawing.Point(1157, 472);
             this.buttonEditarNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEditarNota.Name = "buttonEditarNota";
-            this.buttonEditarNota.Size = new System.Drawing.Size(86, 46);
+            this.buttonEditarNota.Size = new System.Drawing.Size(92, 46);
             this.buttonEditarNota.TabIndex = 1;
             this.buttonEditarNota.Text = "Editar";
+            this.buttonEditarNota.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEditarNota.UseVisualStyleBackColor = true;
             this.buttonEditarNota.Click += new System.EventHandler(this.buttonEditarNota_Click);
             // 
@@ -86,21 +78,10 @@
             this.dataGridViewNotas.TabIndex = 2;
             this.dataGridViewNotas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNotas_CellContentDoubleClick);
             // 
-            // buttonVolver
-            // 
-            this.buttonVolver.Location = new System.Drawing.Point(26, 472);
-            this.buttonVolver.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonVolver.Name = "buttonVolver";
-            this.buttonVolver.Size = new System.Drawing.Size(125, 46);
-            this.buttonVolver.TabIndex = 3;
-            this.buttonVolver.Text = "Volver";
-            this.buttonVolver.UseVisualStyleBackColor = true;
-            this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
-            // 
             // labelTituloNotaBusqueda
             // 
             this.labelTituloNotaBusqueda.AutoSize = true;
-            this.labelTituloNotaBusqueda.Location = new System.Drawing.Point(943, 67);
+            this.labelTituloNotaBusqueda.Location = new System.Drawing.Point(968, 59);
             this.labelTituloNotaBusqueda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTituloNotaBusqueda.Name = "labelTituloNotaBusqueda";
             this.labelTituloNotaBusqueda.Size = new System.Drawing.Size(114, 17);
@@ -109,7 +90,7 @@
             // 
             // textBoxTituloNotaBusqueda
             // 
-            this.textBoxTituloNotaBusqueda.Location = new System.Drawing.Point(1077, 62);
+            this.textBoxTituloNotaBusqueda.Location = new System.Drawing.Point(1090, 56);
             this.textBoxTituloNotaBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTituloNotaBusqueda.Name = "textBoxTituloNotaBusqueda";
             this.textBoxTituloNotaBusqueda.Size = new System.Drawing.Size(132, 22);
@@ -118,12 +99,15 @@
             // 
             // notaBusqueda
             // 
-            this.notaBusqueda.Location = new System.Drawing.Point(1217, 57);
+            this.notaBusqueda.Image = global::NoteBook.Properties.Resources.searching_magnifying_glass__1_;
+            this.notaBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.notaBusqueda.Location = new System.Drawing.Point(1241, 47);
             this.notaBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.notaBusqueda.Name = "notaBusqueda";
-            this.notaBusqueda.Size = new System.Drawing.Size(132, 30);
+            this.notaBusqueda.Size = new System.Drawing.Size(108, 40);
             this.notaBusqueda.TabIndex = 11;
             this.notaBusqueda.Text = "Buscar";
+            this.notaBusqueda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.notaBusqueda.UseVisualStyleBackColor = true;
             this.notaBusqueda.Click += new System.EventHandler(this.notaBusqueda_Click);
             // 
@@ -159,13 +143,44 @@
             // 
             // buttonEliminar
             // 
-            this.buttonEliminar.Location = new System.Drawing.Point(1263, 472);
+            this.buttonEliminar.Image = global::NoteBook.Properties.Resources.rubbish_bin;
+            this.buttonEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonEliminar.Location = new System.Drawing.Point(1255, 472);
             this.buttonEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(86, 46);
+            this.buttonEliminar.Size = new System.Drawing.Size(94, 46);
             this.buttonEliminar.TabIndex = 20;
             this.buttonEliminar.Text = "Eliminar";
+            this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
+            // buttonVolver
+            // 
+            this.buttonVolver.Image = global::NoteBook.Properties.Resources.back_button;
+            this.buttonVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonVolver.Location = new System.Drawing.Point(26, 472);
+            this.buttonVolver.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonVolver.Name = "buttonVolver";
+            this.buttonVolver.Size = new System.Drawing.Size(125, 46);
+            this.buttonVolver.TabIndex = 3;
+            this.buttonVolver.Text = "Volver";
+            this.buttonVolver.UseVisualStyleBackColor = true;
+            this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
+            // 
+            // buttonAgregarNota
+            // 
+            this.buttonAgregarNota.Image = global::NoteBook.Properties.Resources.notebook__3_;
+            this.buttonAgregarNota.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAgregarNota.Location = new System.Drawing.Point(640, 472);
+            this.buttonAgregarNota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAgregarNota.Name = "buttonAgregarNota";
+            this.buttonAgregarNota.Size = new System.Drawing.Size(132, 46);
+            this.buttonAgregarNota.TabIndex = 0;
+            this.buttonAgregarNota.Text = " Agregar Nota";
+            this.buttonAgregarNota.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAgregarNota.UseVisualStyleBackColor = true;
+            this.buttonAgregarNota.Click += new System.EventHandler(this.buttonAgregarNota_Click);
             // 
             // NotasForm
             // 

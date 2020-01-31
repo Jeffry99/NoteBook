@@ -110,6 +110,10 @@ namespace NoteBook.UNA.Formularios
                 errorProvider.SetError(buttonFuente, "Debe seleccionar la fuente y el color de letra");
                 result = false;
             }
+            if (HayNotaconMismoNombre())
+            {
+                result = false;
+            }
 
             return result;
         }
@@ -192,6 +196,23 @@ namespace NoteBook.UNA.Formularios
             DataTable data = mysqlAccess.QuerySQL("SELECT idCuadernos FROM dbproyecto.cuadernos WHERE nombre = '"+CuadernoActual.Nombre+"' AND idUsuario = '"+LogIn.EncontrarIdUsuario()+"'");
             int idCuaderno = Convert.ToInt32(data.Rows[0][0]);
             return idCuaderno;
+        }
+        public bool HayNotaconMismoNombre()
+        {
+            bool resultado = true;
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable data = mysqlAccess.QuerySQL("SELECT * FROM dbproyecto.notas WHERE titulo = '" + textBoxTitulo.Text + "'");
+            if (data.Rows.Count == 0)
+            {
+                resultado = false;
+            }
+            else
+            {
+                errorProvider.SetError(textBoxTitulo, "Ya hay una nota con este nombre");
+            }
+            return resultado;
         }
     }
 

@@ -79,7 +79,10 @@ namespace NoteBook.UNA.Formularios
             {
                 errorProviderColor.Clear();
             }
-            //validar para cuadernos con el mismo nombre
+            if (HayCuadernoconMismoNombre())
+            {
+                resultado = false;
+            }
             
             return resultado;            
         }
@@ -123,6 +126,23 @@ namespace NoteBook.UNA.Formularios
             {
                 buttonColor.Focus();
             }
+        }
+        public bool HayCuadernoconMismoNombre()
+        {
+            bool resultado = true;
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable data = mysqlAccess.QuerySQL("SELECT * FROM dbproyecto.cuadernos WHERE nombre = '"+textBoxNombre.Text+"'");
+            if(data.Rows.Count == 0)
+            {
+                resultado = false;
+            }
+            else
+            {
+                errorProviderNombre.SetError(textBoxNombre, "Ya hay un cuaderno con este nombre");
+            }
+            return resultado;
         }
     }
 }

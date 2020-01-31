@@ -44,80 +44,82 @@
             // labelContrasenaActual
             // 
             this.labelContrasenaActual.AutoSize = true;
-            this.labelContrasenaActual.Location = new System.Drawing.Point(84, 71);
-            this.labelContrasenaActual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelContrasenaActual.Location = new System.Drawing.Point(112, 87);
             this.labelContrasenaActual.Name = "labelContrasenaActual";
-            this.labelContrasenaActual.Size = new System.Drawing.Size(97, 13);
+            this.labelContrasenaActual.Size = new System.Drawing.Size(128, 17);
             this.labelContrasenaActual.TabIndex = 0;
             this.labelContrasenaActual.Text = "Contraseña Actual:";
             // 
             // labelContrasenaNueva
             // 
             this.labelContrasenaNueva.AutoSize = true;
-            this.labelContrasenaNueva.Location = new System.Drawing.Point(84, 130);
-            this.labelContrasenaNueva.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelContrasenaNueva.Location = new System.Drawing.Point(112, 160);
             this.labelContrasenaNueva.Name = "labelContrasenaNueva";
-            this.labelContrasenaNueva.Size = new System.Drawing.Size(99, 13);
+            this.labelContrasenaNueva.Size = new System.Drawing.Size(130, 17);
             this.labelContrasenaNueva.TabIndex = 1;
             this.labelContrasenaNueva.Text = "Contraseña Nueva:";
             // 
             // labelConfirmarContrasena
             // 
             this.labelConfirmarContrasena.AutoSize = true;
-            this.labelConfirmarContrasena.Location = new System.Drawing.Point(84, 187);
-            this.labelConfirmarContrasena.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelConfirmarContrasena.Location = new System.Drawing.Point(112, 230);
             this.labelConfirmarContrasena.Name = "labelConfirmarContrasena";
-            this.labelConfirmarContrasena.Size = new System.Drawing.Size(111, 13);
+            this.labelConfirmarContrasena.Size = new System.Drawing.Size(150, 17);
             this.labelConfirmarContrasena.TabIndex = 2;
             this.labelConfirmarContrasena.Text = "Confirmar Contraseña:";
             // 
             // textBoxContrasenaActual
             // 
-            this.textBoxContrasenaActual.Location = new System.Drawing.Point(206, 71);
-            this.textBoxContrasenaActual.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxContrasenaActual.Location = new System.Drawing.Point(275, 87);
+            this.textBoxContrasenaActual.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxContrasenaActual.Name = "textBoxContrasenaActual";
-            this.textBoxContrasenaActual.Size = new System.Drawing.Size(194, 20);
+            this.textBoxContrasenaActual.Size = new System.Drawing.Size(257, 22);
             this.textBoxContrasenaActual.TabIndex = 3;
             this.textBoxContrasenaActual.UseSystemPasswordChar = true;
             this.textBoxContrasenaActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxContrasenaActual_KeyPress);
             // 
             // textBoxContrasenaNueva
             // 
-            this.textBoxContrasenaNueva.Location = new System.Drawing.Point(206, 130);
-            this.textBoxContrasenaNueva.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxContrasenaNueva.Location = new System.Drawing.Point(275, 160);
+            this.textBoxContrasenaNueva.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxContrasenaNueva.Name = "textBoxContrasenaNueva";
-            this.textBoxContrasenaNueva.Size = new System.Drawing.Size(194, 20);
+            this.textBoxContrasenaNueva.Size = new System.Drawing.Size(257, 22);
             this.textBoxContrasenaNueva.TabIndex = 4;
             this.textBoxContrasenaNueva.UseSystemPasswordChar = true;
             this.textBoxContrasenaNueva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxContrasenaNueva_KeyPress);
             // 
             // textBoxConfirmarContrasena
             // 
-            this.textBoxConfirmarContrasena.Location = new System.Drawing.Point(206, 187);
-            this.textBoxConfirmarContrasena.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxConfirmarContrasena.Location = new System.Drawing.Point(275, 230);
+            this.textBoxConfirmarContrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxConfirmarContrasena.Name = "textBoxConfirmarContrasena";
-            this.textBoxConfirmarContrasena.Size = new System.Drawing.Size(194, 20);
+            this.textBoxConfirmarContrasena.Size = new System.Drawing.Size(257, 22);
             this.textBoxConfirmarContrasena.TabIndex = 5;
             this.textBoxConfirmarContrasena.UseSystemPasswordChar = true;
             this.textBoxConfirmarContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxConfirmarContrasena_KeyPress);
             // 
             // buttonCambiarContrasena
             // 
-            this.buttonCambiarContrasena.Location = new System.Drawing.Point(360, 266);
-            this.buttonCambiarContrasena.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCambiarContrasena.Image = global::NoteBook.Properties.Resources.diskette;
+            this.buttonCambiarContrasena.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCambiarContrasena.Location = new System.Drawing.Point(516, 327);
+            this.buttonCambiarContrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCambiarContrasena.Name = "buttonCambiarContrasena";
-            this.buttonCambiarContrasena.Size = new System.Drawing.Size(122, 27);
+            this.buttonCambiarContrasena.Size = new System.Drawing.Size(127, 33);
             this.buttonCambiarContrasena.TabIndex = 6;
-            this.buttonCambiarContrasena.Text = "Cambiar Contraseña";
+            this.buttonCambiarContrasena.Text = "Guardar";
             this.buttonCambiarContrasena.UseVisualStyleBackColor = true;
             this.buttonCambiarContrasena.Click += new System.EventHandler(this.buttonCambiarContrasena_Click);
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(226, 266);
-            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonCancelar.Image = global::NoteBook.Properties.Resources.back_button;
+            this.buttonCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCancelar.Location = new System.Drawing.Point(383, 327);
+            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(122, 27);
+            this.buttonCancelar.Size = new System.Drawing.Size(127, 33);
             this.buttonCancelar.TabIndex = 7;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
@@ -129,9 +131,10 @@
             // 
             // CambiarContrasenaForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 314);
+            this.BackColor = System.Drawing.SystemColors.GrayText;
+            this.ClientSize = new System.Drawing.Size(675, 386);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonCambiarContrasena);
             this.Controls.Add(this.textBoxConfirmarContrasena);
@@ -140,7 +143,7 @@
             this.Controls.Add(this.labelConfirmarContrasena);
             this.Controls.Add(this.labelContrasenaNueva);
             this.Controls.Add(this.labelContrasenaActual);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CambiarContrasenaForm";
             this.Text = "Cambiar Contraseña";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

@@ -34,13 +34,13 @@
             this.labelColor = new System.Windows.Forms.Label();
             this.textBoxCategoria = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.buttonCambiar = new System.Windows.Forms.Button();
-            this.buttonCancelar = new System.Windows.Forms.Button();
             this.errorProviderNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderCategoria = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderColor = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pictureBoxColor = new System.Windows.Forms.PictureBox();
             this.buttonSeleccionarColor = new System.Windows.Forms.Button();
+            this.pictureBoxColor = new System.Windows.Forms.PictureBox();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonCambiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCategoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderColor)).BeginInit();
@@ -88,26 +88,6 @@
             this.textBoxNombre.Size = new System.Drawing.Size(357, 22);
             this.textBoxNombre.TabIndex = 0;
             // 
-            // buttonCambiar
-            // 
-            this.buttonCambiar.Location = new System.Drawing.Point(521, 266);
-            this.buttonCambiar.Name = "buttonCambiar";
-            this.buttonCambiar.Size = new System.Drawing.Size(104, 29);
-            this.buttonCambiar.TabIndex = 3;
-            this.buttonCambiar.Text = "Cambiar";
-            this.buttonCambiar.UseVisualStyleBackColor = true;
-            this.buttonCambiar.Click += new System.EventHandler(this.buttonAgregar_Click);
-            // 
-            // buttonCancelar
-            // 
-            this.buttonCancelar.Location = new System.Drawing.Point(395, 266);
-            this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(104, 29);
-            this.buttonCancelar.TabIndex = 8;
-            this.buttonCancelar.Text = "Cancelar";
-            this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click_1);
-            // 
             // errorProviderNombre
             // 
             this.errorProviderNombre.ContainerControl = this;
@@ -120,15 +100,6 @@
             // 
             this.errorProviderColor.ContainerControl = this;
             // 
-            // pictureBoxColor
-            // 
-            this.pictureBoxColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxColor.Location = new System.Drawing.Point(188, 195);
-            this.pictureBoxColor.Name = "pictureBoxColor";
-            this.pictureBoxColor.Size = new System.Drawing.Size(100, 24);
-            this.pictureBoxColor.TabIndex = 9;
-            this.pictureBoxColor.TabStop = false;
-            // 
             // buttonSeleccionarColor
             // 
             this.buttonSeleccionarColor.Location = new System.Drawing.Point(295, 195);
@@ -138,6 +109,41 @@
             this.buttonSeleccionarColor.Text = "Seleccionar Color";
             this.buttonSeleccionarColor.UseVisualStyleBackColor = true;
             this.buttonSeleccionarColor.Click += new System.EventHandler(this.buttonSeleccionarColor_Click);
+            // 
+            // pictureBoxColor
+            // 
+            this.pictureBoxColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxColor.Location = new System.Drawing.Point(188, 195);
+            this.pictureBoxColor.Name = "pictureBoxColor";
+            this.pictureBoxColor.Size = new System.Drawing.Size(100, 24);
+            this.pictureBoxColor.TabIndex = 9;
+            this.pictureBoxColor.TabStop = false;
+            // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Image = global::NoteBook.Properties.Resources.back_button;
+            this.buttonCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCancelar.Location = new System.Drawing.Point(390, 266);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(109, 35);
+            this.buttonCancelar.TabIndex = 8;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click_1);
+            // 
+            // buttonCambiar
+            // 
+            this.buttonCambiar.Image = global::NoteBook.Properties.Resources.diskette;
+            this.buttonCambiar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCambiar.Location = new System.Drawing.Point(516, 266);
+            this.buttonCambiar.Name = "buttonCambiar";
+            this.buttonCambiar.Size = new System.Drawing.Size(109, 35);
+            this.buttonCambiar.TabIndex = 3;
+            this.buttonCambiar.Text = "Guardar";
+            this.buttonCambiar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCambiar.UseVisualStyleBackColor = true;
+            this.buttonCambiar.Click += new System.EventHandler(this.buttonAgregar_Click);
             // 
             // EditarCuadernoForm
             // 

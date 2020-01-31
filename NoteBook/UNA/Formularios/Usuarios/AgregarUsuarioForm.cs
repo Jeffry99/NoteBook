@@ -1,4 +1,5 @@
 ﻿using DatabaseAccess.UNA;
+using NoteBook.UNA.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +41,10 @@ namespace NoteBook.UNA.Formularios
                 resultado = false;
                 errorProvider.SetError(comboBoxTipoUsuario, "Debe definir el tipo de usuario");
             }
+            if (HayUsuarioconMismoNombre())
+            {
+                resultado = false;
+            }
             return resultado;
         }
         private void buttonAgregar_Click(object sender, EventArgs e)
@@ -49,23 +54,38 @@ namespace NoteBook.UNA.Formularios
                 AgregarUsuario();
             }
         }
-
         public void AgregarUsuario()
         {
             MysqlAccess mysqlAccess = new MysqlAccess();
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
             mysqlAccess.EjectSQL("INSERT INTO dbproyecto.usuarios (nombre_usuario, nombre_real, contraseña, tipo_usuario) " +
-                "VALUES ('" + textBoxNombreUsuario.Text + "','" + textBoxNombreReal.Text + "','" + textBoxContrasena.Text + "','"
+                "VALUES ('" + textBoxNombreUsuario.Text + "','" + textBoxNombreReal.Text + "','" + Encrypt.Encriptar(textBoxContrasena.Text) + "','"
                 + comboBoxTipoUsuario.SelectedItem.ToString() + "')");
             mysqlAccess.CloseConnection();
             MessageBox.Show("Se ha agregado el usuario", "Listo", MessageBoxButtons.OK);
             Close();
         }
-
         private void buttonVolver_Click(object sender, EventArgs e)
         {
             Close();
+        }
+        public bool HayUsuarioconMismoNombre()
+        {
+            bool resultado = true;
+            MysqlAccess mysqlAccess = new MysqlAccess();
+            mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+            mysqlAccess.OpenConnection();
+            DataTable data = mysqlAccess.QuerySQL("SELECT * FROM dbproyecto.usuarios WHERE nombre_usuario = '" + textBoxNombreUsuario.Text + "'");
+            if (data.Rows.Count == 0)
+            {
+                resultado = false;
+            }
+            else
+            {
+                errorProvider.SetError(textBoxNombreUsuario, "Ya hay un usuario con este nombre");
+            }
+            return resultado;
         }
     }
 }

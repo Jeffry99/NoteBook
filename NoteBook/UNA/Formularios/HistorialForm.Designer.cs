@@ -47,9 +47,11 @@
             // 
             // buttonVolver
             // 
-            this.buttonVolver.Location = new System.Drawing.Point(936, 397);
+            this.buttonVolver.Image = global::NoteBook.Properties.Resources.back_button;
+            this.buttonVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonVolver.Location = new System.Drawing.Point(12, 385);
             this.buttonVolver.Name = "buttonVolver";
-            this.buttonVolver.Size = new System.Drawing.Size(94, 30);
+            this.buttonVolver.Size = new System.Drawing.Size(112, 42);
             this.buttonVolver.TabIndex = 1;
             this.buttonVolver.Text = "Volver";
             this.buttonVolver.UseVisualStyleBackColor = true;

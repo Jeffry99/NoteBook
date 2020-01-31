@@ -19,7 +19,7 @@ namespace NoteBook.UNA.Helpers
             mysqlAccess.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
             mysqlAccess.OpenConnection();
             DataTable usuarios = mysqlAccess.QuerySQL("SELECT * FROM dbproyecto.usuarios WHERE nombre_usuario = " + "'" + nomUsuario + "'" +
-            "AND contraseña = " + "'" + contrasena + "'");
+            "AND contraseña = " + "'" + Encrypt.Encriptar(contrasena) + "'");
             mysqlAccess.CloseConnection();
             
             if (usuarios.Rows.Count == 0)

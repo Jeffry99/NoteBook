@@ -148,21 +148,26 @@
             // 
             // buttonAgregar
             // 
-            this.buttonAgregar.Location = new System.Drawing.Point(634, 563);
+            this.buttonAgregar.Image = global::NoteBook.Properties.Resources.diskette;
+            this.buttonAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAgregar.Location = new System.Drawing.Point(636, 563);
             this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(130, 37);
+            this.buttonAgregar.Size = new System.Drawing.Size(128, 37);
             this.buttonAgregar.TabIndex = 6;
-            this.buttonAgregar.Text = "Agregar";
+            this.buttonAgregar.Text = "  Agregar";
+            this.buttonAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAgregar.UseVisualStyleBackColor = true;
             this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
             // 
             // buttonCancelar
             // 
+            this.buttonCancelar.Image = global::NoteBook.Properties.Resources.back_button;
+            this.buttonCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCancelar.Location = new System.Drawing.Point(479, 563);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(130, 37);
             this.buttonCancelar.TabIndex = 7;
-            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.Text = "  Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 

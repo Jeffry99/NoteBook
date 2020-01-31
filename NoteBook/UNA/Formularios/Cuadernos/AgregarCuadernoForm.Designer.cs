@@ -34,13 +34,13 @@
             this.labelColor = new System.Windows.Forms.Label();
             this.textBoxCategoria = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.buttonAgregar = new System.Windows.Forms.Button();
-            this.buttonCancelar = new System.Windows.Forms.Button();
             this.errorProviderNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderCategoria = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderColor = new System.Windows.Forms.ErrorProvider(this.components);
             this.buttonColor = new System.Windows.Forms.Button();
             this.pictureBoxColor = new System.Windows.Forms.PictureBox();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCategoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderColor)).BeginInit();
@@ -90,26 +90,6 @@
             this.textBoxNombre.TabIndex = 0;
             this.textBoxNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNombre_KeyPress);
             // 
-            // buttonAgregar
-            // 
-            this.buttonAgregar.Location = new System.Drawing.Point(521, 266);
-            this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(104, 35);
-            this.buttonAgregar.TabIndex = 3;
-            this.buttonAgregar.Text = "Agregar";
-            this.buttonAgregar.UseVisualStyleBackColor = true;
-            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
-            // 
-            // buttonCancelar
-            // 
-            this.buttonCancelar.Location = new System.Drawing.Point(395, 266);
-            this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(104, 35);
-            this.buttonCancelar.TabIndex = 8;
-            this.buttonCancelar.Text = "Cancelar";
-            this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
-            // 
             // errorProviderNombre
             // 
             this.errorProviderNombre.ContainerControl = this;
@@ -141,10 +121,37 @@
             this.pictureBoxColor.TabIndex = 11;
             this.pictureBoxColor.TabStop = false;
             // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Image = global::NoteBook.Properties.Resources.back_button;
+            this.buttonCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCancelar.Location = new System.Drawing.Point(395, 266);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(104, 35);
+            this.buttonCancelar.TabIndex = 8;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
+            // buttonAgregar
+            // 
+            this.buttonAgregar.Image = global::NoteBook.Properties.Resources.diskette;
+            this.buttonAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAgregar.Location = new System.Drawing.Point(521, 266);
+            this.buttonAgregar.Name = "buttonAgregar";
+            this.buttonAgregar.Size = new System.Drawing.Size(104, 35);
+            this.buttonAgregar.TabIndex = 3;
+            this.buttonAgregar.Text = "  Agregar";
+            this.buttonAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAgregar.UseVisualStyleBackColor = true;
+            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
+            // 
             // AgregarCuadernoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(682, 353);
             this.Controls.Add(this.pictureBoxColor);
             this.Controls.Add(this.buttonColor);
@@ -155,6 +162,7 @@
             this.Controls.Add(this.labelColor);
             this.Controls.Add(this.labelCategoria);
             this.Controls.Add(this.labelNombre);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "AgregarCuadernoForm";
             this.Text = "Agregar Cuaderno";
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).EndInit();
